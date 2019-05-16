@@ -1,4 +1,4 @@
-import { Http } from '@angular/http';
+import { Http } from "@angular//http";
 import { Injectable } from '@angular/core';
 
 /*
@@ -14,4 +14,21 @@ export class UsersProvider {
     console.log('Hello UsersProvider Provider');
   }
 
+  cadastrarUsuairo(name: string, email: string, password: string) {
+    return new Promise((resolve, reject) => {
+      var dados = {
+        name: name,
+        email: email,
+        password: password
+      }
+
+      this.http.post("salvalinks.herokuapp.com/users/cadastrar", dados)
+      .subscribe((resultado: any) => {
+        resolve(resultado.json());
+      }, (error) => {
+        reject(error.json());
+      })
+    });
+  }
+  
 }
