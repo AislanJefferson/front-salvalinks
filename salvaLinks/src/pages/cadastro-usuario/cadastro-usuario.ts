@@ -20,15 +20,16 @@ export class CadastroUsuarioPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider) {
     this.model = new User();
-    this.model.name = 'Redson'
-    this.model.email = 'redson@gmail.com';
-    this.model.password = 'pistol';
- 
   }
 
   cadastrarUsuario() {
-    this.usuarioProvider.cadastrarUsuario(this.model.name, this.model.email, this.model.password)
-    
+    this.usuarioProvider.cadastrarUsuario(this.model.name, this.model.email, this.model.password).
+    subscribe((result: any) => {
+      result.json();
+    },
+    (error) => {
+      error.json();
+    });
   }
 
   exibirUsuariosCadastrados() {
@@ -44,7 +45,7 @@ export class CadastroUsuarioPage {
       }
     )
   }
-  
+
 }
 
 export class User {

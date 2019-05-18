@@ -16,16 +16,13 @@ export class UsuarioProvider {
   }
 
   cadastrarUsuario(name: string, email: string, password: string) {
-    const url = 'https://salvalinks.herokuapp.com/users/cadastrar'
-  
       var dados = {
         name: name,
         email: email,
         password: password
       }
 
-      return this.http.post(url, dados);
-    
+      return this.http.post("https://salvalinks.herokuapp.com/users/cadastrar", dados);
   }
 
   exibirUsuariosCadastrados() {
