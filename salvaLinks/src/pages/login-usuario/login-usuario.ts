@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UsuarioProvider } from './../../providers/usuario/usuario';
 import { ToastController } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
 
 /**
  * Generated class for the LoginUsuarioPage page.
@@ -18,14 +19,14 @@ import { ToastController } from 'ionic-angular';
 export class LoginUsuarioPage {
   model: User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider : AuthProvider , public toastCtrl: ToastController) {
     this.model = new User();
   }
 
   loginUsuario() {
     this.usuarioProvider.logarUsuario(this.model.email, this.model.password).subscribe((result: any) => {
-      console.log(result);
-
+      var respOK = result.json();
+      this.authProvider.autentica(respOK.email);
     }, (error) => {
       var resp = error.json()
       let toast = this.toastCtrl.create({

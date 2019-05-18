@@ -11,6 +11,7 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
 
 import { HttpModule } from '@angular/http';
 import { LoginUsuarioPageModule } from '../pages/login-usuario/login-usuario.module';
+import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LoginUsuarioPageModule } from '../pages/login-usuario/login-usuario.mod
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsuarioProvider,
-    UsuarioProvider
+    UsuarioProvider,
+    AuthProvider
   ]
 })
 export class AppModule {}
