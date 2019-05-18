@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CadastroUsuarioPage } from './../cadastro-usuario/cadastro-usuario';
+import { LoginUsuarioPage } from '../login-usuario/login-usuario';
 
 @Component({
   selector: 'page-home',
@@ -14,6 +15,9 @@ export class HomePage {
 
   abrirTelaDeCadastro() {
     this.navCtrl.setRoot(CadastroUsuarioPage);
+  }
+  abrirTelaDeLogin(){
+    this.navCtrl.setRoot(LoginUsuarioPage);
   }
 
 }

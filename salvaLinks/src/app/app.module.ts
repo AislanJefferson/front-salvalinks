@@ -10,6 +10,7 @@ import { CadastroUsuarioPageModule } from '../pages/cadastro-usuario/cadastro-us
 import { UsuarioProvider } from '../providers/usuario/usuario';
 
 import { HttpModule } from '@angular/http';
+import { LoginUsuarioPageModule } from '../pages/login-usuario/login-usuario.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpModule } from '@angular/http';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     CadastroUsuarioPageModule,
+    LoginUsuarioPageModule,
     HttpModule
   ],
   bootstrap: [IonicApp],
