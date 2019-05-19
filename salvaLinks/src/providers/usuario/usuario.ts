@@ -10,9 +10,11 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class UsuarioProvider {
+
   constructor(public http: Http) {
     console.log('Hello UsuarioProvider Provider');
   }
+
   private baseApiPath = "https://salvalinks.herokuapp.com/";
   cadastrarUsuario(name: string, email: string, password: string) {
     var dados = {
@@ -28,7 +30,19 @@ export class UsuarioProvider {
     var url = this.baseApiPath + 'users/logar?email=' + email + '&password=' + password;
     return this.http.post(url, { headers: { 'Content-Type': 'application/json' } });
   }
+
   exibirUsuariosCadastrados() {
     return this.http.get("https://salvalinks.herokuapp.com/users");
   }
+
+  insereLink(email: string, linkName: string, href: string, importance: string) {
+    var url = this.baseApiPath + 'links/add?email=' + email;
+    var link = {
+      name: linkName == null ? "" : linkName,
+      href: href,
+      importance: importance
+    }
+    return this.http.post(url, link);
+  }
+
 }

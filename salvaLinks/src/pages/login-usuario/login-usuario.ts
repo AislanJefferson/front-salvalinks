@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UsuarioProvider } from './../../providers/usuario/usuario';
 import { ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
+import { InserirLinkPage } from '../inserir-link/inserir-link';
 
 /**
  * Generated class for the LoginUsuarioPage page.
@@ -27,6 +28,7 @@ export class LoginUsuarioPage {
     this.usuarioProvider.logarUsuario(this.model.email, this.model.password).subscribe((result: any) => {
       var respOK = result.json();
       this.authProvider.autentica(respOK.email);
+      this.navCtrl.setRoot(InserirLinkPage);
     }, (error) => {
       var resp = error.json()
       let toast = this.toastCtrl.create({

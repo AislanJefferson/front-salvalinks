@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 export class AuthProvider {
   private email : string;
   private logado : boolean;
+  
 
   
   constructor() {
