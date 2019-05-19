@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, IonicPage } from 'ionic-angular';
 import { UsuarioProvider } from '../../providers/usuario/usuario';
 import { AuthProvider } from '../../providers/auth/auth';
+import { LoginUsuarioPage } from '../login-usuario/login-usuario';
 
 /**
  * Generated class for the InserirLinkPage page.
@@ -16,23 +17,32 @@ import { AuthProvider } from '../../providers/auth/auth';
   templateUrl: 'inserir-link.html',
 })
 export class InserirLinkPage {
-  model: User;
+  model: Link;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController) {
-    this.model = new User();
+    this.model = new Link();
+  }
+
+  ionViewCanEnter(): boolean {
+    if(this.authProvider.autenticado()){
+      return true;
+    } else {
+      return false;
+    }
   }
 
   inserirLink() {
-    if (this.authProvider.autenticado) {
-      this.usuarioProvider.insereLink(this.model.name,this.model.href,this.model.importance,this.model.type).
+    if (this.authProvider.autenticado()) {
+      this.usuarioProvider.insereLink(this.authProvider.getEmail(), this.model.name, this.model.href, this.model.importance, this.model.type).
         subscribe((result: any) => {
-          console.log(result)
-          result.json();
+          var response = result.json();
+          console.log(response);
         },
           (error) => {
             console.log(error)
-            error.json();
           });
+    }else{
+      this.navCtrl.setRoot(LoginUsuarioPage);
     }
 
 
@@ -43,7 +53,7 @@ export class InserirLinkPage {
   }
 }
 
-export class User {
+export class Link {
   name: string;
   href: string;
   importance: string;
