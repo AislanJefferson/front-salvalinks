@@ -12,6 +12,7 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
 import { HttpModule } from '@angular/http';
 import { LoginUsuarioPageModule } from '../pages/login-usuario/login-usuario.module';
 import { AuthProvider } from '../providers/auth/auth';
+import { InserirLinkPageModule } from '../pages/inserir-link/inserir-link.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AuthProvider } from '../providers/auth/auth';
     IonicModule.forRoot(MyApp),
     CadastroUsuarioPageModule,
     LoginUsuarioPageModule,
+    InserirLinkPageModule,
     HttpModule
   ],
   bootstrap: [IonicApp],
