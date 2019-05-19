@@ -33,15 +33,6 @@ export class InserirLinkPage {
   }
 
 
-  showAlert() {
-    const alert = this.alertCtrl.create({
-      title: 'Link Salvo!',
-      subTitle: name + ' foi salvo na sua lista de links!',
-      buttons: ['OK']
-    });
-    alert.present();
-  }
-
   inserirLink() {
     if (this.authProvider.autenticado()) {
       this.usuarioProvider.insereLink(this.authProvider.getEmail(), this.model.name, this.model.href, this.model.importance, this.model.type).
