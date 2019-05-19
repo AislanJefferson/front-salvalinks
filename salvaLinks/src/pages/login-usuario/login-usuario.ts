@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UsuarioProvider } from './../../providers/usuario/usuario';
 import { ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
+import { CadastroUsuarioPage } from '../cadastro-usuario/cadastro-usuario';
 
 /**
  * Generated class for the LoginUsuarioPage page.
@@ -19,8 +20,12 @@ import { AuthProvider } from '../../providers/auth/auth';
 export class LoginUsuarioPage {
   model: User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider : AuthProvider , public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController) {
     this.model = new User();
+  }
+
+  redirectSignup(){
+    this.navCtrl.setRoot(CadastroUsuarioPage);
   }
 
   loginUsuario() {
