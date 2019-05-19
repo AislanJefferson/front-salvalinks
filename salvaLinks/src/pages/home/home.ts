@@ -22,9 +22,5 @@ export class HomePage {
     this.navCtrl.setRoot(LoginUsuarioPage);
   }
 
-  abrirTelaDeInserir(){
-    this.navCtrl.setRoot(InserirLinkPage);
-  }
-
 
 }

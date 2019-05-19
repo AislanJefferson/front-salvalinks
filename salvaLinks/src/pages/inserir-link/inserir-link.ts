@@ -3,6 +3,7 @@ import { NavController, NavParams, ToastController, IonicPage } from 'ionic-angu
 import { UsuarioProvider } from '../../providers/usuario/usuario';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoginUsuarioPage } from '../login-usuario/login-usuario';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the InserirLinkPage page.
@@ -19,7 +20,7 @@ import { LoginUsuarioPage } from '../login-usuario/login-usuario';
 export class InserirLinkPage {
   model: Link;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController, public alertCtrl: AlertController) {
     this.model = new Link();
   }
 
@@ -31,12 +32,30 @@ export class InserirLinkPage {
     }
   }
 
+
+  showAlert() {
+    const alert = this.alertCtrl.create({
+      title: 'Link Salvo!',
+      subTitle: name + ' foi salvo na sua lista de links!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
   inserirLink() {
     if (this.authProvider.autenticado()) {
       this.usuarioProvider.insereLink(this.authProvider.getEmail(), this.model.name, this.model.href, this.model.importance, this.model.type).
         subscribe((result: any) => {
           var response = result.json();
           console.log(response);
+          const alert = this.alertCtrl.create({
+            title: 'Link Salvo!',
+            subTitle: this.model.name + ' foi salvo na sua lista de links!',
+            buttons: ['OK']
+          });
+          alert.present();
+          this.navCtrl.setRoot(InserirLinkPage);
+        
         },
           (error) => {
             console.log(error)
