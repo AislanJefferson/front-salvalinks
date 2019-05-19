@@ -32,16 +32,17 @@ export class InserirLinkPage {
     }
   }
 
+  
 
   inserirLink() {
     if (this.authProvider.autenticado()) {
-      this.usuarioProvider.insereLink(this.authProvider.getEmail(), this.model.name, this.model.href, this.model.importance, this.model.type).
+      this.usuarioProvider.insereLink(this.authProvider.getEmail(), this.model.name, this.model.href, this.model.importance).
         subscribe((result: any) => {
           var response = result.json();
           console.log(response);
           const alert = this.alertCtrl.create({
             title: 'Link Salvo!',
-            subTitle: this.model.name + ' foi salvo na sua lista de links!',
+            subTitle: response.name + ' foi salvo na sua lista de links!',
             buttons: ['OK']
           });
           alert.present();
@@ -61,11 +62,18 @@ export class InserirLinkPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad InserirLinkPage');
   }
+
+  //openNav() {
+  //  document.getElementById("mySidenav").style.width = "250px";
+  //}
+  
+  //closeNav() {
+  //  document.getElementById("mySidenav").style.width = "0";
+  //}
 }
 
 export class Link {
   name: string;
   href: string;
-  importance: string;
-  type: string;
+  importance: string = "alta" || "normal" || "baixa";
 }

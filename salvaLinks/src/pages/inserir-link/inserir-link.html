@@ -12,30 +12,34 @@
 
 <ion-content padding>
 
+  <div class="img">
+    <img src="assets/imgs/salvalink3.jpg">
+  </div>
   <ion-list>
 
-    <ion-item>
-      <ion-label stacked>Link</ion-label>
-      <ion-input type="http" name="href" placeholder="Link a ser inserido" [(ngModel)]="model.href" required></ion-input>
-    </ion-item>
+  
+      <ion-item>
 
-    <ion-item>
-      <ion-label stacked>Título</ion-label>
-      <ion-input type="text" name="name" placeholder="Título do link" [(ngModel)]="model.name" required></ion-input>
-    </ion-item>
+        <ion-label stacked>Link*</ion-label>
+        <ion-input type="http" name="href" placeholder="Link a ser inserido" [(ngModel)]="model.href" required>
+        </ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label stacked>Classificações</ion-label>
-      <ion-input type="text" name="importance" placeholder="Classificação do link" [(ngModel)]="model.importance" required></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label stacked>Título</ion-label>
+        <ion-input type="text" name="name" placeholder="Título do link" [(ngModel)]="model.name"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label stacked>Tipo</ion-label>
-      <ion-input type="text" name="type" placeholder="Tipo do link" [(ngModel)]="model.type" required></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label stacked>Classificação</ion-label>
+        <ion-select [(ngModel)]="model.importance">
+          <ion-option value="alta">Alta</ion-option>
+          <ion-option value="normal">Normal</ion-option>
+          <ion-option value="baixa">Baixa</ion-option>
+        </ion-select>
+      </ion-item>
+      <button ion-button block (click)="inserirLink()">Salvar</button>
     
-
-    <button ion-button block (click)="inserirLink()">Salvar</button>
 
   </ion-list>
 

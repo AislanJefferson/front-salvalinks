@@ -35,13 +35,12 @@ export class UsuarioProvider {
     return this.http.get("https://salvalinks.herokuapp.com/users");
   }
 
-  insereLink(email: string, linkName: string, href: string, importance: string, type: string) {
+  insereLink(email: string, linkName: string, href: string, importance: string) {
     var url = this.baseApiPath + 'links/add?email=' + email;
     var link = {
-      name: linkName,
+      name: linkName == null ? "" : linkName,
       href: href,
-      importance: importance,
-      type: type
+      importance: importance
     }
     return this.http.post(url, link);
   }

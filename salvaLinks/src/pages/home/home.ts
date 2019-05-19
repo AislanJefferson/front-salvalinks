@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CadastroUsuarioPage } from './../cadastro-usuario/cadastro-usuario';
 import { LoginUsuarioPage } from '../login-usuario/login-usuario';
-import { InserirLinkPage } from '../inserir-link/inserir-link';
 
 
 @Component({
