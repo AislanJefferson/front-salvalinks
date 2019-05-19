@@ -8,25 +8,37 @@
 
 <ion-content padding>
 
-  <h1 text-center>Exemplo de criação de conta</h1>
+  <div class="img">
+    <img src="assets/imgs/logo.jpg">
+  </div>
 
-  <ion-list>
+  <div>
+    <p id="titulo" padding>CRIE UMA CONTA</p>
+  </div>
+  
+  <ion-list padding>
     <ion-item>
-        <ion-label stacked>Nome</ion-label>
+        <ion-label inline class="entrada">Nome</ion-label>
         <ion-input type="text" name="name" [(ngModel)]="model.name"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Email</ion-label>
+      <ion-label inline class="entrada">E-mail</ion-label>
       <ion-input type="text" name="email" [(ngModel)]="model.email"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Senha</ion-label>
+      <ion-label inline class="entrada">Senha</ion-label>
       <ion-input type="password" name="password" [(ngModel)]="model.password"></ion-input>
     </ion-item>
   </ion-list>
-
-  <button ion-button block (click)="cadastrarUsuario()" color="primary">Criar conta</button>
+  
+  <div class="botao">
+    <button ion-button block (click)="cadastrarUsuario()" id="botao">CADASTRAR</button>
+  </div>
+  
+  <div class="link">
+    <p class="login">Já possui uma conta?<a class="login"> Login</a></p>
+  </div>
 
 </ion-content>
