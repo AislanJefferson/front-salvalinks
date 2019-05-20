@@ -31,4 +31,8 @@ export class UsuarioProvider {
   exibirUsuariosCadastrados() {
     return this.http.get("https://salvalinks.herokuapp.com/users");
   }
+  exibirLinksCadastrados(email: string) {
+    var url = this.baseApiPath + 'links?email=' + email;
+    return this.http.get(url, { headers: { 'Content-Type': 'application/json' } });
+  }
 }

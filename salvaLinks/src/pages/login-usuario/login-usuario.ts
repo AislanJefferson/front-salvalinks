@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UsuarioProvider } from './../../providers/usuario/usuario';
 import { ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
+import { ListaLinksPage } from './../lista-links/lista-links';
 
 /**
  * Generated class for the LoginUsuarioPage page.
@@ -42,6 +43,10 @@ export class LoginUsuarioPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginUsuarioPage');
+  }
+
+  abrirListaDeLinks() {
+    this.navCtrl.setRoot(ListaLinksPage);
   }
 
 }

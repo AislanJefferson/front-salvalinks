@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CadastroUsuarioPageModule } from '../pages/cadastro-usuario/cadastro-usuario.module';
+import { ListaLinksPageModule } from '../pages/lista-links/lista-links.module';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 
 import { HttpModule } from '@angular/http';
@@ -23,6 +24,7 @@ import { AuthProvider } from '../providers/auth/auth';
     IonicModule.forRoot(MyApp),
     CadastroUsuarioPageModule,
     LoginUsuarioPageModule,
+    ListaLinksPageModule,
     HttpModule
   ],
   bootstrap: [IonicApp],
