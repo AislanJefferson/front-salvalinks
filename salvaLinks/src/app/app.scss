@@ -29,6 +29,31 @@ img {
     height: auto;
 }
 
+.link {
+    text-align: center;
+}
+
+a {
+    text-decoration: underline;
+}
+
+.login {
+    font-size: 10px;
+    color: #696969;
+}
+
+#titulo {
+    font-family: sans-serif;
+    color: #696969;
+    text-align: center;
+    font-size: 12px;
+}
+
+.entrada {
+    color: #708090;
+    font-size: 14px !important;
+}
+
 .botao {
     margin-left: auto;
     margin-right: auto;

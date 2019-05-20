@@ -9,7 +9,7 @@
 <ion-content padding>
 
   <div class="img">
-    <img src="/assets/imgs/logo.png">
+    <img src="assets/imgs/logo.png">
   </div>
 
   <div>
@@ -33,4 +33,9 @@
     <button ion-button block [disabled]="!model.email||!model.password" (click)="loginUsuario()"
       id="botao">Entrar</button>
   </div>
+
+  <div class="link">
+    <p class="login">Não possui uma conta?<a class="login" (click)="irParaCadastro()"> Cadastre-se</a></p>
+  </div>
+
 </ion-content>

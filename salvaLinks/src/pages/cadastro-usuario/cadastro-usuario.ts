@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UsuarioProvider } from './../../providers/usuario/usuario';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController } from 'ionic-angular';
 import { LoginUsuarioPage } from '../login-usuario/login-usuario';
 
 /**
@@ -19,7 +19,7 @@ export class CadastroUsuarioPage {
   model: User;
   public listaUsuarios = new Array<any>();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, public toastCtrl: ToastController) {
     this.model = new User();
   }
 
@@ -30,8 +30,17 @@ export class CadastroUsuarioPage {
       this.irParaLogin();
     },
     (error) => {
-      error.json();
+      var resp = error.json()
+      let toast = this.toastCtrl.create({
+        message: resp.message,
+        duration: 3000
+      });
+      toast.present();
     });
+    //limpa campos
+    this.model.name = "";
+    this.model.email = "";
+    this.model.password = "";
 
   }
 
