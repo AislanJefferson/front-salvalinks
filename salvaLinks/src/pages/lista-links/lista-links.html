@@ -1,10 +1,6 @@
 <ion-content padding>
-  
-  <ion-list *ngFor="let link of listaLinks">
-      <ion-label>Link</ion-label>
-      <p>{{link.parmPurchReqName}}</p>
- </ion-list>
- 
+  <ion-row>""</ion-row>
+  <ion-row>""</ion-row>
   <ion-row>
     <ion-col>
       <button ion-button full>Links</button>
@@ -16,22 +12,22 @@
   <ion-row>
     <ion-col>
       <ion-item lines="none" text-center>
-        <ion-label>Link</ion-label>
+        <ion-label><strong>Link</strong></ion-label>
       </ion-item>
       <ion-list>
           <ion-item lines="none" text-center *ngFor="let link of listaLinks">
-            <ion-label>{{link}}</ion-label>
+            <ion-label>{{ link.name }}</ion-label>
           </ion-item>
-        </ion-list>
+      </ion-list>
     </ion-col>
     <ion-col>
       <ion-item lines="none" text-center>
         <ion-label>Grupo</ion-label>
       </ion-item>
       <ion-list>
-          <ion-item lines="none" text-center>
-            <ion-label>Grupo 1</ion-label>
-          </ion-item>
+        <ion-item lines="none" text-center *ngFor="let link of listaLinks">
+          <ion-label>{{ link.grupo }}</ion-label>
+        </ion-item>
       </ion-list>
     </ion-col>
     <ion-col>
@@ -39,9 +35,9 @@
         <ion-label>Classificação</ion-label>
       </ion-item>
       <ion-list>
-          <ion-item lines="none" text-center>
-            <ion-label>8</ion-label>
-          </ion-item>
+        <ion-item lines="none" text-center *ngFor="let link of listaLinks">
+          <ion-label>{{ link.importance }}</ion-label>
+        </ion-item>
       </ion-list>
     </ion-col>
   </ion-row>
