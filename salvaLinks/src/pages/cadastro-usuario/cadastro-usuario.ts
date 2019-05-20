@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UsuarioProvider } from './../../providers/usuario/usuario';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoginUsuarioPage } from '../login-usuario/login-usuario';
 
 /**
  * Generated class for the CadastroUsuarioPage page.
@@ -26,10 +27,16 @@ export class CadastroUsuarioPage {
     this.usuarioProvider.cadastrarUsuario(this.model.name, this.model.email, this.model.password).
     subscribe((result: any) => {
       result.json();
+      this.navCtrl.setRoot(LoginUsuarioPage);
     },
     (error) => {
       error.json();
     });
+
+  }
+
+  irParaLogin(){
+    this.navCtrl.setRoot(LoginUsuarioPage);
   }
 
   exibirUsuariosCadastrados() {
