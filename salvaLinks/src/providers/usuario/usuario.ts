@@ -16,6 +16,7 @@ export class UsuarioProvider {
   }
 
   private baseApiPath = "https://salvalinks.herokuapp.com/";
+  private httpHeader = { headers: { 'Content-Type': 'application/json' } };
   cadastrarUsuario(name: string, email: string, password: string) {
     var dados = {
       name: name,
@@ -23,16 +24,16 @@ export class UsuarioProvider {
       password: password
     }
 
-    return this.http.post("https://salvalinks.herokuapp.com/users/cadastrar", dados);
+    return this.http.post(this.baseApiPath + "users/register", dados);
   }
 
   logarUsuario(email: string, password: string) {
-    var url = this.baseApiPath + 'users/logar?email=' + email + '&password=' + password;
-    return this.http.post(url, { headers: { 'Content-Type': 'application/json' } });
+    var url = this.baseApiPath + 'users/login?email=' + email + '&password=' + password;
+    return this.http.post(url, this.httpHeader);
   }
 
   exibirUsuariosCadastrados() {
-    return this.http.get("https://salvalinks.herokuapp.com/users");
+    return this.http.get(this.baseApiPath + "users");
   }
 
   insereLink(email: string, linkName: string, href: string, importance: string) {
@@ -45,4 +46,8 @@ export class UsuarioProvider {
     return this.http.post(url, link);
   }
 
+  exibirLinksCadastrados(email: string) {
+    var url = this.baseApiPath + 'links?email=' + email;
+    return this.http.get(url, { headers: { 'Content-Type': 'application/json' } });
+  }
 }

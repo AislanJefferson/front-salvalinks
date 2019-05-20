@@ -13,6 +13,7 @@ import { HttpModule } from '@angular/http';
 import { LoginUsuarioPageModule } from '../pages/login-usuario/login-usuario.module';
 import { AuthProvider } from '../providers/auth/auth';
 import { InserirLinkPageModule } from '../pages/inserir-link/inserir-link.module';
+import { ListaLinksPageModule } from '../pages/lista-links/lista-links.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { InserirLinkPageModule } from '../pages/inserir-link/inserir-link.module
     CadastroUsuarioPageModule,
     LoginUsuarioPageModule,
     InserirLinkPageModule,
+    ListaLinksPageModule,
     HttpModule
   ],
   bootstrap: [IonicApp],
@@ -35,10 +37,9 @@ import { InserirLinkPageModule } from '../pages/inserir-link/inserir-link.module
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsuarioProvider,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     UsuarioProvider,
     AuthProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

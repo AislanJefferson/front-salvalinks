@@ -4,6 +4,7 @@ import { UsuarioProvider } from '../../providers/usuario/usuario';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoginUsuarioPage } from '../login-usuario/login-usuario';
 import { AlertController } from 'ionic-angular';
+import { ListaLinksPage } from '../lista-links/lista-links';
 
 /**
  * Generated class for the InserirLinkPage page.
@@ -46,7 +47,7 @@ export class InserirLinkPage {
             buttons: ['OK']
           });
           alert.present();
-          this.navCtrl.setRoot(InserirLinkPage);
+          this.navCtrl.setRoot(ListaLinksPage);
         
         },
           (error) => {

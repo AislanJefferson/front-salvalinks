@@ -11,32 +11,32 @@
   </div>
   <ion-list>
 
-  
-      <ion-item>
 
-        <ion-label stacked>Link*</ion-label>
-        <ion-input type="http" name="href" placeholder="Link a ser inserido" [(ngModel)]="model.href" required>
-        </ion-input>
-      </ion-item>
+    <ion-item>
 
-      <ion-item>
-        <ion-label stacked>Título</ion-label>
-        <ion-input type="text" name="name" placeholder="Título do link" [(ngModel)]="model.name"></ion-input>
-      </ion-item>
+      <ion-label stacked>Link*</ion-label>
+      <ion-input type="http" name="href" placeholder="Link a ser inserido" [(ngModel)]="model.href" required>
+      </ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label stacked>Classificação</ion-label>
-        <ion-select [(ngModel)]="model.importance">
-          <ion-option value="alta">Alta</ion-option>
-          <ion-option value="normal">Normal</ion-option>
-          <ion-option value="baixa">Baixa</ion-option>
-        </ion-select>
-      </ion-item>
-      
-      <div class="botao">
-        <button ion-button block (click)="inserirLink()" id="botao">ADICIONAR</button>
-      </div>
-    
+    <ion-item>
+      <ion-label stacked>Título</ion-label>
+      <ion-input type="text" name="name" placeholder="Título do link" [(ngModel)]="model.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Classificação</ion-label>
+      <ion-select [(ngModel)]="model.importance">
+        <ion-option value="alta">Alta</ion-option>
+        <ion-option value="normal">Normal</ion-option>
+        <ion-option value="baixa">Baixa</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="botao">
+      <button ion-button block (click)="inserirLink()" id="botao">ADICIONAR</button>
+    </div>
+
 
   </ion-list>
 

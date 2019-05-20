@@ -1,0 +1,45 @@
+<ion-content padding>
+  <!-- <ion-row>""</ion-row>
+  <ion-row>""</ion-row> -->
+  <ion-row>
+      <ion-col>
+          <button ion-button full (click)="redirectInserirLink()">Inserir Novo Link</button>
+        </ion-col>
+    <ion-col>
+      <button ion-button full color="light" (click)="exibirLinksCadastrados()">Atualizar</button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item lines="none" text-center>
+        <ion-label><strong>Link</strong></ion-label>
+      </ion-item>
+      <ion-list>
+        <ion-item lines="none" text-center *ngFor="let link of listaLinks">
+          <ion-label>{{ link.name }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+    <ion-col>
+      <ion-item lines="none" text-center>
+        <ion-label>Grupo</ion-label>
+      </ion-item>
+      <ion-list>
+        <ion-item lines="none" text-center *ngFor="let link of listaLinks">
+          <ion-label>{{ link.grupo }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+    <ion-col>
+      <ion-item lines="none" text-center>
+        <ion-label>Classificação</ion-label>
+      </ion-item>
+      <ion-list>
+        <ion-item lines="none" text-center *ngFor="let link of listaLinks">
+          <ion-label>{{ link.importance }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
