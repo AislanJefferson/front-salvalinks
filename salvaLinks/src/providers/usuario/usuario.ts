@@ -1,4 +1,4 @@
-import { Http } from '@angular/http';
+import { Http,Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
@@ -11,14 +11,16 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UsuarioProvider {
 
+  private baseApiPath = "https://salvalinks.herokuapp.com/";
+  private httpHeader= new Headers();
+  private options;
+
   constructor(public http: Http) {
     console.log('Hello UsuarioProvider Provider');
-    this.httpHeader = new Headers();    
     this.httpHeader.append('Content-Type', 'application/json');
-  }
+    this.options =  new RequestOptions({headers: this.httpHeader});
+    }
 
-  private baseApiPath = "https://salvalinks.herokuapp.com/";
-  private httpHeader;
   cadastrarUsuario(name: string, email: string, password: string) {
     var dados = {
       name: name,
@@ -31,7 +33,7 @@ export class UsuarioProvider {
 
   logarUsuario(email: string, password: string) {
     var url = this.baseApiPath + 'users/login?email=' + email + '&password=' + password;
-    return this.http.post(url, this.httpHeader);
+    return this.http.post(url, this.options);
   }
 
   exibirUsuariosCadastrados() {
@@ -45,11 +47,12 @@ export class UsuarioProvider {
       href: href,
       importance: importance
     }
+    console.log(link);
     return this.http.post(url, link);
   }
 
   exibirLinksCadastrados(email: string) {
     var url = this.baseApiPath + 'links?email=' + email;
-    return this.http.get(url, this.httpHeader);
+    return this.http.get(url,this.options);
   }
 }

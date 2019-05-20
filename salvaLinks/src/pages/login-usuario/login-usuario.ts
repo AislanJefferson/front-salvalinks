@@ -27,8 +27,10 @@ export class LoginUsuarioPage {
   loginUsuario() {
     this.usuarioProvider.logarUsuario(this.model.email, this.model.password).subscribe((result: any) => {
       var respOK = result.json();
-      this.authProvider.autentica(respOK.email);
-      this.navCtrl.setRoot(ListaLinksPage);
+      if(respOK.enabled == true){
+        this.authProvider.autentica(respOK.email);
+        this.navCtrl.setRoot(ListaLinksPage);
+      }
     }, (error) => {
       var resp = error.json()
       let toast = this.toastCtrl.create({
@@ -36,10 +38,9 @@ export class LoginUsuarioPage {
         duration: 3000
       });
       toast.present();
-      this.model.email = "";
-      this.model.password = "";
     });
-
+    this.model.email = "";
+    this.model.password = "";
   }
 
   ionViewDidLoad() {
