@@ -27,7 +27,7 @@ export class CadastroUsuarioPage {
     this.usuarioProvider.cadastrarUsuario(this.model.name, this.model.email, this.model.password).
     subscribe((result: any) => {
       result.json();
-      this.navCtrl.setRoot(LoginUsuarioPage);
+      this.irParaLogin();
     },
     (error) => {
       error.json();
