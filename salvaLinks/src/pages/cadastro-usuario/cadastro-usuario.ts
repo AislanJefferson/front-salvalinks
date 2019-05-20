@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UsuarioProvider } from './../../providers/usuario/usuario';
-import { IonicPage, NavController, NavParams,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { LoginUsuarioPage } from '../login-usuario/login-usuario';
 
 /**
@@ -25,18 +25,18 @@ export class CadastroUsuarioPage {
 
   cadastrarUsuario() {
     this.usuarioProvider.cadastrarUsuario(this.model.name, this.model.email, this.model.password).
-    subscribe((result: any) => {
-      result.json();
-      this.irParaLogin();
-    },
-    (error) => {
-      var resp = error.json()
-      let toast = this.toastCtrl.create({
-        message: resp.message,
-        duration: 3000
-      });
-      toast.present();
-    });
+      subscribe((result: any) => {
+        result.json();
+        this.irParaLogin();
+      },
+        (error) => {
+          var resp = error.json()
+          let toast = this.toastCtrl.create({
+            message: resp.message,
+            duration: 3000
+          });
+          toast.present();
+        });
     //limpa campos
     this.model.name = "";
     this.model.email = "";
@@ -44,7 +44,7 @@ export class CadastroUsuarioPage {
 
   }
 
-  irParaLogin(){
+  irParaLogin() {
     this.navCtrl.setRoot(LoginUsuarioPage);
   }
 

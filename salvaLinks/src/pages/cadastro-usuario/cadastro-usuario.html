@@ -1,5 +1,3 @@
-
-
 <ion-content padding>
 
   <div class="img">
@@ -9,28 +7,26 @@
   <div>
     <p id="titulo" padding>CRIE UMA CONTA</p>
   </div>
-  
+
   <ion-list padding>
     <ion-item>
-        <ion-label inline class="entrada">Nome</ion-label>
-        <ion-input type="text" name="name" [(ngModel)]="model.name"></ion-input>
+      <ion-input type="text" name="name" placeholder="Nome" [(ngModel)]="model.name"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label inline class="entrada">E-mail</ion-label>
-      <ion-input type="text" name="email" [(ngModel)]="model.email"></ion-input>
+      <ion-input type="text" name="email" placeholder="E-mail" [(ngModel)]="model.email"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label inline class="entrada">Senha</ion-label>
-      <ion-input type="password" name="password" [(ngModel)]="model.password"></ion-input>
+      <ion-input type="password" name="password" placeholder="Senha" [(ngModel)]="model.password"></ion-input>
     </ion-item>
   </ion-list>
-  
+
   <div class="botao">
-    <button ion-button block (click)="cadastrarUsuario()" id="botao">CADASTRAR</button>
+    <button ion-button block [disabled]="!model.name||!model.email||!model.password" (click)="cadastrarUsuario()"
+      id="botao">CADASTRAR</button>
   </div>
-  
+
   <div class="link">
     <p class="login">Já possui uma conta?<a class="login" (click)="irParaLogin()"> Login</a></p>
   </div>
