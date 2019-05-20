@@ -13,10 +13,12 @@ export class UsuarioProvider {
 
   constructor(public http: Http) {
     console.log('Hello UsuarioProvider Provider');
+    this.httpHeader = new Headers();    
+    this.httpHeader.append('Content-Type', 'application/json');
   }
 
   private baseApiPath = "https://salvalinks.herokuapp.com/";
-  private httpHeader = { headers: { 'Content-Type': 'application/json' } };
+  private httpHeader;
   cadastrarUsuario(name: string, email: string, password: string) {
     var dados = {
       name: name,
@@ -48,6 +50,6 @@ export class UsuarioProvider {
 
   exibirLinksCadastrados(email: string) {
     var url = this.baseApiPath + 'links?email=' + email;
-    return this.http.get(url, { headers: { 'Content-Type': 'application/json' } });
+    return this.http.get(url, this.httpHeader);
   }
 }
