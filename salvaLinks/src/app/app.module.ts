@@ -14,6 +14,8 @@ import { LoginUsuarioPageModule } from '../pages/login-usuario/login-usuario.mod
 import { AuthProvider } from '../providers/auth/auth';
 import { InserirLinkPageModule } from '../pages/inserir-link/inserir-link.module';
 import { ListaLinksPageModule } from '../pages/lista-links/lista-links.module';
+import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module';
+import { PerfilPageModule } from '../pages/perfil/perfil.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ListaLinksPageModule } from '../pages/lista-links/lista-links.module';
     LoginUsuarioPageModule,
     InserirLinkPageModule,
     ListaLinksPageModule,
-    HttpModule
+    HttpModule,
+    ConfiguracoesPageModule,
+    PerfilPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
