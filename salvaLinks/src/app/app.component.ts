@@ -7,6 +7,7 @@ import { LoginUsuarioPage } from '../pages/login-usuario/login-usuario';
 import { InserirLinkPage } from '../pages/inserir-link/inserir-link';
 import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
 import { PerfilPage } from '../pages/perfil/perfil';
+import { ListaLinksPage } from '../pages/lista-links/lista-links';
 @Component({
   templateUrl: 'app.html'
 })
@@ -28,7 +29,8 @@ export class MyApp {
       inserirLink: InserirLinkPage,
       perfil: PerfilPage,
       configuracoes: ConfiguracoesPage,
-      sair: LoginUsuarioPage
+      sair: LoginUsuarioPage,
+      lista: ListaLinksPage
     } 
   }
 
