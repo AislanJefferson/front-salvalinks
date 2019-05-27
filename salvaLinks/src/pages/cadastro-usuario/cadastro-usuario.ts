@@ -28,6 +28,11 @@ export class CadastroUsuarioPage {
       subscribe((result: any) => {
         result.json();
         this.irParaLogin();
+        let toast = this.toastCtrl.create({
+          message: "Confirme seu endereço de email",
+          duration: 5000
+        });
+        toast.present();
       },
         (error) => {
           var resp = error.json()

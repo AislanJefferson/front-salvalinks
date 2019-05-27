@@ -15,6 +15,8 @@ import { AuthProvider } from '../providers/auth/auth';
 import { InserirLinkPageModule } from '../pages/inserir-link/inserir-link.module';
 import { ListaLinksPageModule } from '../pages/lista-links/lista-links.module';
 import { RenomearLinkPageModule } from '../pages/renomear-link/renomear-link.module';
+import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module';
+import { PerfilPageModule } from '../pages/perfil/perfil.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { RenomearLinkPageModule } from '../pages/renomear-link/renomear-link.mod
     InserirLinkPageModule,
     ListaLinksPageModule,
     RenomearLinkPageModule,
-    HttpModule
+    HttpModule,
+    ConfiguracoesPageModule,
+    PerfilPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -34,9 +34,9 @@ export class ListaLinksPage {
 
   exibirLinksCadastrados() {
     this.usuarioProvider.exibirLinksCadastrados(this.authProvider.getEmail()).subscribe((result: any) => {
-      var respOK = result.json();
+      //var respOK = result.json();
       this.listaLinks = result.json();
-      console.log(respOK);
+      //console.log(respOK);
     }, (error) => {
       var resp = error.json()
       let toast = this.toastCtrl.create({
