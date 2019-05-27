@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, IonicPage } from 'ionic-angular';
+import { NavController, NavParams, ToastController, IonicPage} from 'ionic-angular';
 import { UsuarioProvider } from '../../providers/usuario/usuario';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoginUsuarioPage } from '../login-usuario/login-usuario';
-import { AlertController } from 'ionic-angular';
 import { ListaLinksPage } from '../lista-links/lista-links';
 
 /**
@@ -21,8 +20,10 @@ import { ListaLinksPage } from '../lista-links/lista-links';
 export class InserirLinkPage {
   model: Link;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController, public alertCtrl: AlertController) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController) {
     this.model = new Link();
+    
   }
 
   ionViewCanEnter(): boolean {
@@ -41,12 +42,6 @@ export class InserirLinkPage {
         subscribe((result: any) => {
           var response = result.json();
           console.log(response);
-          const alert = this.alertCtrl.create({
-            title: 'Link Salvo!',
-            subTitle: response.name + ' foi salvo na sua lista de links!',
-            buttons: ['OK']
-          });
-          alert.present();
           this.navCtrl.setRoot(ListaLinksPage);
         
         },
@@ -76,5 +71,5 @@ export class InserirLinkPage {
 export class Link {
   name: string;
   href: string;
-  importance: string = "alta" || "normal" || "baixa";
+  importance: string = "alta" || "normal" || "baixa"  ;
 }
