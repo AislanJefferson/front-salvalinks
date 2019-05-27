@@ -55,4 +55,15 @@ export class UsuarioProvider {
     var url = this.baseApiPath + 'links?email=' + email;
     return this.http.get(url,this.options);
   }
+
+  renomearLink(email: string, nomeAtual: string, nomeNovo: string){
+    var url = this.baseApiPath + 'links/rename?email=' + email + '&name=' + nomeAtual + '&newName=' +  nomeNovo;
+    
+    return this.http.put(url,this.options);
+  }
+
+  deletarLink(email: string, nome:string){
+    var url = this.baseApiPath + 'links/remove?email=' + email + '&name=' + nome;
+    return this.http.delete(url,this.options);
+  }
 }

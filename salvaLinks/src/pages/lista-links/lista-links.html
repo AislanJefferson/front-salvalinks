@@ -1,43 +1,45 @@
 <ion-content padding>
-  <!-- <ion-row>""</ion-row>
-  <ion-row>""</ion-row> -->
   <ion-row>
       <ion-col>
           <button ion-button full (click)="redirectInserirLink()">Inserir Novo Link</button>
         </ion-col>
     <ion-col>
-      <button ion-button full color="light" (click)="exibirLinksCadastrados()">Atualizar</button>
+      <button ion-button full (click)="exibirLinksCadastrados()">Atualizar</button>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
       <ion-item lines="none" text-center>
-        <ion-label><strong>Link</strong></ion-label>
+        <ion-label color= "primary"> <strong>LINK</strong> </ion-label>
       </ion-item>
       <ion-list>
-        <ion-item lines="none" text-center *ngFor="let link of listaLinks">
-          <ion-label>{{ link.name }}</ion-label>
-        </ion-item>
+        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks"> 
+            <ion-item> {{ link.name }} </ion-item>
+            <ion-item-options>
+                <button ion-button icon-only light (click)="redirectRenomearLink(link.name)">
+                    <ion-icon name="create"></ion-icon>
+                </button>
+                <button ion-button icon-only light (click)="deletarLink(link.name)">
+                  <ion-icon name="trash"></ion-icon>
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
       </ion-list>
     </ion-col>
     <ion-col>
       <ion-item lines="none" text-center>
-        <ion-label>Grupo</ion-label>
+        <ion-label color= "primary"> <strong>GRUPO</strong> </ion-label>
       </ion-item>
       <ion-list>
-        <ion-item lines="none" text-center *ngFor="let link of listaLinks">
-          <ion-label>{{ link.grupo }}</ion-label>
-        </ion-item>
+        <ion-item lines="none" text-center *ngFor="let link of listaLinks"> {{ link.grupo }} </ion-item>
       </ion-list>
     </ion-col>
     <ion-col>
       <ion-item lines="none" text-center>
-        <ion-label>Classificação</ion-label>
+        <ion-label color= "primary"> <strong>CLASSIFICAÇÃO</strong> </ion-label>
       </ion-item>
       <ion-list>
-        <ion-item lines="none" text-center *ngFor="let link of listaLinks">
-          <ion-label>{{ link.importance }}</ion-label>
-        </ion-item>
+        <ion-item lines="none" text-center *ngFor="let link of listaLinks"> {{ link.importance }} </ion-item>
       </ion-list>
     </ion-col>
   </ion-row>
