@@ -25,7 +25,7 @@
       </ion-item>
       <ion-list>
         <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks"> 
-            <ion-item text-center> 
+            <ion-item text-center (click)="redirectPaginaLink(link.href)"> 
               {{ link.name }} 
               <ion-icon name="arrow-dropleft" item-right></ion-icon>
             </ion-item>

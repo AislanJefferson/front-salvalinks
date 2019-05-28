@@ -6,6 +6,7 @@ import { ToastController } from 'ionic-angular';
 import { User } from '../login-usuario/login-usuario';
 import { InserirLinkPage, Link } from '../inserir-link/inserir-link';
 import { RenomearLinkPage } from '../renomear-link/renomear-link';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 /**
  * Generated class for the ListaLinksPage page.
  *
@@ -74,6 +75,11 @@ export class ListaLinksPage {
       });
       toast.present();
     });
+  }
+
+  redirectPaginaLink(href: string){
+    console.log(href);
+    window.open('http://'+href,'_system', 'location=yes');
   }
 
 }
