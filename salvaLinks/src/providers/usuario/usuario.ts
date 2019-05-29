@@ -1,4 +1,4 @@
-import { Http,Headers, RequestOptions } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
@@ -12,14 +12,16 @@ import 'rxjs/add/operator/map';
 export class UsuarioProvider {
 
   private baseApiPath = "https://salvalinks.herokuapp.com/";
-  private httpHeader= new Headers();
+  private httpHeader = new Headers();
   private options;
+  private links: Intent[];
 
   constructor(public http: Http) {
     console.log('Hello UsuarioProvider Provider');
     this.httpHeader.append('Content-Type', 'application/json');
-    this.options =  new RequestOptions({headers: this.httpHeader});
-    }
+    this.options = new RequestOptions({ headers: this.httpHeader });
+    this.links = [];
+  }
 
   cadastrarUsuario(name: string, email: string, password: string) {
     var dados = {
@@ -47,23 +49,42 @@ export class UsuarioProvider {
       href: href,
       importance: importance
     }
-    console.log(link);
     return this.http.post(url, link);
   }
 
   exibirLinksCadastrados(email: string) {
     var url = this.baseApiPath + 'links?email=' + email;
-    return this.http.get(url,this.options);
+    return this.http.get(url, this.options);
   }
 
-  renomearLink(email: string, nomeAtual: string, nomeNovo: string){
-    var url = this.baseApiPath + 'links/rename?email=' + email + '&name=' + nomeAtual + '&newName=' +  nomeNovo;
-    
-    return this.http.put(url,this.options);
+  renomearLink(email: string, nomeAtual: string, nomeNovo: string) {
+    var url = this.baseApiPath + 'links/rename?email=' + email + '&name=' + nomeAtual + '&newName=' + nomeNovo;
+
+    return this.http.put(url, this.options);
   }
 
-  deletarLink(email: string, nome:string){
+  deletarLink(email: string, nome: string) {
     var url = this.baseApiPath + 'links/remove?email=' + email + '&name=' + nome;
-    return this.http.delete(url,this.options);
+    return this.http.delete(url, this.options);
+  }
+
+  addLinkExterno(titulo: string, link: string) {
+    this.links.push(new Intent(titulo, link));
+  }
+
+  getlinkExterno(): Intent {
+    return this.links.pop();
+  }
+
+  temLinkAInserir() {
+    return this.links.length > 0;
+  }
+
+}
+
+export class Intent {
+  constructor(public titulo: string, public link: string) {
+    this.titulo = titulo;
+    this.link = link;
   }
 }

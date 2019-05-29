@@ -28,7 +28,7 @@ export class ListaLinksPage {
     this.link = new Link();
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.exibirLinksCadastrados();
   }
 
@@ -48,7 +48,7 @@ export class ListaLinksPage {
       this.model.password = "";
     });
   }
-  redirectInserirLink(){
+  redirectInserirLink() {
     this.navCtrl.setRoot(InserirLinkPage);
   }
 
@@ -60,9 +60,9 @@ export class ListaLinksPage {
     });
   }
 
-  deletarLink(tituloLink){
+  deletarLink(tituloLink) {
     console.log(tituloLink);
-    
+
     this.usuarioProvider.deletarLink(this.authProvider.getEmail(), tituloLink).subscribe((result: any) => {
       var respOK = result.json();
       console.log(respOK);

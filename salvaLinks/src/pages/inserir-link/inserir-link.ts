@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, IonicPage} from 'ionic-angular';
+import { NavController, NavParams, ToastController, IonicPage } from 'ionic-angular';
 import { UsuarioProvider } from '../../providers/usuario/usuario';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoginUsuarioPage } from '../login-usuario/login-usuario';
@@ -23,18 +23,28 @@ export class InserirLinkPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController) {
     this.model = new Link();
-    
+
   }
 
   ionViewCanEnter(): boolean {
-    if(this.authProvider.autenticado()){
+    if (this.authProvider.autenticado()) {
       return true;
     } else {
       return false;
     }
   }
 
-  
+  ionViewWillEnter() {
+    if (this.usuarioProvider.temLinkAInserir()) {
+      let link = this.usuarioProvider.getlinkExterno();
+      this.model.name = link.titulo;
+      this.model.href = link.link;
+    }
+
+  }
+
+
+
 
   inserirLink() {
     if (this.authProvider.autenticado()) {
@@ -43,12 +53,12 @@ export class InserirLinkPage {
           var response = result.json();
           console.log(response);
           this.navCtrl.setRoot(ListaLinksPage);
-        
+
         },
           (error) => {
             console.log(error)
           });
-    }else{
+    } else {
       this.navCtrl.setRoot(LoginUsuarioPage);
     }
 
@@ -62,7 +72,7 @@ export class InserirLinkPage {
   //openNav() {
   //  document.getElementById("mySidenav").style.width = "250px";
   //}
-  
+
   //closeNav() {
   //  document.getElementById("mySidenav").style.width = "0";
   //}
@@ -71,5 +81,5 @@ export class InserirLinkPage {
 export class Link {
   name: string;
   href: string;
-  importance: string = "alta" || "normal" || "baixa"  ;
+  importance: string = "alta" || "normal" || "baixa";
 }
