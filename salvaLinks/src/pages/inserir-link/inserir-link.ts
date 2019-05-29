@@ -23,6 +23,7 @@ export class InserirLinkPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController) {
     this.model = new Link();
+    this.model.importance = "normal";
 
   }
 
@@ -42,9 +43,6 @@ export class InserirLinkPage {
     }
 
   }
-
-
-
 
   inserirLink() {
     if (this.authProvider.autenticado()) {

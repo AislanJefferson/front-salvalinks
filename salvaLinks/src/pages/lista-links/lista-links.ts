@@ -50,7 +50,7 @@ export class ListaLinksPage {
     });
   }
   redirectInserirLink() {
-    this.navCtrl.setRoot(InserirLinkPage);
+    this.navCtrl.push(InserirLinkPage);
   }
 
   redirectRenomearLink(tituloLink) {
@@ -79,7 +79,7 @@ export class ListaLinksPage {
 
   redirectPaginaLink(href: string) {
     console.log(href);
-    window.open('http://' + href, '_system', 'location=yes');
+    window.open(href, '_system');
   }
 
 }
