@@ -53,11 +53,12 @@ export class ListaLinksPage {
     this.navCtrl.setRoot(InserirLinkPage);
   }
 
-  redirectRenomearLink(tituloLink) {
-    this.link.name = tituloLink;
-    console.log(this.link.name);
+  redirectRenomearLink(linkName: string, href: string) {
+    this.link.name = linkName;
+    console.log("=> " + href);
     this.navCtrl.push(RenomearLinkPage, {
-      nomeLink: tituloLink
+      url: href,
+      nomeLink: linkName
     });
   }
 
@@ -66,6 +67,7 @@ export class ListaLinksPage {
 
     this.usuarioProvider.deletarLink(this.authProvider.getEmail(), tituloLink).subscribe((result: any) => {
       var respOK = result.json();
+      this.exibirLinksCadastrados();
       console.log(respOK);
     }, (error) => {
       var resp = error.json()

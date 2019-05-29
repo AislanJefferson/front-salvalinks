@@ -57,14 +57,13 @@ export class UsuarioProvider {
     return this.http.get(url, this.options);
   }
 
-  renomearLink(email: string, nomeAtual: string, nomeNovo: string) {
-    var url = this.baseApiPath + 'links/rename?email=' + email + '&name=' + nomeAtual + '&newName=' + nomeNovo;
-
+  renomearLink(email: string, url: string, nomeAtual: string, nomeNovo: string) {
+    var url = this.baseApiPath + 'links/rename?email=' + email + '&url=' + url + '&name=' + nomeAtual + '&newName=' + nomeNovo;
     return this.http.put(url, this.options);
   }
 
-  deletarLink(email: string, nome: string) {
-    var url = this.baseApiPath + 'links/remove?email=' + email + '&name=' + nome;
+  deletarLink(email: string, href: string) {
+    var url = this.baseApiPath + 'links/remove?email=' + email + '&url=' + href;
     return this.http.delete(url, this.options);
   }
 

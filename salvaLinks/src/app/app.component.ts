@@ -8,6 +8,7 @@ import { InserirLinkPage } from '../pages/inserir-link/inserir-link';
 import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { ListaLinksPage } from '../pages/lista-links/lista-links';
+import { UsuarioProvider } from '../providers/usuario/usuario';
 @Component({
   templateUrl: 'app.html'
 })
@@ -17,10 +18,22 @@ export class MyApp {
 
   pages: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public usuarioProvider: UsuarioProvider) {
+    let obj = this;
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+      if (platform.is('android')) {
+        (<any>window).plugins.intentShim.getIntent(
+          function (intent) {
+            //you should filter on the intents you actually want to receive based on Intent.action
+            console.log('intent received on app launch' + JSON.stringify(intent));
+            var intentExtras = intent.extras;
+            if (intentExtras != null) obj.usuarioProvider.addLinkExterno(intentExtras["android.intent.extra.SUBJECT"], intentExtras["android.intent.extra.TEXT"]);
+          },
+          function () {
+            console.log('Error getting cordova intent');
+          }
+        );
+      }
       statusBar.styleDefault();
       splashScreen.hide();
     });
@@ -31,9 +44,11 @@ export class MyApp {
       configuracoes: ConfiguracoesPage,
       sair: LoginUsuarioPage,
       lista: ListaLinksPage
-    } 
+    }
   }
 
-  
+
+
+
 }
 
