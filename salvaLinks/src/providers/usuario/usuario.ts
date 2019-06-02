@@ -30,7 +30,7 @@ export class UsuarioProvider {
       password: password
     }
 
-    return this.http.post(this.baseApiPath + "users/register", dados);
+    return this.http.post(this.baseApiPath + "users/register", dados,this.options);
   }
 
   logarUsuario(email: string, password: string) {
@@ -39,7 +39,7 @@ export class UsuarioProvider {
   }
 
   exibirUsuariosCadastrados() {
-    return this.http.get(this.baseApiPath + "users");
+    return this.http.get(this.baseApiPath + "users",this.options);
   }
 
   insereLink(email: string, linkName: string, href: string, importance: string) {
@@ -49,7 +49,7 @@ export class UsuarioProvider {
       href: href,
       importance: importance
     }
-    return this.http.post(url, link);
+    return this.http.post(url, link,this.options);
   }
 
   exibirLinksCadastrados(email: string) {
@@ -65,6 +65,10 @@ export class UsuarioProvider {
   deletarLink(email: string, href: string) {
     var url = this.baseApiPath + 'links/remove?email=' + email + '&url=' + href;
     return this.http.delete(url, this.options);
+  }
+
+  setTokenHeader(token: string){
+    this.options.headers.append('Authorization','Bearer '+token);
   }
 
   addLinkExterno(titulo: string, link: string) {

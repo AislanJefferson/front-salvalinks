@@ -8,31 +8,31 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class AuthProvider {
-  private email : string;
-  private logado : boolean;
-  
+  private email: string;
+  private logado: boolean;
 
-  
+
+
   constructor() {
     this.logado = false;
     console.log('Hello AuthProvider Provider');
   }
 
-  autenticado(){
+  autenticado() {
     return this.logado;
   }
 
-  autentica(email:string){
+  autentica(email: string) {
     this.email = email;
     this.logado = true;
   }
 
-  logoff(){
+  logoff() {
     this.email = "";
     this.logado = false;
   }
 
-  getEmail(){
+  getEmail() {
     return this.logado ? this.email : "";
   }
 

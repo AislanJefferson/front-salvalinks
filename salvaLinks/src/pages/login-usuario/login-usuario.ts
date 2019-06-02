@@ -21,19 +21,17 @@ import { InserirLinkPage } from '../inserir-link/inserir-link';
 export class LoginUsuarioPage {
   model: User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController, private platform: Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController) {
     this.model = new User();
   }
 
   loginUsuario() {
     this.usuarioProvider.logarUsuario(this.model.email, this.model.password).subscribe((result: any) => {
-      var respOK = result.json();
-      if (respOK.enabled == true) {
-        this.authProvider.autentica(respOK.email);
-        if (this.usuarioProvider.temLinkAInserir()) this.navCtrl.setRoot(InserirLinkPage);
-        else
-          this.navCtrl.setRoot(ListaLinksPage);
-      }
+      this.usuarioProvider.setTokenHeader(result._body);
+      this.authProvider.autentica(this.model.email);
+      if (this.usuarioProvider.temLinkAInserir()) this.navCtrl.setRoot(InserirLinkPage);
+      else
+        this.navCtrl.setRoot(ListaLinksPage);
     }, (error) => {
       var resp = error.json()
       let toast = this.toastCtrl.create({
