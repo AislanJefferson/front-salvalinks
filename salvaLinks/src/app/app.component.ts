@@ -9,8 +9,12 @@ import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { ListaLinksPage } from '../pages/lista-links/lista-links';
 import { UsuarioProvider } from '../providers/usuario/usuario';
+import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [
+    DadosUsuarioProvider
+  ]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -18,9 +22,11 @@ export class MyApp {
 
   pages: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public usuarioProvider: UsuarioProvider) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public usuarioProvider: UsuarioProvider, public dadosUsuarioProvider: DadosUsuarioProvider) {
     let obj = this;
     platform.ready().then(() => {
+      let dados = dadosUsuarioProvider.getDados();
+      console.log(dados);
       if (platform.is('android')) {
         (<any>window).plugins.intentShim.getIntent(
           function (intent) {

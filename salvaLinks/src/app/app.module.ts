@@ -17,6 +17,7 @@ import { ListaLinksPageModule } from '../pages/lista-links/lista-links.module';
 import { RenomearLinkPageModule } from '../pages/renomear-link/renomear-link.module';
 import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module';
 import { PerfilPageModule } from '../pages/perfil/perfil.module';
+import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { PerfilPageModule } from '../pages/perfil/perfil.module';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UsuarioProvider,
-    AuthProvider
+    AuthProvider,
+    DadosUsuarioProvider
   ]
 })
 export class AppModule { }
