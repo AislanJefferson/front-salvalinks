@@ -28,8 +28,11 @@
     "com-darryncampbell-cordova-plugin-intent": "1.1.7",
     "cordova-android": "8.0.0",
     "cordova-plugin-inappbrowser": "3.0.0",
+    "cordova-support-google-services": "1.1.0",
     "ionic-angular": "3.9.5",
     "ionicons": "3.0.0",
+    "phonegap-plugin-multidex": "1.0.0",
+    "phonegap-plugin-push": "2.2.3",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.29"
@@ -57,7 +60,11 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "com-darryncampbell-cordova-plugin-intent": {},
-      "cordova-plugin-inappbrowser": {}
+      "cordova-plugin-inappbrowser": {},
+      "phonegap-plugin-push": {
+        "ANDROID_SUPPORT_V13_VERSION": "27.+",
+        "FCM_VERSION": "11.6.2"
+      }
     },
     "platforms": [
       "android"

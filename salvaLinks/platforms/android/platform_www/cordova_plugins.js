@@ -56,6 +56,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
         "cordova.InAppBrowser.open",
         "window.open"
       ]
+    },
+    {
+      "id": "phonegap-plugin-push.PushNotification",
+      "file": "plugins/phonegap-plugin-push/www/push.js",
+      "pluginId": "phonegap-plugin-push",
+      "clobbers": [
+        "PushNotification"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -66,6 +74,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-ionic-webview": "4.0.1",
     "cordova-plugin-ionic-keyboard": "2.1.3",
     "com-darryncampbell-cordova-plugin-intent": "1.1.7",
-    "cordova-plugin-inappbrowser": "3.0.0"
+    "cordova-plugin-inappbrowser": "3.0.0",
+    "cordova-support-google-services": "1.1.0",
+    "phonegap-plugin-multidex": "1.0.0",
+    "phonegap-plugin-push": "2.2.3"
   };
 });
