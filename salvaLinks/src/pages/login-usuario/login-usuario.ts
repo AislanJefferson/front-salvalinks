@@ -56,7 +56,7 @@ export class LoginUsuarioPage {
   }
 
   irParaCadastro() {
-    this.navCtrl.setRoot(CadastroUsuarioPage);
+    this.navCtrl.setRoot(CadastroUsuarioPage,"https://salvalinks.herokuapp.com/users/register");
   }
 
 }
