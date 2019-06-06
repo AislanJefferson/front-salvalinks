@@ -28,10 +28,10 @@ var map = {
 		161
 	],
 	"../pages/lista-links/lista-links.module": [
-		163
+		162
 	],
 	"../pages/login-usuario/login-usuario.module": [
-		162
+		163
 	],
 	"../pages/renomear-link/renomear-link.module": [
 		164
@@ -98,7 +98,7 @@ var CadastroUsuarioPageModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RenomearLinkPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_usuario_login_usuario__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lista_links_lista_links__ = __webpack_require__(43);
@@ -162,7 +162,7 @@ var RenomearLinkPage = /** @class */ (function () {
     };
     RenomearLinkPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-renomear-link',template:/*ion-inline-start:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\renomear-link\renomear-link.html"*/'<!--\n\n  Generated template for the RenomearLinkPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-content padding>\n\n\n\n  <div class="img">\n\n    <img src="/assets/imgs/logo.png">\n\n  </div>\n\n\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label stacked>Título</ion-label>\n\n      <ion-input type="text" name="name" placeholder="Novo Título do Link" [(ngModel)]="model.name"></ion-input>\n\n    </ion-item>\n\n\n\n    <div class="botao">\n\n      <button ion-button block (click)="renomearLink(model.name)" id="botao">RENOMEAR</button>\n\n    </div>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\renomear-link\renomear-link.html"*/,
+            selector: 'page-renomear-link',template:/*ion-inline-start:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\renomear-link\renomear-link.html"*/'<!--\n\n  Generated template for the RenomearLinkPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-content padding>\n\n\n\n  <div class="img">\n\n    <img src="/assets/imgs/logo.png">\n\n  </div>\n\n\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label stacked>Título</ion-label>\n\n      <ion-input type="text" name="name" placeholder="Novo Título do Link" [(ngModel)]="model.name"></ion-input>\n\n    </ion-item>\n\n\n\n    <div class="botao">\n\n      <button ion-button block (click)="renomearLink(model.name)" id="botao">RENOMEAR</button>\n\n    </div>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\renomear-link\renomear-link.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__["a" /* UsuarioProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], RenomearLinkPage);
@@ -216,44 +216,6 @@ var InserirLinkPageModule = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginUsuarioPageModule", function() { return LoginUsuarioPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_usuario__ = __webpack_require__(31);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var LoginUsuarioPageModule = /** @class */ (function () {
-    function LoginUsuarioPageModule() {
-    }
-    LoginUsuarioPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login_usuario__["a" /* LoginUsuarioPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login_usuario__["a" /* LoginUsuarioPage */]),
-            ],
-        })
-    ], LoginUsuarioPageModule);
-    return LoginUsuarioPageModule;
-}());
-
-//# sourceMappingURL=login-usuario.module.js.map
-
-/***/ }),
-
-/***/ 163:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListaLinksPageModule", function() { return ListaLinksPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
@@ -284,6 +246,44 @@ var ListaLinksPageModule = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=lista-links.module.js.map
+
+/***/ }),
+
+/***/ 163:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginUsuarioPageModule", function() { return LoginUsuarioPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_usuario__ = __webpack_require__(31);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var LoginUsuarioPageModule = /** @class */ (function () {
+    function LoginUsuarioPageModule() {
+    }
+    LoginUsuarioPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__login_usuario__["a" /* LoginUsuarioPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login_usuario__["a" /* LoginUsuarioPage */]),
+            ],
+        })
+    ], LoginUsuarioPageModule);
+    return LoginUsuarioPageModule;
+}());
+
+//# sourceMappingURL=login-usuario.module.js.map
 
 /***/ }),
 
@@ -359,7 +359,7 @@ var ConfiguracoesPage = /** @class */ (function () {
     };
     ConfiguracoesPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-configuracoes',template:/*ion-inline-start:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\configuracoes\configuracoes.html"*/'<!--\n\n  Generated template for the ConfiguracoesPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Configurações</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <h4>Essa pagina será as Configurações!</h4>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\configuracoes\configuracoes.html"*/,
+            selector: 'page-configuracoes',template:/*ion-inline-start:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\configuracoes\configuracoes.html"*/'<!--\n\n  Generated template for the ConfiguracoesPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Configurações</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n \n\n<ion-content>\n\n  <ion-list no-border>\n\n\n\n    <ion-list-header>\n\n    </ion-list-header>\n\n\n\n    <ion-item>\n\n      <ion-icon name="mail" item-start></ion-icon>\n\n      Email\n\n    </ion-item>\n\n    \n\n    <ion-item>\n\n      <ion-icon name="key" item-start></ion-icon>\n\n      Senha\n\n    </ion-item>\n\n    \n\n    <ion-item>\n\n      <ion-icon name="share" item-start></ion-icon>\n\n      Compartilhamento\n\n    </ion-item>\n\n\n\n    \n\n    <ion-item>\n\n      <ion-icon name="notifications" item-start></ion-icon>\n\n      Notificações\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      Ajuda\n\n      <ion-icon name="help-circle" item-start></ion-icon>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>\n\n        Versão\n\n      </ion-label>\n\n      <ion-icon name="build" item-start></ion-icon>\n\n      <ion-note item-end>\n\n        1.0.0\n\n      </ion-note>\n\n    </ion-item>\n\n\n\n\n\n\n\n  </ion-list>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\configuracoes\configuracoes.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], ConfiguracoesPage);
@@ -375,8 +375,10 @@ var ConfiguracoesPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PerfilPage; });
+/* unused harmony export User */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(35);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -388,6 +390,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
  * Generated class for the PerfilPage page.
  *
@@ -395,20 +398,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var PerfilPage = /** @class */ (function () {
-    function PerfilPage(navCtrl, navParams) {
+    function PerfilPage(navCtrl, navParams, auth) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.auth = auth;
+        this.model = new User();
+        this.model.email = this.auth.getEmail();
     }
     PerfilPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad PerfilPage');
     };
     PerfilPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-perfil',template:/*ion-inline-start:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\perfil\perfil.html"*/'<!--\n\n  Generated template for the PerfilPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Perfil</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n\n\n  <h4>Essa pagina será o Perfil!</h4>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\perfil\perfil.html"*/,
+            selector: 'page-perfil',template:/*ion-inline-start:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\perfil\perfil.html"*/'<!--\n\n  Generated template for the PerfilPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Perfil</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n\n\n \n\n  <ion-card>\n\n    <img class= "image" src="assets/imgs/avatar.png"/>\n\n   \n\n\n\n    <ion-item>\n\n      <ion-icon name="mail" ></ion-icon>\n\n       Email: {{model.email}}\n\n    </ion-item>\n\n\n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\perfil\perfil.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]])
     ], PerfilPage);
     return PerfilPage;
+}());
+
+var User = /** @class */ (function () {
+    function User() {
+    }
+    return User;
 }());
 
 //# sourceMappingURL=perfil.js.map
@@ -444,10 +456,10 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_cadastro_usuario_cadastro_usuario_module__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_usuario_usuario__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_usuario_login_usuario_module__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_auth_auth__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_usuario_login_usuario_module__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_auth_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_inserir_link_inserir_link_module__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_lista_links_lista_links_module__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_lista_links_lista_links_module__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_renomear_link_renomear_link_module__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_configuracoes_configuracoes_module__ = __webpack_require__(285);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_perfil_perfil_module__ = __webpack_require__(286);
@@ -491,8 +503,8 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/cadastro-usuario/cadastro-usuario.module#CadastroUsuarioPageModule', name: 'CadastroUsuarioPage', segment: 'cadastro-usuario', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/inserir-link/inserir-link.module#InserirLinkPageModule', name: 'InserirLinkPage', segment: 'inserir-link', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login-usuario/login-usuario.module#LoginUsuarioPageModule', name: 'LoginUsuarioPage', segment: 'login-usuario', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/lista-links/lista-links.module#ListaLinksPageModule', name: 'ListaLinksPage', segment: 'lista-links', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login-usuario/login-usuario.module#LoginUsuarioPageModule', name: 'LoginUsuarioPage', segment: 'login-usuario', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/renomear-link/renomear-link.module#RenomearLinkPageModule', name: 'RenomearLinkPage', segment: 'renomear-link', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -599,7 +611,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\app\app.html"*/'<ion-menu [content]="content" side="left">\n\n    <ion-header>\n\n      <ion-toolbar>\n\n        <ion-title>Menu</ion-title>\n\n      </ion-toolbar>\n\n    </ion-header>\n\n  \n\n    <ion-content>\n\n      <ion-list>\n\n        <!--<button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n            <ion-icon name="add-circle"></ion-icon> {{p.title}}\n\n        </button>-->\n\n        <button menuClose ion-item (click)="nav.setRoot(pages.inserirLink)">\n\n            <ion-icon name="add" color="primary"></ion-icon> Inserir Link\n\n          </button>\n\n          <button menuClose ion-item (click)="nav.setRoot(pages.lista)">\n\n            <ion-icon name="list" color="primary"></ion-icon> Links/Grupos\n\n          </button>\n\n          <button menuClose ion-item (click)="nav.setRoot(pages.perfil)">\n\n            <ion-icon name="person" color="primary"></ion-icon> Perfil\n\n          </button>\n\n          <button menuClose ion-item (click)="nav.setRoot(pages.configuracoes)">\n\n            <ion-icon name="settings" color="primary"></ion-icon> Configurações\n\n          </button>\n\n          <button menuClose ion-item (click)="nav.setRoot(pages.sair)">\n\n            <ion-icon name="log-out" color="danger"></ion-icon> Sair\n\n          </button>\n\n          \n\n      </ion-list>\n\n    </ion-content>\n\n  \n\n  </ion-menu>\n\n  \n\n  <!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\app\app.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\andre\Desktop\ES\salvaLinks\src\app\app.html"*/'<ion-menu [content]="content" side="left">\n\n    <ion-header>\n\n      <ion-toolbar>\n\n        <ion-title>Menu</ion-title>\n\n      </ion-toolbar>\n\n    </ion-header>\n\n  \n\n    <ion-content>\n\n      <ion-list>\n\n        <!--<button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n            <ion-icon name="add-circle"></ion-icon> {{p.title}}\n\n        </button>-->\n\n        <button menuClose ion-item (click)="nav.setRoot(pages.inserirLink)">\n\n            <ion-icon name="add" color="primary"></ion-icon> Inserir Link\n\n          </button>\n\n          <button menuClose ion-item (click)="nav.setRoot(pages.lista)">\n\n            <ion-icon name="list" color="primary"></ion-icon> Links/Grupos\n\n          </button>\n\n          <button menuClose ion-item (click)="nav.setRoot(pages.perfil)">\n\n            <ion-icon name="person" color="primary"></ion-icon> Perfil\n\n          </button>\n\n          <button menuClose ion-item (click)="nav.setRoot(pages.configuracoes)">\n\n            <ion-icon name="settings" color="primary"></ion-icon> Configurações\n\n          </button>\n\n          <button menuClose ion-item (click)="nav.setRoot(pages.sair)">\n\n            <ion-icon name="log-out" color="danger"></ion-icon> Sair\n\n          </button>\n\n          \n\n      </ion-list>\n\n    </ion-content>\n\n  \n\n  </ion-menu>\n\n  \n\n  <!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\andre\Desktop\ES\salvaLinks\src\app\app.html"*/,
             providers: [
                 __WEBPACK_IMPORTED_MODULE_10__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]
             ]
@@ -647,7 +659,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\home\home.html"*/'<ion-content padding>\n\n \n\n  <h1 text-center margin-bottom>SalvaLinks</h1>\n\n \n\n  <button ion-button block (click)="abrirTelaDeCadastro()">Criar conta</button>\n\n  <button ion-button block (click)="abrirTelaDeLogin()">Login</button>\n\n  \n\n  \n\n  \n\n  \n\n \n\n</ion-content>'/*ion-inline-end:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\home\home.html"*/'<ion-content padding>\n\n \n\n  <h1 text-center margin-bottom>SalvaLinks</h1>\n\n \n\n  <button ion-button block (click)="abrirTelaDeCadastro()">Criar conta</button>\n\n  <button ion-button block (click)="abrirTelaDeLogin()">Login</button>\n\n  \n\n  \n\n  \n\n  \n\n \n\n</ion-content>'/*ion-inline-end:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
     ], HomePage);
@@ -848,7 +860,7 @@ var Intent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_usuario_usuario__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lista_links_lista_links__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__cadastro_usuario_cadastro_usuario__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__inserir_link_inserir_link__ = __webpack_require__(44);
@@ -913,11 +925,11 @@ var LoginUsuarioPage = /** @class */ (function () {
         console.log('ionViewDidLoad LoginUsuarioPage');
     };
     LoginUsuarioPage.prototype.irParaCadastro = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__cadastro_usuario_cadastro_usuario__["a" /* CadastroUsuarioPage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__cadastro_usuario_cadastro_usuario__["a" /* CadastroUsuarioPage */], "https://salvalinks.herokuapp.com/users/register");
     };
     LoginUsuarioPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login-usuario',template:/*ion-inline-start:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\login-usuario\login-usuario.html"*/'<!--\n\n  Generated template for the LoginUsuarioPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div class="img">\n\n    <img src="assets/imgs/logo.png">\n\n  </div>\n\n\n\n  <div>\n\n    <p id="titulo" padding>LOGIN</p>\n\n  </div>\n\n\n\n  <ion-list padding>\n\n\n\n    <ion-item>\n\n      <ion-input type="text" name="email" placeholder="E-mail" [(ngModel)]="model.email"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-input type="password" name="password" placeholder="Senha" [(ngModel)]="model.password"></ion-input>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <div class="botao">\n\n    <button ion-button block [disabled]="!model.email||!model.password" (click)="loginUsuario()"\n\n      id="botao">Entrar</button>\n\n  </div>\n\n\n\n  <div class="link">\n\n    <p class="alternativo">Não possui uma conta? <a class="alternativo" (click)="irParaCadastro()">Cadastre-se</a></p>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\login-usuario\login-usuario.html"*/,
+            selector: 'page-login-usuario',template:/*ion-inline-start:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\login-usuario\login-usuario.html"*/'<!--\n\n  Generated template for the LoginUsuarioPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div class="img">\n\n    <img src="assets/imgs/logo.png">\n\n  </div>\n\n\n\n  <div>\n\n    <p id="titulo" padding>LOGIN</p>\n\n  </div>\n\n\n\n  <ion-list padding>\n\n\n\n    <ion-item>\n\n      <ion-input type="text" name="email" placeholder="E-mail" [(ngModel)]="model.email"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-input type="password" name="password" placeholder="Senha" [(ngModel)]="model.password"></ion-input>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <div class="botao">\n\n    <button ion-button block [disabled]="!model.email||!model.password" (click)="loginUsuario()"\n\n      id="botao">Entrar</button>\n\n  </div>\n\n\n\n  <div class="link">\n\n    <p class="alternativo">Não possui uma conta? <a class="alternativo" (click)="irParaCadastro()">Cadastre-se</a></p>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\login-usuario\login-usuario.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_usuario_usuario__["a" /* UsuarioProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */], __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]])
     ], LoginUsuarioPage);
@@ -934,7 +946,7 @@ var User = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 42:
+/***/ 35:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -994,7 +1006,7 @@ var AuthProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_usuario_usuario__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_usuario_login_usuario__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__inserir_link_inserir_link__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__renomear_link_renomear_link__ = __webpack_require__(160);
@@ -1085,7 +1097,7 @@ var ListaLinksPage = /** @class */ (function () {
     };
     ListaLinksPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-lista-links',template:/*ion-inline-start:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\lista-links\lista-links.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Lista de Links</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <ion-row>\n\n    <ion-col>\n\n      <button ion-button full (click)="redirectInserirLink()">Inserir Novo Link</button>\n\n    </ion-col>\n\n    <ion-col>\n\n      <button ion-button full (click)="exibirLinksCadastrados()">Atualizar</button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row nowrap>\n\n    <ion-col>\n\n      <ion-item lines="none" text-center>\n\n        <ion-label color="primary"> <strong>LINK</strong> </ion-label>\n\n      </ion-item>\n\n      <ion-list>\n\n        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">\n\n          <ion-item text-center (click)="redirectPaginaLink(link.href)">\n\n            {{ link.name }}\n\n            <ion-icon name="arrow-dropleft" item-right></ion-icon>\n\n          </ion-item>\n\n          <ion-item-options>\n\n            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">\n\n              <ion-icon name="create"></ion-icon>\n\n            </button>\n\n            <button ion-button icon-only light (click)="deletarLink(link.href)">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </button>\n\n          </ion-item-options>\n\n        </ion-item-sliding>\n\n      </ion-list>\n\n    </ion-col>\n\n\n\n    <ion-col>\n\n      <ion-item lines="none" text-center>\n\n        <ion-label color="primary"> <strong>GRUPO</strong> </ion-label>\n\n      </ion-item>\n\n      <ion-list>\n\n        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">\n\n          <ion-item text-center>\n\n            {{ link.grupo }}\n\n            <ion-icon name="arrow-dropleft" item-right></ion-icon>\n\n          </ion-item>\n\n          <ion-item-options>\n\n            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">\n\n              <ion-icon name="create"></ion-icon>\n\n            </button>\n\n            <button ion-button icon-only light (click)="deletarLink(link.href)">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </button>\n\n          </ion-item-options>\n\n        </ion-item-sliding>\n\n      </ion-list>\n\n    </ion-col>\n\n\n\n    <ion-col>\n\n      <ion-item lines="none" text-center>\n\n        <ion-label color="primary"> <strong>CLASSIFICAÇÃO</strong> </ion-label>\n\n      </ion-item>\n\n      <ion-list>\n\n        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">\n\n          <ion-item text-center>\n\n            {{ link.importance }}\n\n            <ion-icon name="arrow-dropleft" item-right></ion-icon>\n\n          </ion-item>\n\n          <ion-item-options>\n\n            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">\n\n              <ion-icon name="create"></ion-icon>\n\n            </button>\n\n            <button ion-button icon-only light (click)="deletarLink(link.href)">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </button>\n\n          </ion-item-options>\n\n        </ion-item-sliding>\n\n      </ion-list>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\lista-links\lista-links.html"*/,
+            selector: 'page-lista-links',template:/*ion-inline-start:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\lista-links\lista-links.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Lista de Links</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <ion-row>\n\n    <ion-col>\n\n      <button ion-button full (click)="redirectInserirLink()">Inserir Novo Link</button>\n\n    </ion-col>\n\n    <ion-col>\n\n      <button ion-button full (click)="exibirLinksCadastrados()">Atualizar</button>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row nowrap>\n\n    <ion-col>\n\n      <ion-item lines="none" text-center>\n\n        <ion-label color="primary"> <strong>LINK</strong> </ion-label>\n\n      </ion-item>\n\n      <ion-list>\n\n        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">\n\n          <ion-item text-center (click)="redirectPaginaLink(link.href)">\n\n            {{ link.name }}\n\n            <ion-icon name="arrow-dropleft" item-right></ion-icon>\n\n          </ion-item>\n\n          <ion-item-options>\n\n            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">\n\n              <ion-icon name="create"></ion-icon>\n\n            </button>\n\n            <button ion-button icon-only light (click)="deletarLink(link.href)">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </button>\n\n          </ion-item-options>\n\n        </ion-item-sliding>\n\n      </ion-list>\n\n    </ion-col>\n\n\n\n    <ion-col>\n\n      <ion-item lines="none" text-center>\n\n        <ion-label color="primary"> <strong>GRUPO</strong> </ion-label>\n\n      </ion-item>\n\n      <ion-list>\n\n        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">\n\n          <ion-item text-center>\n\n            {{ link.grupo }}\n\n            <ion-icon name="arrow-dropleft" item-right></ion-icon>\n\n          </ion-item>\n\n          <ion-item-options>\n\n            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">\n\n              <ion-icon name="create"></ion-icon>\n\n            </button>\n\n            <button ion-button icon-only light (click)="deletarLink(link.href)">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </button>\n\n          </ion-item-options>\n\n        </ion-item-sliding>\n\n      </ion-list>\n\n    </ion-col>\n\n\n\n    <ion-col>\n\n      <ion-item lines="none" text-center>\n\n        <ion-label color="primary"> <strong>CLASSIFICAÇÃO</strong> </ion-label>\n\n      </ion-item>\n\n      <ion-list>\n\n        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">\n\n          <ion-item text-center>\n\n            {{ link.importance }}\n\n            <ion-icon name="arrow-dropleft" item-right></ion-icon>\n\n          </ion-item>\n\n          <ion-item-options>\n\n            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">\n\n              <ion-icon name="create"></ion-icon>\n\n            </button>\n\n            <button ion-button icon-only light (click)="deletarLink(link.href)">\n\n              <ion-icon name="trash"></ion-icon>\n\n            </button>\n\n          </ion-item-options>\n\n        </ion-item-sliding>\n\n      </ion-list>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\lista-links\lista-links.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1__providers_usuario_usuario__["a" /* UsuarioProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* ToastController */]])
     ], ListaLinksPage);
@@ -1105,7 +1117,7 @@ var ListaLinksPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_usuario_usuario__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_usuario_login_usuario__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lista_links_lista_links__ = __webpack_require__(43);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1175,7 +1187,7 @@ var InserirLinkPage = /** @class */ (function () {
     };
     InserirLinkPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-inserir-link',template:/*ion-inline-start:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\inserir-link\inserir-link.html"*/'<!--\n\n  Generated template for the InserirLinkPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Adicionar Link</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <div class="img">\n\n    <img src="/assets/imgs/logo.png">\n\n  </div>\n\n\n\n  <div></div>\n\n  <ion-list>\n\n    \n\n    <ion-item>\n\n\n\n      <ion-label stacked>Link*</ion-label>\n\n      <ion-input type="http" name="href" placeholder="Link a ser adicionado" [(ngModel)]="model.href" required>\n\n      </ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label stacked>Título</ion-label>\n\n      <ion-input type="text" name="name" placeholder="Título do link (opcional)" [(ngModel)]="model.name"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label stacked>Relevância</ion-label>\n\n      <ion-select [(ngModel)]="model.importance">\n\n        <ion-option value="alta">Alta</ion-option>\n\n        <ion-option value="normal">Normal</ion-option>\n\n        <ion-option value="baixa">Baixa</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <div class="botao">\n\n      <button ion-button block (click)="inserirLink()" id="botao">ADICIONAR</button>\n\n    </div>\n\n\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\inserir-link\inserir-link.html"*/,
+            selector: 'page-inserir-link',template:/*ion-inline-start:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\inserir-link\inserir-link.html"*/'<!--\n\n  Generated template for the InserirLinkPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Adicionar Link</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <div class="img">\n\n    <img src="/assets/imgs/logo.png">\n\n  </div>\n\n\n\n  <div></div>\n\n  <ion-list>\n\n    \n\n    <ion-item>\n\n\n\n      <ion-label stacked>Link*</ion-label>\n\n      <ion-input type="http" name="href" placeholder="Link a ser adicionado" [(ngModel)]="model.href" required>\n\n      </ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label stacked>Título</ion-label>\n\n      <ion-input type="text" name="name" placeholder="Título do link (opcional)" [(ngModel)]="model.name"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label stacked>Relevância</ion-label>\n\n      <ion-select [(ngModel)]="model.importance">\n\n        <ion-option value="alta">Alta</ion-option>\n\n        <ion-option value="normal">Normal</ion-option>\n\n        <ion-option value="baixa">Baixa</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <div class="botao">\n\n      <button ion-button block (click)="inserirLink()" id="botao">ADICIONAR</button>\n\n    </div>\n\n\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\inserir-link\inserir-link.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_usuario_usuario__["a" /* UsuarioProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]])
     ], InserirLinkPage);
@@ -1271,7 +1283,7 @@ var CadastroUsuarioPage = /** @class */ (function () {
     };
     CadastroUsuarioPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-cadastro-usuario',template:/*ion-inline-start:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\cadastro-usuario\cadastro-usuario.html"*/'<ion-content padding>\n\n\n\n  <div class="img">\n\n    <img src="assets/imgs/logo.png">\n\n  </div>\n\n\n\n  <div>\n\n    <p id="titulo" padding>CRIE UMA CONTA</p>\n\n  </div>\n\n\n\n  <ion-list padding>\n\n    <ion-item>\n\n      <ion-input type="text" name="name" placeholder="Nome" [(ngModel)]="model.name"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-input type="text" name="email" placeholder="E-mail" [(ngModel)]="model.email"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-input type="password" name="password" placeholder="Senha" [(ngModel)]="model.password"></ion-input>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <div class="botao">\n\n    <button ion-button block [disabled]="!model.name||!model.email||!model.password" (click)="cadastrarUsuario()"\n\n      id="botao">CADASTRAR</button>\n\n  </div>\n\n\n\n  <div class="link">\n\n    <p class="alternativo">Já possui uma conta?<a class="alternativo" (click)="irParaLogin()"> Login</a></p>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Redson\Documents\salvaLink\front-salvalinks\salvaLinks\src\pages\cadastro-usuario\cadastro-usuario.html"*/,
+            selector: 'page-cadastro-usuario',template:/*ion-inline-start:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\cadastro-usuario\cadastro-usuario.html"*/'<ion-content padding>\n\n\n\n  <div class="img">\n\n    <img src="assets/imgs/logo.png">\n\n  </div>\n\n\n\n  <div>\n\n    <p id="titulo" padding>CRIE UMA CONTA</p>\n\n  </div>\n\n\n\n  <ion-list padding>\n\n    <ion-item>\n\n      <ion-input type="text" name="name" placeholder="Nome" [(ngModel)]="model.name"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-input type="text" name="email" placeholder="E-mail" [(ngModel)]="model.email"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-input type="password" name="password" placeholder="Senha" [(ngModel)]="model.password"></ion-input>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <div class="botao">\n\n    <button ion-button block [disabled]="!model.name||!model.email||!model.password" (click)="cadastrarUsuario()"\n\n      id="botao">CADASTRAR</button>\n\n  </div>\n\n\n\n  <div class="link">\n\n    <p class="alternativo">Já possui uma conta?<a class="alternativo" (click)="irParaLogin()"> Login</a></p>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\andre\Desktop\ES\salvaLinks\src\pages\cadastro-usuario\cadastro-usuario.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1__providers_usuario_usuario__["a" /* UsuarioProvider */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* ToastController */]])
     ], CadastroUsuarioPage);

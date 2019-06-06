@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
 
 /**
  * Generated class for the PerfilPage page.
@@ -13,12 +14,21 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'perfil.html',
 })
 export class PerfilPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  model: User;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthProvider) {
+     this.model = new User();
+     this.model.email = this.auth.getEmail()
+   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerfilPage');
   }
 
+}
+
+export class User {
+  name: string;
+  email: string;
+  password: string;
 }
