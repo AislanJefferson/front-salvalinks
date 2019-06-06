@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { UsuarioProvider } from './../../providers/usuario/usuario';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ListaLinksPage } from '../lista-links/lista-links';
@@ -30,7 +30,7 @@ export class LoginUsuarioPage {
     this.dadosUsuarioProvider.setDados(this.model.email, this.model.password)
     let dados = JSON.parse(this.dadosUsuarioProvider.getDados());
     console.log(dados)
-    
+
     this.usuarioProvider.logarUsuario(dados.email, dados.password).subscribe((result: any) => {
       this.usuarioProvider.setTokenHeader(result._body);
       this.authProvider.autentica(this.model.email);
@@ -56,7 +56,7 @@ export class LoginUsuarioPage {
   }
 
   irParaCadastro() {
-    this.navCtrl.setRoot(CadastroUsuarioPage,"https://salvalinks.herokuapp.com/users/register");
+    this.navCtrl.setRoot(CadastroUsuarioPage, "https://salvalinks.herokuapp.com/users/register");
   }
 
 }
