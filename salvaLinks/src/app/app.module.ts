@@ -19,6 +19,14 @@ import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.mo
 import { PerfilPageModule } from '../pages/perfil/perfil.module';
 import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
 
+import { Deeplinks } from '@ionic-native/deeplinks/ngx';
+import { CadastroUsuarioPage } from '../pages/cadastro-usuario/cadastro-usuario';
+import { LoginUsuarioPage } from '../pages/login-usuario/login-usuario';
+import { InserirLinkPage } from '../pages/inserir-link/inserir-link';
+import { ListaLinksPage } from '../pages/lista-links/lista-links';
+import { PerfilPage } from '../pages/perfil/perfil';
+import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +34,21 @@ import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,
+      {
+      // 
+      }, {
+        links: [
+          // DeepLinker
+        {component: LoginUsuarioPage, name: 'LoginUsuario', segment: 'login'},
+        {component: CadastroUsuarioPage, name: 'CadastroUsuario', segment: 'users/register'},
+        {component: ListaLinksPage, name: 'ListaLinks', segment: 'links'},
+        {component: InserirLinkPage, name: 'InserirLink', segment: 'links/add'},
+        {component: PerfilPage, name: 'Perfil', segment: 'perfil'},
+        {component: ConfiguracoesPage, name: 'Configuracoes', segment: 'configuracoes'}
+        ]
+      }
+      ),
     CadastroUsuarioPageModule,
     LoginUsuarioPageModule,
     InserirLinkPageModule,
@@ -47,7 +69,8 @@ import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UsuarioProvider,
     AuthProvider,
-    DadosUsuarioProvider
+    DadosUsuarioProvider,
+    Deeplinks
   ]
 })
 export class AppModule { }

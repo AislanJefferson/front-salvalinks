@@ -64,6 +64,15 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "PushNotification"
       ]
+    },
+    {
+      "id": "ionic-plugin-deeplinks.deeplink",
+      "file": "plugins/ionic-plugin-deeplinks/www/deeplink.js",
+      "pluginId": "ionic-plugin-deeplinks",
+      "clobbers": [
+        "IonicDeeplink"
+      ],
+      "runs": true
     }
   ];
   module.exports.metadata = {
@@ -77,6 +86,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-inappbrowser": "3.0.0",
     "cordova-support-google-services": "1.1.0",
     "phonegap-plugin-multidex": "1.0.0",
-    "phonegap-plugin-push": "2.2.3"
+    "phonegap-plugin-push": "2.2.3",
+    "ionic-plugin-deeplinks": "1.0.20"
   };
 });

@@ -17,6 +17,22 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="salvaLink" />
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="https://salvalinks.herokuapp.com" android:pathPrefix="/" android:scheme="https" />
+                <data android:host=" " android:pathPrefix="/" android:scheme=" " />
+                <data android:host=" " android:pathPrefix="/" android:scheme=" " />
+                <data android:host=" " android:pathPrefix="/" android:scheme=" " />
+                <data android:host=" " android:pathPrefix="/" android:scheme=" " />
+            </intent-filter>
         </activity>
         <provider android:authorities="${applicationId}.darryncampbell.cordova.plugin.intent.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.darryncampbell.cordova.plugin.intent.CordovaPluginIntentFileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths" />

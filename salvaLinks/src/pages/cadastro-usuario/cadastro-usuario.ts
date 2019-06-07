@@ -10,7 +10,7 @@ import { LoginUsuarioPage } from '../login-usuario/login-usuario';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({segment: 'users/register'})
 @Component({
   selector: 'page-cadastro-usuario',
   templateUrl: 'cadastro-usuario.html',

@@ -6,6 +6,7 @@ import { ToastController } from 'ionic-angular';
 import { User } from '../login-usuario/login-usuario';
 import { InserirLinkPage, Link } from '../inserir-link/inserir-link';
 import { RenomearLinkPage } from '../renomear-link/renomear-link';
+import { stringify } from '@angular/compiler/src/util';
 
 /**
  * Generated class for the ListaLinksPage page.
@@ -23,14 +24,17 @@ export class ListaLinksPage {
   public listaLinks = new Array<any>();
   model: User;
   link: Link;
+  email: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController) {
     this.model = new User();
-    this.link = new Link();
+    this.link = new Link(); 
+    this.email = "this.authProvider.getEmail()";
   }
 
   ionViewWillEnter() {
     this.exibirLinksCadastrados();
+    
   }
 
   exibirLinksCadastrados() {

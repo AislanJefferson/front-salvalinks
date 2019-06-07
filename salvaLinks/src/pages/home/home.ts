@@ -15,7 +15,7 @@ export class HomePage {
   }
 
   abrirTelaDeCadastro() {
-    this.navCtrl.setRoot(CadastroUsuarioPage, "https://salvalinks.herokuapp.com/users/register");
+    this.navCtrl.setRoot(CadastroUsuarioPage);
   }
   abrirTelaDeLogin(){
     this.navCtrl.setRoot(LoginUsuarioPage);
