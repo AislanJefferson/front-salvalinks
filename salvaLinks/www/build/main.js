@@ -389,6 +389,7 @@ var LoginUsuarioPage = /** @class */ (function () {
         console.log(dados);
         this.usuarioProvider.logarUsuario(dados.email, dados.password).subscribe(function (result) {
             _this.usuarioProvider.setTokenHeader(result._body);
+            console.log(result._body);
             _this.authProvider.autentica(_this.model.email);
             if (_this.usuarioProvider.temLinkAInserir())
                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__inserir_link_inserir_link__["a" /* InserirLinkPage */]);
@@ -978,7 +979,6 @@ var ListaLinksPage = /** @class */ (function () {
         this.listaLinks = new Array();
         this.model = new __WEBPACK_IMPORTED_MODULE_4__login_usuario_login_usuario__["b" /* User */]();
         this.link = new __WEBPACK_IMPORTED_MODULE_5__inserir_link_inserir_link__["b" /* Link */]();
-        this.email = "this.authProvider.getEmail()";
     }
     ListaLinksPage.prototype.ionViewWillEnter = function () {
         this.exibirLinksCadastrados();

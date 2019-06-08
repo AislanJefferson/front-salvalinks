@@ -33,6 +33,7 @@ export class LoginUsuarioPage {
 
     this.usuarioProvider.logarUsuario(dados.email, dados.password).subscribe((result: any) => {
       this.usuarioProvider.setTokenHeader(result._body);
+      console.log(result._body)
       this.authProvider.autentica(this.model.email);
       if (this.usuarioProvider.temLinkAInserir()) this.navCtrl.setRoot(InserirLinkPage);
       else
