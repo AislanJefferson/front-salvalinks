@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 */
 
 let dados_key_name = "dados";
+let lista_key_name = "lista";
 
 @Injectable()
 export class DadosUsuarioProvider {
@@ -34,4 +35,20 @@ export class DadosUsuarioProvider {
 
     localStorage.setItem(dados_key_name, JSON.stringify(dados));
   }
+
+  getLinks() {
+    return localStorage.getItem(lista_key_name);
+  }
+
+  setLinks(links: any) {
+    let lista = {
+      links: ""
+    }
+    
+    lista.links = links
+
+    localStorage.setItem(lista_key_name, JSON.stringify(lista));
+  }
 }
+
+

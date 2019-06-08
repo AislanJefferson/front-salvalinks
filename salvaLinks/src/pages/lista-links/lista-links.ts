@@ -7,6 +7,7 @@ import { User } from '../login-usuario/login-usuario';
 import { InserirLinkPage, Link } from '../inserir-link/inserir-link';
 import { RenomearLinkPage } from '../renomear-link/renomear-link';
 import { stringify } from '@angular/compiler/src/util';
+import { DadosUsuarioProvider } from '../../providers/dados-usuario/dados-usuario';
 
 /**
  * Generated class for the ListaLinksPage page.
@@ -26,10 +27,9 @@ export class ListaLinksPage {
   link: Link;
   email: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController, public dadosUsuarioProvider: DadosUsuarioProvider) {
     this.model = new User();
     this.link = new Link(); 
-    this.email = "this.authProvider.getEmail()";
   }
 
   ionViewWillEnter() {
@@ -41,6 +41,7 @@ export class ListaLinksPage {
     this.usuarioProvider.exibirLinksCadastrados(this.authProvider.getEmail()).subscribe((result: any) => {
       //var respOK = result.json();
       this.listaLinks = result.json();
+      
       //console.log(respOK);
     }, (error) => {
       var resp = error.json()
