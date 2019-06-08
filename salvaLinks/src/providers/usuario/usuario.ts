@@ -8,6 +8,9 @@ import 'rxjs/add/operator/map';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+
+let token_key_name = "token";
+
 @Injectable()
 export class UsuarioProvider {
 
@@ -15,13 +18,14 @@ export class UsuarioProvider {
   private httpHeader = new Headers();
   private options;
   private links: Intent[];
-  private token: "";
+  private token = "";
 
   constructor(public http: Http) {
     console.log('Hello UsuarioProvider Provider');
     this.httpHeader.append('Content-Type', 'application/json');
     this.options = new RequestOptions({ headers: this.httpHeader });
     this.links = [];
+
   }
 
   cadastrarUsuario(name: string, email: string, password: string) {
@@ -69,11 +73,15 @@ export class UsuarioProvider {
   }
 
   setTokenHeader(token: string){
-    let str = ""
+    let str = token
     this.options.headers.delete('Authorization');
-    str = this.options.headers.append('Authorization','Bearer '+token);
+    this.options.headers.append('Authorization','Bearer '+ str);
 
-    localStorage.setItem("token", str);
+    localStorage.setItem(token_key_name, str);
+  }
+
+  getTokenHeader() {
+    return localStorage.getItem(token_key_name)
   }
 
   addLinkExterno(titulo: string, link: string) {

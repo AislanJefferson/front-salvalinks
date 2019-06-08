@@ -390,6 +390,7 @@ var LoginUsuarioPage = /** @class */ (function () {
         this.usuarioProvider.logarUsuario(dados.email, dados.password).subscribe(function (result) {
             _this.usuarioProvider.setTokenHeader(result._body);
             console.log(result._body);
+            console.log(_this.usuarioProvider.getTokenHeader());
             _this.authProvider.autentica(_this.model.email);
             if (_this.usuarioProvider.temLinkAInserir())
                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__inserir_link_inserir_link__["a" /* InserirLinkPage */]);
@@ -849,11 +850,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+var token_key_name = "token";
 var UsuarioProvider = /** @class */ (function () {
     function UsuarioProvider(http) {
         this.http = http;
         this.baseApiPath = "https://salvalinks.herokuapp.com/";
         this.httpHeader = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]();
+        this.token = "";
         console.log('Hello UsuarioProvider Provider');
         this.httpHeader.append('Content-Type', 'application/json');
         this.options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({ headers: this.httpHeader });
@@ -896,10 +899,13 @@ var UsuarioProvider = /** @class */ (function () {
         return this.http.delete(url, this.options);
     };
     UsuarioProvider.prototype.setTokenHeader = function (token) {
-        var str = "";
+        var str = token;
         this.options.headers.delete('Authorization');
-        str = this.options.headers.append('Authorization', 'Bearer ' + token);
-        localStorage.setItem("token", str);
+        this.options.headers.append('Authorization', 'Bearer ' + str);
+        localStorage.setItem(token_key_name, str);
+    };
+    UsuarioProvider.prototype.getTokenHeader = function () {
+        return localStorage.getItem(token_key_name);
     };
     UsuarioProvider.prototype.addLinkExterno = function (titulo, link) {
         this.links.push(new Intent(titulo, link));
