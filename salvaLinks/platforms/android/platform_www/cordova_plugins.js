@@ -58,14 +58,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "phonegap-plugin-push.PushNotification",
-      "file": "plugins/phonegap-plugin-push/www/push.js",
-      "pluginId": "phonegap-plugin-push",
-      "clobbers": [
-        "PushNotification"
-      ]
-    },
-    {
       "id": "ionic-plugin-deeplinks.deeplink",
       "file": "plugins/ionic-plugin-deeplinks/www/deeplink.js",
       "pluginId": "ionic-plugin-deeplinks",
@@ -73,6 +65,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
         "IonicDeeplink"
       ],
       "runs": true
+    },
+    {
+      "id": "onesignal-cordova-plugin.OneSignal",
+      "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+      "pluginId": "onesignal-cordova-plugin",
+      "clobbers": [
+        "OneSignal"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -84,9 +84,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-ionic-keyboard": "2.1.3",
     "com-darryncampbell-cordova-plugin-intent": "1.1.7",
     "cordova-plugin-inappbrowser": "3.0.0",
-    "cordova-support-google-services": "1.1.0",
-    "phonegap-plugin-multidex": "1.0.0",
-    "phonegap-plugin-push": "2.2.3",
-    "ionic-plugin-deeplinks": "1.0.20"
+    "ionic-plugin-deeplinks": "1.0.20",
+    "onesignal-cordova-plugin": "2.4.7"
   };
 });

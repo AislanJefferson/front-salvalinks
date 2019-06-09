@@ -23,18 +23,18 @@
     "@ionic-native/core": "~4.20.0",
     "@ionic-native/deeplinks": "^5.7.0",
     "@ionic-native/in-app-browser": "^5.6.1",
+    "@ionic-native/onesignal": "^4.9.0",
     "@ionic-native/splash-screen": "~4.20.0",
     "@ionic-native/status-bar": "~4.20.0",
     "@ionic/storage": "2.2.0",
     "com-darryncampbell-cordova-plugin-intent": "1.1.7",
     "cordova-android": "8.0.0",
     "cordova-plugin-inappbrowser": "3.0.0",
-    "cordova-support-google-services": "1.1.0",
     "ionic-angular": "3.9.5",
     "ionic-plugin-deeplinks": "1.0.20",
     "ionicons": "3.0.0",
+    "onesignal-cordova-plugin": "2.4.7",
     "phonegap-plugin-multidex": "1.0.0",
-    "phonegap-plugin-push": "2.2.3",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.29"
@@ -63,10 +63,6 @@
       "cordova-plugin-ionic-keyboard": {},
       "com-darryncampbell-cordova-plugin-intent": {},
       "cordova-plugin-inappbrowser": {},
-      "phonegap-plugin-push": {
-        "ANDROID_SUPPORT_V13_VERSION": "27.+",
-        "FCM_VERSION": "11.6.2"
-      },
       "ionic-plugin-deeplinks": {
         "URL_SCHEME": "salvaLink",
         "DEEPLINK_SCHEME": "https",
@@ -84,7 +80,8 @@
         "DEEPLINK_4_HOST": " ",
         "DEEPLINK_5_SCHEME": " ",
         "DEEPLINK_5_HOST": " "
-      }
+      },
+      "onesignal-cordova-plugin": {}
     },
     "platforms": [
       "android"

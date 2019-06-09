@@ -10,6 +10,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { ListaLinksPage } from '../pages/lista-links/lista-links';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
+import { OneSignal, OSNotificationPayload } from '@ionic-native/onesignal';
 @Component({
   templateUrl: 'app.html',
   providers: [
@@ -21,13 +22,19 @@ export class MyApp {
   rootPage: any = LoginUsuarioPage;
 
   pages: any;
-
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public usuarioProvider: UsuarioProvider, public dadosUsuarioProvider: DadosUsuarioProvider) {
+  private senderId = '457258455793';
+  private oneSignalAppId = '31636f90-5d25-4d00-8e4b-b02e566f8a44';
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public usuarioProvider: UsuarioProvider, public dadosUsuarioProvider: DadosUsuarioProvider, private oneSignal: OneSignal) {
     let obj = this;
     platform.ready().then(() => {
       let dados = dadosUsuarioProvider.getDados();
       console.log(dados);
       if (platform.is('android')) {
+        this.oneSignal.startInit(this.oneSignalAppId, this.senderId);
+        this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
+        this.oneSignal.handleNotificationReceived().subscribe(data => this.onPushReceived(data.payload));
+        this.oneSignal.handleNotificationOpened().subscribe(data => this.onPushOpened(data.notification.payload));
+        this.oneSignal.endInit();
         (<any>window).plugins.intentShim.getIntent(
           function (intent) {
             //you should filter on the intents you actually want to receive based on Intent.action
@@ -53,7 +60,13 @@ export class MyApp {
     }
   }
 
+  private onPushReceived(payload: OSNotificationPayload) {
+    alert('Lembre se de ver: ' + payload.body);
+  }
 
+  private onPushOpened(payload: OSNotificationPayload) {
+    window.open(payload.body, '_system');
+  }
 
 
 }

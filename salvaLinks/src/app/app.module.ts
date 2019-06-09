@@ -26,6 +26,8 @@ import { InserirLinkPage } from '../pages/inserir-link/inserir-link';
 import { ListaLinksPage } from '../pages/lista-links/lista-links';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
+import {OneSignal} from '@ionic-native/onesignal';
+import { OnesignalProvider } from '../providers/onesignal/onesignal';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
     UsuarioProvider,
     AuthProvider,
     DadosUsuarioProvider,
-    Deeplinks
+    Deeplinks,
+    OneSignal,
+    OnesignalProvider
   ]
 })
 export class AppModule { }

@@ -6,7 +6,6 @@ import { ToastController } from 'ionic-angular';
 import { User } from '../login-usuario/login-usuario';
 import { InserirLinkPage, Link } from '../inserir-link/inserir-link';
 import { RenomearLinkPage } from '../renomear-link/renomear-link';
-import { stringify } from '@angular/compiler/src/util';
 import { DadosUsuarioProvider } from '../../providers/dados-usuario/dados-usuario';
 
 /**
