@@ -25745,3 +25745,17 @@ a {
   background-color: #5a1eff;
   font-size: 15px;
 }
+
+page-home .card-background-page ion-card {
+  position: relative;
+  text-align: center;
+}
+
+page-home img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 5px;
+}
