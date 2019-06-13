@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CadastroUsuarioPage } from './../cadastro-usuario/cadastro-usuario';
 import { LoginUsuarioPage } from '../login-usuario/login-usuario';
-import { RedefinirSenhaPage } from '../redefinir-senha/redefinir-senha';
 
 
 @Component({
@@ -22,7 +21,4 @@ export class HomePage {
     this.navCtrl.setRoot(LoginUsuarioPage);
   }
 
-  irParaRedefinir() {
-    this.navCtrl.setRoot(RedefinirSenhaPage)
-  }
 }

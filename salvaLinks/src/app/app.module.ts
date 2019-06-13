@@ -49,7 +49,7 @@ import { RedefinirSenhaPage } from '../pages/redefinir-senha/redefinir-senha';
         {component: InserirLinkPage, name: 'InserirLink', segment: 'links/add'},
         {component: PerfilPage, name: 'Perfil', segment: 'perfil'},
         {component: ConfiguracoesPage, name: 'Configuracoes', segment: 'config'},
-        {component: RedefinirSenhaPage, name: 'RedefinirSenha', segment: 'reset'}
+        {component: RedefinirSenhaPage, name: 'RedefinirSenha', segment: 'redefine'}
         ]
       }
       ),

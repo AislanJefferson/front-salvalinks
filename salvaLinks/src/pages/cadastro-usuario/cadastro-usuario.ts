@@ -42,7 +42,7 @@ export class CadastroUsuarioPage {
           });
           toast.present();
         });
-    //limpa campos
+    
     this.model.name = "";
     this.model.email = "";
     this.model.password = "";

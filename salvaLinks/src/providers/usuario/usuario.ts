@@ -9,8 +9,6 @@ import 'rxjs/add/operator/map';
   and Angular DI.
 */
 
-let token_key_name = "token";
-
 @Injectable()
 export class UsuarioProvider {
 
@@ -18,7 +16,6 @@ export class UsuarioProvider {
   private httpHeader = new Headers();
   private options;
   private links: Intent[];
-  private token = "";
 
   constructor(public http: Http) {
     console.log('Hello UsuarioProvider Provider');
@@ -41,6 +38,12 @@ export class UsuarioProvider {
   logarUsuario(email: string, password: string) {
     var url = this.baseApiPath + 'users/login?email=' + email + '&password=' + password;
     return this.http.post(url, this.options);
+  }
+
+  enviarEmail(email: string) {
+    var url = this.baseApiPath + 'redefine?email=' + email;
+
+    return this.http.post(url, this.options)
   }
 
   exibirUsuariosCadastrados() {
@@ -73,15 +76,8 @@ export class UsuarioProvider {
   }
 
   setTokenHeader(token: string){
-    let str = token
     this.options.headers.delete('Authorization');
-    this.options.headers.append('Authorization','Bearer '+ str);
-
-    localStorage.setItem(token_key_name, str);
-  }
-
-  getTokenHeader() {
-    return localStorage.getItem(token_key_name)
+    this.options.headers.append('Authorization','Bearer '+ token);
   }
 
   addLinkExterno(titulo: string, link: string) {
