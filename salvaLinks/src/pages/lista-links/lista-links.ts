@@ -28,19 +28,19 @@ export class ListaLinksPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController, public dadosUsuarioProvider: DadosUsuarioProvider) {
     this.model = new User();
-    this.link = new Link(); 
+    this.link = new Link();
   }
 
   ionViewWillEnter() {
     this.exibirLinksCadastrados();
-    
+
   }
 
   exibirLinksCadastrados() {
     this.usuarioProvider.exibirLinksCadastrados(this.authProvider.getEmail()).subscribe((result: any) => {
       //var respOK = result.json();
       this.listaLinks = result.json();
-      
+
       //console.log(respOK);
     }, (error) => {
       var resp = error.json()

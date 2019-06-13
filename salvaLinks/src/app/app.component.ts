@@ -61,7 +61,7 @@ export class MyApp {
   }
 
   private onPushReceived(payload: OSNotificationPayload) {
-    alert('Lembre se de ver: ' + payload.body);
+    console.log(payload.body);
   }
 
   private onPushOpened(payload: OSNotificationPayload) {
