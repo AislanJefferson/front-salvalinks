@@ -10,6 +10,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { ListaLinksPage } from '../pages/lista-links/lista-links';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
+import { RedefinirSenhaPage } from '../pages/redefinir-senha/redefinir-senha';
 @Component({
   templateUrl: 'app.html',
   providers: [

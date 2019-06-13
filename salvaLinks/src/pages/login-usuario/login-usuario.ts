@@ -6,6 +6,7 @@ import { ListaLinksPage } from '../lista-links/lista-links';
 import { CadastroUsuarioPage } from '../cadastro-usuario/cadastro-usuario';
 import { InserirLinkPage } from '../inserir-link/inserir-link';
 import { DadosUsuarioProvider } from '../../providers/dados-usuario/dados-usuario';
+import { RedefinirSenhaPage } from '../redefinir-senha/redefinir-senha';
 
 /**
  * Generated class for the LoginUsuarioPage page.
@@ -61,6 +62,9 @@ export class LoginUsuarioPage {
     this.navCtrl.setRoot(CadastroUsuarioPage);
   }
 
+  irParaRedefinir() {
+    this.navCtrl.setRoot(RedefinirSenhaPage);
+  }
 }
 export class User {
   email: string;

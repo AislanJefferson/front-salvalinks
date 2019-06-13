@@ -25745,3 +25745,9 @@ a {
   background-color: #5a1eff;
   font-size: 15px;
 }
+
+.paragrafo {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 12px;
+}
