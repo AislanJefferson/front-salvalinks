@@ -26,30 +26,19 @@ export class RenomearLinkPage {
     this.model = new Link();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RenomearLinkPage');
-  }
-
   renomearLink(nomeAtual) {
     if (this.authProvider.autenticado()) {
-      this.usuarioProvider.renomearLink(this.authProvider.getEmail(), this.navParams.get('url'), this.navParams.get('nomeLink'), this.model.name).
-        subscribe((result: any) => {
-          var response = result.json();
-          console.log(response);
-
-          const alert = this.alertCtrl.create({
-            title: 'Link Renomeado!',
-            subTitle: response.name + ' foi renomeado na sua lista de links!',
-            buttons: ['OK']
-          });
-          alert.present();
-          this.navCtrl.setRoot(ListaLinksPage);
-        },
-          (error) => {
-            console.log(error)
-          });
-
-    } else {
+      this.usuarioProvider.renomearLink(this.navParams.get('url'), this.model.name).
+      subscribe((result: any) => {
+        var response = result.json();
+        console.log(response);
+        this.navCtrl.setRoot(ListaLinksPage);
+      },
+      (error) => {
+        console.log(error);
+      });
+    } 
+    else {
       this.navCtrl.setRoot(LoginUsuarioPage);
     }
   }

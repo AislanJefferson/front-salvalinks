@@ -90,7 +90,6 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-support-google-services/starter-build.gradle"
 apply from: "../phonegap-plugin-multidex/starter-multidex.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 

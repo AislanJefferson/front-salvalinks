@@ -22,7 +22,6 @@ export class UsuarioProvider {
     this.httpHeader.append('Content-Type', 'application/json');
     this.options = new RequestOptions({ headers: this.httpHeader });
     this.links = [];
-
   }
 
   cadastrarUsuario(name: string, email: string, password: string) {
@@ -43,7 +42,7 @@ export class UsuarioProvider {
   enviarEmail(email: string) {
     var url = this.baseApiPath + 'redefine?email=' + email;
 
-    return this.http.post(url, this.options)
+    return this.http.post(url, this.options);
   }
 
   exibirUsuariosCadastrados() {
@@ -51,7 +50,7 @@ export class UsuarioProvider {
   }
 
   insereLink(email: string, linkName: string, href: string, importance: string) {
-    var url = this.baseApiPath + 'links/add?email=' + email;
+    var url = this.baseApiPath + 'links/add';
     var link = {
       name: linkName == null ? "" : linkName,
       href: href,
@@ -61,17 +60,18 @@ export class UsuarioProvider {
   }
 
   exibirLinksCadastrados(email: string) {
-    var url = this.baseApiPath + 'links?email=' + email;
+    var url = this.baseApiPath + 'links';
     return this.http.get(url, this.options);
   }
 
-  renomearLink(email: string, url: string, nomeAtual: string, nomeNovo: string) {
-    var url = this.baseApiPath + 'links/rename?email=' + email + '&url=' + url + '&name=' + nomeAtual + '&newName=' + nomeNovo;
-    return this.http.put(url, this.options);
+  renomearLink(url: string, nomeNovo: string) {
+    var url1 = this.baseApiPath + 'links/rename?url=' + url + '&newName=' + nomeNovo;
+    
+    return this.http.put(url1, this.options);
   }
 
   deletarLink(email: string, href: string) {
-    var url = this.baseApiPath + 'links/remove?email=' + email + '&url=' + href;
+    var url = this.baseApiPath + 'links/remove?&url=' + href;
     return this.http.delete(url, this.options);
   }
 

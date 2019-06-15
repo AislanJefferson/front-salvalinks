@@ -10,6 +10,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { ListaLinksPage } from '../pages/lista-links/lista-links';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
+import { App } from 'ionic-angular';
 
 @Component({
   templateUrl: 'app.html',
@@ -23,7 +24,7 @@ export class MyApp {
 
   pages: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public usuarioProvider: UsuarioProvider, public dadosUsuarioProvider: DadosUsuarioProvider) {
+  constructor(public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public usuarioProvider: UsuarioProvider, public dadosUsuarioProvider: DadosUsuarioProvider, public app: App) {
     let obj = this;
     platform.ready().then(() => {
       let dados = dadosUsuarioProvider.getDados();
@@ -43,6 +44,15 @@ export class MyApp {
       }
       statusBar.styleDefault();
       splashScreen.hide();
+
+      platform.registerBackButtonAction(() => {
+        let nav = this.app.getActiveNav();
+        if (nav.canGoBack()){ //Can we go back?
+          nav.pop();
+        }else{
+          this.platform.exitApp(); //Exit from app
+        }
+      });
     });
 
     this.pages = {
@@ -52,10 +62,10 @@ export class MyApp {
       sair: LoginUsuarioPage,
       lista: ListaLinksPage
     }
+
+
+    
   }
-
-
-
 
 }
 

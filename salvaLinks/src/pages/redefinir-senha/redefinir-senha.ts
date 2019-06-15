@@ -27,7 +27,7 @@ export class RedefinirSenhaPage {
   irParaLogin() {
     this.navCtrl.setRoot(LoginUsuarioPage);
   }
-
+  
   enviarEmail() {
     this.usuarioProvider.enviarEmail(this.model.email)
     .subscribe((result) => {

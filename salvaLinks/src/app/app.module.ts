@@ -28,6 +28,7 @@ import { ListaLinksPage } from '../pages/lista-links/lista-links';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
 import { RedefinirSenhaPage } from '../pages/redefinir-senha/redefinir-senha';
+import { RenomearLinkPage } from '../pages/renomear-link/renomear-link';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { RedefinirSenhaPage } from '../pages/redefinir-senha/redefinir-senha';
         {component: InserirLinkPage, name: 'InserirLink', segment: 'links/add'},
         {component: PerfilPage, name: 'Perfil', segment: 'perfil'},
         {component: ConfiguracoesPage, name: 'Configuracoes', segment: 'config'},
-        {component: RedefinirSenhaPage, name: 'RedefinirSenha', segment: 'redefine'}
+        {component: RedefinirSenhaPage, name: 'RedefinirSenha', segment: 'redefine'},
+        {component: RenomearLinkPage, name: 'RenomearLink', segment: 'links/rename'}
         ]
       }
       ),

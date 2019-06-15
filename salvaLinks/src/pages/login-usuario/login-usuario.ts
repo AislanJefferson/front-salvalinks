@@ -29,11 +29,14 @@ export class LoginUsuarioPage {
 
   loginUsuario() {
     this.dadosUsuarioProvider.setDados(this.model.email, this.model.password)
-    let dados = JSON.parse(this.dadosUsuarioProvider.getDados());
+    let dados = {
+      email: this.model.email,
+      password: this.model.password
+    }
 
     this.usuarioProvider.logarUsuario(dados.email, dados.password).subscribe((result: any) => {
       this.usuarioProvider.setTokenHeader(result._body);
-      this.authProvider.autentica(this.model.email);
+      this.authProvider.autentica(dados.email);
       if (this.usuarioProvider.temLinkAInserir()) this.navCtrl.setRoot(InserirLinkPage);
       else
         this.navCtrl.setRoot(ListaLinksPage);
