@@ -555,24 +555,28 @@ var UsuarioProvider = /** @class */ (function () {
         this.options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({ headers: this.httpHeader });
         this.links = [];
     }
+    UsuarioProvider.prototype.getOptions = function () {
+        var header = this.options;
+        return header;
+    };
     UsuarioProvider.prototype.cadastrarUsuario = function (name, email, password) {
         var dados = {
             name: name,
             email: email,
             password: password
         };
-        return this.http.post(this.baseApiPath + "users/register", dados, this.options);
+        return this.http.post(this.baseApiPath + "users/register", dados, this.getOptions());
     };
     UsuarioProvider.prototype.logarUsuario = function (email, password) {
         var url = this.baseApiPath + 'users/login?email=' + email + '&password=' + password;
-        return this.http.post(url, this.options);
+        return this.http.post(url, this.getOptions());
     };
     UsuarioProvider.prototype.enviarEmail = function (email) {
         var url = this.baseApiPath + 'redefine?email=' + email;
-        return this.http.post(url, this.options);
+        return this.http.post(url, this.getOptions());
     };
     UsuarioProvider.prototype.exibirUsuariosCadastrados = function () {
-        return this.http.get(this.baseApiPath + "users", this.options);
+        return this.http.get(this.baseApiPath + "users", this.getOptions());
     };
     UsuarioProvider.prototype.insereLink = function (email, linkName, href, importance) {
         var url = this.baseApiPath + 'links/add';
@@ -581,24 +585,23 @@ var UsuarioProvider = /** @class */ (function () {
             href: href,
             importance: importance
         };
-        return this.http.post(url, link, this.options);
+        return this.http.post(url, link, this.getOptions());
     };
     UsuarioProvider.prototype.exibirLinksCadastrados = function (email) {
         var url = this.baseApiPath + 'links';
-        return this.http.get(url, this.options);
+        return this.http.get(url, this.getOptions());
     };
     UsuarioProvider.prototype.renomearLink = function (url, nomeNovo) {
         var url1 = this.baseApiPath + 'links/rename?url=' + url + '&newName=' + nomeNovo;
-        return this.http.put(url1, "", this.options);
+        return this.http.put(url1, "", this.getOptions());
     };
     UsuarioProvider.prototype.deletarLink = function (email, href) {
         var url = this.baseApiPath + 'links/remove?&url=' + href;
-        return this.http.delete(url, this.options);
+        return this.http.delete(url, this.getOptions());
     };
     UsuarioProvider.prototype.setTokenHeader = function (token) {
         this.options.headers.delete('Authorization');
         this.options.headers.append('Authorization', 'Bearer ' + token);
-        this.tokenSaved = token;
     };
     UsuarioProvider.prototype.addLinkExterno = function (titulo, link) {
         this.links.push(new Intent(titulo, link));
@@ -1120,7 +1123,6 @@ var ListaLinksPage = /** @class */ (function () {
         this.link = new __WEBPACK_IMPORTED_MODULE_5__inserir_link_inserir_link__["b" /* Link */]();
     }
     ListaLinksPage.prototype.ionViewWillEnter = function () {
-        this.usuarioProvider.setTokenHeader(this.usuarioProvider.tokenSaved);
         this.exibirLinksCadastrados();
     };
     ListaLinksPage.prototype.exibirLinksCadastrados = function () {
