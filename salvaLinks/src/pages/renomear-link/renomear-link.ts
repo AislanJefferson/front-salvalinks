@@ -21,12 +21,14 @@ import { Link } from '../inserir-link/inserir-link';
 })
 export class RenomearLinkPage {
   model: Link;
-
+  public nomeAtual: string;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public alertCtrl: AlertController) {
     this.model = new Link();
+    this.nomeAtual = this.navParams.get('nomeLink');
   }
 
-  renomearLink(nomeAtual) {
+  renomearLink() {
     if (this.authProvider.autenticado()) {
       this.usuarioProvider.renomearLink(this.navParams.get('url'), this.model.name).
       subscribe((result: any) => {

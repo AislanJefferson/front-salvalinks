@@ -13,7 +13,11 @@
 <ion-content padding>
 
   <div class="img">
-    <img src="assets/imgs/logoNome.jpg">
+    <img id="logoNome" src="assets/imgs/logoNome.jpg">
+  </div>
+
+  <div>
+    <p class="paragrafo2" padding>Renomear {{nomeAtual}}</p>
   </div>
 
   <ion-list>
@@ -23,7 +27,7 @@
     </ion-item>
 
     <div class="botao">
-      <button ion-button block (click)="renomearLink(model.name)" id="botao">RENOMEAR</button>
+      <button ion-button block (click)="renomearLink()" id="botao">RENOMEAR</button>
     </div>
 
   </ion-list>

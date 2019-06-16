@@ -25702,9 +25702,16 @@ ion-navbar.toolbar {
   width: 200px;
 }
 
-img {
+#logo {
   max-width: 250px;
   max-height: 200px;
+  width: auto;
+  height: auto;
+}
+
+#logoNome {
+  max-width: 300px;
+  max-height: 250px;
   width: auto;
   height: auto;
 }
@@ -25750,4 +25757,10 @@ a {
   text-align: center;
   font-family: sans-serif;
   font-size: 14px;
+}
+
+.paragrafo2 {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 18px;
 }
