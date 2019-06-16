@@ -85,7 +85,7 @@ export class ListaLinksPage {
 
   redirectPaginaLink(href: string) {
     console.log(href);
-    window.open(href, '_system');
+    window.open('http://' + href, '_system');
   }
 
 }
