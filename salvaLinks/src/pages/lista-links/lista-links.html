@@ -27,8 +27,8 @@
       <ion-item lines="none" text-center>
         <ion-label color="primary"> <strong>LINK</strong> </ion-label>
       </ion-item>
-      <ion-list>
-        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">
+      <ion-list *ngFor="let link of listaLinks">
+        <ion-item-sliding lines="none" text-center>
           <ion-item text-center (click)="redirectPaginaLink(link.href)">
             {{ link.name }}
             <ion-icon name="arrow-dropleft" item-right></ion-icon>
@@ -49,21 +49,10 @@
       <ion-item lines="none" text-center>
         <ion-label color="primary"> <strong>GRUPO</strong> </ion-label>
       </ion-item>
-      <ion-list>
-        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">
+      <ion-list *ngFor="let link of listaLinks">
           <ion-item text-center>
             {{ link.grupo }}
-            <ion-icon name="arrow-dropleft" item-right></ion-icon>
           </ion-item>
-          <ion-item-options>
-            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">
-              <ion-icon name="create"></ion-icon>
-            </button>
-            <button ion-button icon-only light (click)="deletarLink(link.href)">
-              <ion-icon name="trash"></ion-icon>
-            </button>
-          </ion-item-options>
-        </ion-item-sliding>
       </ion-list>
     </ion-col>
 
@@ -71,21 +60,10 @@
       <ion-item lines="none" text-center>
         <ion-label color="primary"> <strong>RELEVÂNCIA</strong> </ion-label>
       </ion-item>
-      <ion-list>
-        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">
+      <ion-list *ngFor="let link of listaLinks">
           <ion-item text-center>
             {{ link.importance }}
-            <ion-icon name="arrow-dropleft" item-right></ion-icon>
           </ion-item>
-          <ion-item-options>
-            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">
-              <ion-icon name="create"></ion-icon>
-            </button>
-            <button ion-button icon-only light (click)="deletarLink(link.href)">
-              <ion-icon name="trash"></ion-icon>
-            </button>
-          </ion-item-options>
-        </ion-item-sliding>
       </ion-list>
     </ion-col>
   </ion-row>
