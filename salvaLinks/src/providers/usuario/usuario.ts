@@ -67,7 +67,7 @@ export class UsuarioProvider {
   renomearLink(url: string, nomeNovo: string) {
     var url1 = this.baseApiPath + 'links/rename?url=' + url + '&newName=' + nomeNovo;
     
-    return this.http.put(url1, this.options);
+    return this.http.put(url1, "", this.options);
   }
 
   deletarLink(email: string, href: string) {
