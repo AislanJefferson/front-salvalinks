@@ -16,6 +16,7 @@ export class UsuarioProvider {
   private httpHeader = new Headers();
   private options;
   private links: Intent[];
+  public tokenSaved: string;
 
   constructor(public http: Http) {
     console.log('Hello UsuarioProvider Provider');
@@ -78,6 +79,7 @@ export class UsuarioProvider {
   setTokenHeader(token: string){
     this.options.headers.delete('Authorization');
     this.options.headers.append('Authorization','Bearer '+ token);
+    this.tokenSaved = token;
   }
 
   addLinkExterno(titulo: string, link: string) {

@@ -32,6 +32,7 @@ export class ListaLinksPage {
   }
 
   ionViewWillEnter() {
+    this.usuarioProvider.setTokenHeader(this.usuarioProvider.tokenSaved)
     this.exibirLinksCadastrados();
     
   }
