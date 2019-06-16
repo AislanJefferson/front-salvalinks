@@ -23,11 +23,6 @@ export class UsuarioProvider {
     this.options = new RequestOptions({ headers: this.httpHeader });
     this.links = [];
   }
-  
-  getOptions() {
-    const header = this.options;
-    return header;
-  }
 
   cadastrarUsuario(name: string, email: string, password: string) {
     var dados = {
@@ -36,22 +31,22 @@ export class UsuarioProvider {
       password: password
     }
 
-    return this.http.post(this.baseApiPath + "users/register", dados, this.getOptions());
+    return this.http.post(this.baseApiPath + "users/register", dados,this.options);
   }
 
   logarUsuario(email: string, password: string) {
     var url = this.baseApiPath + 'users/login?email=' + email + '&password=' + password;
-    return this.http.post(url, this.getOptions());
+    return this.http.post(url, this.options);
   }
 
   enviarEmail(email: string) {
     var url = this.baseApiPath + 'redefine?email=' + email;
 
-    return this.http.post(url, this.getOptions());
+    return this.http.post(url, this.options);
   }
 
   exibirUsuariosCadastrados() {
-    return this.http.get(this.baseApiPath + "users",this.getOptions());
+    return this.http.get(this.baseApiPath + "users",this.options);
   }
 
   insereLink(email: string, linkName: string, href: string, importance: string) {
@@ -61,23 +56,23 @@ export class UsuarioProvider {
       href: href,
       importance: importance
     }
-    return this.http.post(url, link,this.getOptions());
+    return this.http.post(url, link,this.options);
   }
 
   exibirLinksCadastrados(email: string) {
     var url = this.baseApiPath + 'links';
-    return this.http.get(url, this.getOptions());
+    return this.http.get(url, this.options);
   }
 
   renomearLink(url: string, nomeNovo: string) {
     var url1 = this.baseApiPath + 'links/rename?url=' + url + '&newName=' + nomeNovo;
     
-    return this.http.put(url1, "", this.getOptions());
+    return this.http.put(url1, "", this.options);
   }
 
   deletarLink(email: string, href: string) {
     var url = this.baseApiPath + 'links/remove?&url=' + href;
-    return this.http.delete(url, this.getOptions());
+    return this.http.delete(url, this.options);
   }
 
   setTokenHeader(token: string){
