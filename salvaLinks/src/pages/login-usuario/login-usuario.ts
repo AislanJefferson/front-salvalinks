@@ -6,6 +6,7 @@ import { ListaLinksPage } from '../lista-links/lista-links';
 import { CadastroUsuarioPage } from '../cadastro-usuario/cadastro-usuario';
 import { InserirLinkPage } from '../inserir-link/inserir-link';
 import { DadosUsuarioProvider } from '../../providers/dados-usuario/dados-usuario';
+import { RedefinirSenhaPage } from '../redefinir-senha/redefinir-senha';
 
 /**
  * Generated class for the LoginUsuarioPage page.
@@ -28,17 +29,17 @@ export class LoginUsuarioPage {
 
   loginUsuario() {
     this.dadosUsuarioProvider.setDados(this.model.email, this.model.password)
-    let dados = JSON.parse(this.dadosUsuarioProvider.getDados());
-    console.log(dados)
+    let dados = {
+      email: this.model.email,
+      password: this.model.password
+    }
 
     this.usuarioProvider.logarUsuario(dados.email, dados.password).subscribe((result: any) => {
       this.usuarioProvider.setTokenHeader(result._body);
-      console.log(result._body)
-      console.log(this.usuarioProvider.getTokenHeader())
-      this.authProvider.autentica(this.model.email);
-      if (this.usuarioProvider.temLinkAInserir()) this.navCtrl.setRoot(InserirLinkPage);
+      this.authProvider.autentica(dados.email);
+      if (this.usuarioProvider.temLinkAInserir()) this.navCtrl.push(InserirLinkPage);
       else
-        this.navCtrl.setRoot(ListaLinksPage);
+        this.navCtrl.push(ListaLinksPage);
     }, (error) => {
       var resp = error.json()
       let toast = this.toastCtrl.create({
@@ -58,9 +59,12 @@ export class LoginUsuarioPage {
   }
 
   irParaCadastro() {
-    this.navCtrl.setRoot(CadastroUsuarioPage);
+    this.navCtrl.push(CadastroUsuarioPage);
   }
 
+  irParaRedefinir() {
+    this.navCtrl.push(RedefinirSenhaPage);
+  }
 }
 export class User {
   email: string;

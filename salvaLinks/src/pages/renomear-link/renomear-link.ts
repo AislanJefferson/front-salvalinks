@@ -39,7 +39,7 @@ export class RenomearLinkPage {
 
           const alert = this.alertCtrl.create({
             title: 'Link Renomeado!',
-            subTitle: response.name + ' foi renomeado na sua lista de links!',
+            subTitle: 'Link foi renomeado na sua lista de links!',
             buttons: ['OK']
           });
           alert.present();

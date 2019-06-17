@@ -35,7 +35,12 @@ export class UsuarioProvider {
       password: password
     }
 
-    return this.http.post(this.baseApiPath + "users/register", dados,this.options);
+    return this.http.post(this.baseApiPath + "users/register", dados, this.options);
+  }
+
+  enviarEmail(email: string) {
+    var url = this.baseApiPath + 'redefine?email=' + email;
+    return this.http.post(url, this.options);
   }
 
   logarUsuario(email: string, password: string) {
@@ -44,7 +49,7 @@ export class UsuarioProvider {
   }
 
   exibirUsuariosCadastrados() {
-    return this.http.get(this.baseApiPath + "users",this.options);
+    return this.http.get(this.baseApiPath + "users", this.options);
   }
 
   insereLink(email: string, linkName: string, href: string, importance: string) {
@@ -54,7 +59,7 @@ export class UsuarioProvider {
       href: href,
       importance: importance
     }
-    return this.http.post(url, link,this.options);
+    return this.http.post(url, link, this.options);
   }
 
   exibirLinksCadastrados(email: string) {
@@ -63,19 +68,19 @@ export class UsuarioProvider {
   }
 
   renomearLink(email: string, url: string, nomeAtual: string, nomeNovo: string) {
-    var url = this.baseApiPath + 'links/rename?email=' + email + '&url=' + url + '&name=' + nomeAtual + '&newName=' + nomeNovo;
-    return this.http.put(url, this.options);
+    var url = this.baseApiPath + 'links/rename?url=' + url + '&newName=' + nomeNovo;
+    return this.http.put(url, "", this.options);
   }
 
   deletarLink(email: string, href: string) {
-    var url = this.baseApiPath + 'links/remove?email=' + email + '&url=' + href;
+    var url = this.baseApiPath + 'links/remove?url=' + href;
     return this.http.delete(url, this.options);
   }
 
-  setTokenHeader(token: string){
+  setTokenHeader(token: string) {
     let str = token
     this.options.headers.delete('Authorization');
-    this.options.headers.append('Authorization','Bearer '+ str);
+    this.options.headers.append('Authorization', 'Bearer ' + str);
 
     localStorage.setItem(token_key_name, str);
   }

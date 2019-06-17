@@ -11,6 +11,7 @@ import { ListaLinksPage } from '../pages/lista-links/lista-links';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
 import { OneSignal, OSNotificationPayload } from '@ionic-native/onesignal';
+
 @Component({
   templateUrl: 'app.html',
   providers: [
@@ -49,6 +50,13 @@ export class MyApp {
       }
       statusBar.styleDefault();
       splashScreen.hide();
+      platform.registerBackButtonAction(() => {
+        if (this.nav.canGoBack()) { //Can we go back?
+          this.nav.pop();
+        } else {
+          platform.exitApp(); //Exit from app
+        }
+      });
     });
 
     this.pages = {

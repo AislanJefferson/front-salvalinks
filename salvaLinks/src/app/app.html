@@ -10,19 +10,19 @@
         <!--<button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
             <ion-icon name="add-circle"></ion-icon> {{p.title}}
         </button>-->
-        <button menuClose ion-item (click)="nav.setRoot(pages.inserirLink)">
+        <button menuClose ion-item (click)="navCtrl.push(pages.inserirLink)">
             <ion-icon name="add" color="primary"></ion-icon> Inserir Link
           </button>
-          <button menuClose ion-item (click)="nav.setRoot(pages.lista)">
+          <button menuClose ion-item (click)="navCtrl.push(pages.lista)">
             <ion-icon name="list" color="primary"></ion-icon> Links/Grupos
           </button>
-          <button menuClose ion-item (click)="nav.setRoot(pages.perfil)">
+          <button menuClose ion-item (click)="navCtrl.push(pages.perfil)">
             <ion-icon name="person" color="primary"></ion-icon> Perfil
           </button>
-          <button menuClose ion-item (click)="nav.setRoot(pages.configuracoes)">
+          <button menuClose ion-item (click)="navCtrl.push(pages.configuracoes)">
             <ion-icon name="settings" color="primary"></ion-icon> Configurações
           </button>
-          <button menuClose ion-item (click)="nav.setRoot(pages.sair)">
+          <button menuClose ion-item (click)="navCtrl.push(pages.sair)">
             <ion-icon name="log-out" color="danger"></ion-icon> Sair
           </button>
           

@@ -67,7 +67,7 @@ export class ListaLinksPage {
   }
 
   deletarLink(tituloLink) {
-    console.log(tituloLink);
+    console.log("LOG: " + this.authProvider.getEmail());
 
     this.usuarioProvider.deletarLink(this.authProvider.getEmail(), tituloLink).subscribe((result: any) => {
       var respOK = result.json();

@@ -10,7 +10,7 @@ import { LoginUsuarioPage } from '../login-usuario/login-usuario';
  * Ionic pages and navigation.
  */
 
-@IonicPage({ segment: 'users/register' })
+@IonicPage({segment: 'users/register'})
 @Component({
   selector: 'page-cadastro-usuario',
   templateUrl: 'cadastro-usuario.html',
@@ -42,7 +42,7 @@ export class CadastroUsuarioPage {
           });
           toast.present();
         });
-    //limpa campos
+    
     this.model.name = "";
     this.model.email = "";
     this.model.password = "";
@@ -50,7 +50,7 @@ export class CadastroUsuarioPage {
   }
 
   irParaLogin() {
-    this.navCtrl.setRoot(LoginUsuarioPage);
+    this.navCtrl.push(LoginUsuarioPage);
   }
 
   exibirUsuariosCadastrados() {
