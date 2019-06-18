@@ -54,7 +54,7 @@ export class MyApp {
             var intentExtras = intent.extras;
             if (intentExtras != null) {
               obj.usuarioProvider.addLinkExterno(intentExtras["android.intent.extra.SUBJECT"], intentExtras["android.intent.extra.TEXT"]);
-              obj.nav.setRoot(InserirLinkPage);
+              obj.nav.push(InserirLinkPage);
             }
 
           }
