@@ -692,11 +692,12 @@ var UsuarioProvider = /** @class */ (function () {
         return this.http.get(url, this.options);
     };
     UsuarioProvider.prototype.renomearLink = function (email, url, nomeAtual, nomeNovo) {
-        var url = this.baseApiPath + 'links/rename?newName=' + nomeNovo + '&url=' + url;
+        var url = this.baseApiPath + 'links/rename?newName=' + encodeURIComponent(nomeNovo) + '&url=' + encodeURIComponent(url);
+        console.log(url);
         return this.http.put(url, "", this.options);
     };
     UsuarioProvider.prototype.deletarLink = function (email, href) {
-        var url = this.baseApiPath + 'links/remove?url=' + href;
+        var url = this.baseApiPath + 'links/remove?url=' + encodeURIComponent(href);
         return this.http.delete(url, this.options);
     };
     UsuarioProvider.prototype.setTokenHeader = function (token) {
