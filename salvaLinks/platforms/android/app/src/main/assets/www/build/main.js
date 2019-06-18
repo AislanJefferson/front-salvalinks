@@ -341,7 +341,7 @@ var OnesignalProvider = /** @class */ (function () {
                 app_id: this.appID,
                 send_after: agora,
                 headings: {
-                    "en": "Voce tem links a visualizar"
+                    "en": "Voce tem link a visualizar"
                 },
                 contents: { "en": href },
                 include_player_ids: [this.playerId]

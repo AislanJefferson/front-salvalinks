@@ -37,7 +37,7 @@ export class OnesignalProvider {
         app_id: this.appID,
         send_after: agora,
         headings: {
-          "en": "Voce tem links a visualizar"
+          "en": "Voce tem link a visualizar"
         },
         contents: { "en": href },
 
