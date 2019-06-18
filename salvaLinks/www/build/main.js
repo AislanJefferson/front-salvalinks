@@ -709,7 +709,7 @@ var UsuarioProvider = /** @class */ (function () {
         return localStorage.getItem(token_key_name);
     };
     UsuarioProvider.prototype.addLinkExterno = function (titulo, link) {
-        this.links.push(new Intent(titulo, link));
+        this.links[0] = (new Intent(titulo, link));
     };
     UsuarioProvider.prototype.getlinkExterno = function () {
         return this.links.pop();

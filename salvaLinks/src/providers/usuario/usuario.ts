@@ -90,7 +90,7 @@ export class UsuarioProvider {
   }
 
   addLinkExterno(titulo: string, link: string) {
-    this.links.push(new Intent(titulo, link));
+    this.links[0]=(new Intent(titulo, link));
   }
 
   getlinkExterno(): Intent {
