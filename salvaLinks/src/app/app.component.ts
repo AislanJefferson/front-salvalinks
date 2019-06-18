@@ -47,6 +47,18 @@ export class MyApp {
             console.log('Error getting cordova intent');
           }
         );
+        (<any>window).plugins.intentShim.onIntent(
+          function (intent) {
+            //you should filter on the intents you actually want to receive based on Intent.action
+            console.log('intent received on app launch' + JSON.stringify(intent));
+            var intentExtras = intent.extras;
+            if (intentExtras != null) {
+              obj.usuarioProvider.addLinkExterno(intentExtras["android.intent.extra.SUBJECT"], intentExtras["android.intent.extra.TEXT"]);
+              obj.nav.setRoot(InserirLinkPage);
+            }
+
+          }
+        );
       }
       statusBar.styleDefault();
       splashScreen.hide();

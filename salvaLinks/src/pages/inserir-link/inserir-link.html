@@ -21,7 +21,7 @@
 
   <div></div>
   <ion-list>
-    
+
     <ion-item>
 
       <ion-label stacked>Link*</ion-label>
@@ -41,6 +41,18 @@
         <ion-option value="normal">Normal</ion-option>
         <ion-option value="baixa">Baixa</ion-option>
       </ion-select>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label stacked>
+        Tempo para notificação
+        <ion-badge item-end color="secondary">{{model.tempo}} minutos</ion-badge>
+      </ion-label>
+      <ion-range min="0" max="120" pin="true" [(ngModel)]="model.tempo" color="secondary">
+        <ion-label range-left>Agora</ion-label>
+        <ion-label range-right>2 horas</ion-label>
+      </ion-range>
     </ion-item>
 
     <div class="botao">

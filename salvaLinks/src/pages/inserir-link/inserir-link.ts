@@ -24,6 +24,7 @@ export class InserirLinkPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController, private notificador: OnesignalProvider) {
     this.model = new Link();
+    this.model.tempo = 0;
     this.model.importance = "normal";
 
   }
@@ -51,7 +52,7 @@ export class InserirLinkPage {
         subscribe((result: any) => {
           var response = result.json();
 
-          console.log(this.notificador.cadastrarNotificacaoLeitura(this.model.href, 0));
+          console.log(this.notificador.cadastrarNotificacaoLeitura(this.model.href, this.model.tempo));
           console.log(response);
           this.navCtrl.setRoot(ListaLinksPage);
 
@@ -82,5 +83,6 @@ export class InserirLinkPage {
 export class Link {
   name: string;
   href: string;
+  tempo: number;
   importance: string = "alta" || "normal" || "baixa";
 }

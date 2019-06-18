@@ -37,9 +37,9 @@ export class LoginUsuarioPage {
     this.usuarioProvider.logarUsuario(dados.email, dados.password).subscribe((result: any) => {
       this.usuarioProvider.setTokenHeader(result._body);
       this.authProvider.autentica(dados.email);
-      if (this.usuarioProvider.temLinkAInserir()) this.navCtrl.push(InserirLinkPage);
+      if (this.usuarioProvider.temLinkAInserir()) this.navCtrl.setRoot(InserirLinkPage);
       else
-        this.navCtrl.push(ListaLinksPage);
+        this.navCtrl.setRoot(ListaLinksPage);
     }, (error) => {
       var resp = error.json()
       let toast = this.toastCtrl.create({
@@ -54,8 +54,8 @@ export class LoginUsuarioPage {
 
 
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginUsuarioPage');
+  ionViewDidEnter() {
+    this.authProvider.logoff();
   }
 
   irParaCadastro() {

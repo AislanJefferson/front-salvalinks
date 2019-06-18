@@ -14,7 +14,7 @@
       <button ion-button full (click)="redirectInserirLink()">Inserir Novo Link</button>
     </ion-col>
     <ion-col>
-      <button ion-button full (click)="exibirLinksCadastrados()">Atualizar</button>
+      <button ion-button full (click)="exibirLinksCadastrados()">Sincronizar</button>
     </ion-col>
   </ion-row>
 
@@ -40,8 +40,7 @@
         </ion-item-sliding>
       </ion-list>
     </ion-col>
-
-    <ion-col>
+    <ion-col showWhen="core">
       <ion-item lines="none" text-center>
         <ion-label color="primary"> <strong>GRUPO</strong> </ion-label>
       </ion-item>
@@ -63,7 +62,7 @@
       </ion-list>
     </ion-col>
 
-    <ion-col>
+    <ion-col showWhen="core">
       <ion-item lines="none" text-center>
         <ion-label color="primary"> <strong>CLASSIFICAÇÃO</strong> </ion-label>
       </ion-item>

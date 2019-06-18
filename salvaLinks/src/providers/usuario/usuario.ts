@@ -78,7 +78,7 @@ export class UsuarioProvider {
   }
 
   setTokenHeader(token: string) {
-    let str = token
+    let str = token;
     this.options.headers.delete('Authorization');
     this.options.headers.append('Authorization', 'Bearer ' + str);
 

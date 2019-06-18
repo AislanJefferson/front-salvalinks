@@ -28,16 +28,16 @@ export class OnesignalProvider {
     this.options = new RequestOptions({ headers: this.httpHeader });
   }
 
-  cadastrarNotificacaoLeitura(href: string, horas: number) {
+  cadastrarNotificacaoLeitura(href: string, minutos: number) {
     var messageID = "";
     if (this.playerId.length > 0) {
       let agora = new Date();
-      agora.setHours(agora.getHours() + horas);
+      agora.setMinutes(agora.getMinutes() + minutos);
       var message = {
         app_id: this.appID,
         send_after: agora,
         headings: {
-          "en": "Voce tem links a ler"
+          "en": "Voce tem links a visualizar"
         },
         contents: { "en": href },
 
