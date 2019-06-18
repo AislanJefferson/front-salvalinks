@@ -16,8 +16,18 @@
       <ion-input type="text" name="name" placeholder="Novo Título do Link" [(ngModel)]="model.name"></ion-input>
     </ion-item>
 
+    <ion-item showWhen="android">
+      <ion-label stacked>
+        Tempo para notificação
+      </ion-label>
+      <ion-range min="0" max="120" pin="true" [(ngModel)]="model.tempo" color="secondary">
+        <ion-label range-left>Agora</ion-label>
+        <ion-label range-right>2 horas</ion-label>
+      </ion-range>
+    </ion-item>
+
     <div class="botao">
-      <button ion-button block (click)="renomearLink(model.name)" id="botao">RENOMEAR</button>
+      <button ion-button block (click)="renomearLink(model.name)" id="botao">MODIFICAR</button>
     </div>
 
   </ion-list>
