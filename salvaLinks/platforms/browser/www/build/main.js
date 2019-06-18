@@ -692,7 +692,7 @@ var UsuarioProvider = /** @class */ (function () {
         return this.http.get(url, this.options);
     };
     UsuarioProvider.prototype.renomearLink = function (email, url, nomeAtual, nomeNovo) {
-        var url = this.baseApiPath + 'links/rename?url=' + url + '&newName=' + nomeNovo;
+        var url = this.baseApiPath + 'links/rename?newName=' + nomeNovo + '&url=' + url;
         return this.http.put(url, "", this.options);
     };
     UsuarioProvider.prototype.deletarLink = function (email, href) {

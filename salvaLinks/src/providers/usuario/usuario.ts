@@ -68,7 +68,7 @@ export class UsuarioProvider {
   }
 
   renomearLink(email: string, url: string, nomeAtual: string, nomeNovo: string) {
-    var url = this.baseApiPath + 'links/rename?url=' + url + '&newName=' + nomeNovo;
+    var url = this.baseApiPath + 'links/rename?newName=' + nomeNovo + '&url=' + url;
     return this.http.put(url, "", this.options);
   }
 
@@ -90,7 +90,7 @@ export class UsuarioProvider {
   }
 
   addLinkExterno(titulo: string, link: string) {
-    this.links[0]=(new Intent(titulo, link));
+    this.links[0] = (new Intent(titulo, link));
   }
 
   getlinkExterno(): Intent {
