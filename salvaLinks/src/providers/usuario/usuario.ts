@@ -92,6 +92,26 @@ export class UsuarioProvider {
     return this.links.length > 0;
   }
 
+  insereGrupo(email: string, grupoName: string){
+    var url = this.baseApiPath + 'group/create';
+
+    //return this.http.put(url, );
+  }
+
+  exibirGruposCadastrados(email: string) {
+    var url = this.baseApiPath + 'group/getnames';
+    return this.http.get(url, this.options);
+  }
+
+  deletarGrupo(email:string, grupoName:string){
+    var url = this.baseApiPath + "group/delete";
+    return this.http.put(url, "", this.options);
+  }
+
+  /*renomearGrupo(nomeAntigo:string, nomeNovo:string){
+    var url = this.baseApiPath + "group/rename";
+  }*/
+
 }
 
 export class Intent {

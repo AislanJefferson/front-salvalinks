@@ -19,6 +19,8 @@ import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.mo
 import { PerfilPageModule } from '../pages/perfil/perfil.module';
 import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
 import { RedefinirSenhaPageModule } from '../pages/redefinir-senha/redefinir-senha.module';
+import { ListaGruposPageModule } from '../pages/lista-grupos/lista-grupos.module';
+import { InserirGrupoPageModule } from '../pages/inserir-grupo/inserir-grupo.module';
 
 import { Deeplinks } from '@ionic-native/deeplinks/ngx';
 import { CadastroUsuarioPage } from '../pages/cadastro-usuario/cadastro-usuario';
@@ -29,6 +31,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
 import { RedefinirSenhaPage } from '../pages/redefinir-senha/redefinir-senha';
 import { RenomearLinkPage } from '../pages/renomear-link/renomear-link';
+
 
 
 @NgModule({
@@ -51,7 +54,8 @@ import { RenomearLinkPage } from '../pages/renomear-link/renomear-link';
         {component: PerfilPage, name: 'Perfil', segment: 'perfil'},
         {component: ConfiguracoesPage, name: 'Configuracoes', segment: 'config'},
         {component: RedefinirSenhaPage, name: 'RedefinirSenha', segment: 'redefine'},
-        {component: RenomearLinkPage, name: 'RenomearLink', segment: 'links/rename'}
+        {component: RenomearLinkPage, name: 'RenomearLink', segment: 'links/rename'},
+        {component: ListaGruposPageModule, name: 'ListaGrupos', segment: 'groups/getnames'}
         ]
       }
       ),
@@ -63,7 +67,9 @@ import { RenomearLinkPage } from '../pages/renomear-link/renomear-link';
     HttpModule,
     ConfiguracoesPageModule,
     PerfilPageModule,
-    RedefinirSenhaPageModule
+    RedefinirSenhaPageModule,
+    ListaGruposPageModule,
+    InserirGrupoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

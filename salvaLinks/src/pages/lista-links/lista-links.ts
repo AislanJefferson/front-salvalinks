@@ -7,6 +7,7 @@ import { User } from '../login-usuario/login-usuario';
 import { InserirLinkPage, Link } from '../inserir-link/inserir-link';
 import { RenomearLinkPage } from '../renomear-link/renomear-link';
 import { DadosUsuarioProvider } from '../../providers/dados-usuario/dados-usuario';
+import { ListaGruposPage } from '../lista-grupos/lista-grupos';
 
 /**
  * Generated class for the ListaLinksPage page.
@@ -86,6 +87,10 @@ export class ListaLinksPage {
   redirectPaginaLink(href: string) {
     console.log(href);
     window.open('http://' + href, '_system');
+  }
+
+  redirectListaGrupos() {
+    this.navCtrl.push(ListaGruposPage);
   }
 
 }

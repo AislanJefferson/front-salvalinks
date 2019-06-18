@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Lista de Grupos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="img">
+    <img src="assets/imgs/logoNome.jpg">
+  </div>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button full (click)="redirectInserirGrupo()">Inserir Novo Grupo</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button full (click)="redirectListaLinks()">Lista de Links</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row nowrap>
+    <ion-col>
+      <ion-item lines="none" text-center>
+        <ion-label color="primary"> <strong>GRUPO</strong> </ion-label>
+      </ion-item>
+      <ion-list>
+        <ion-item-sliding lines="none" text-center *ngFor="let grupo of listaGrupos">
+          <ion-item text-center (click)="listarGrupo(grupo.name)">
+            {{ grupo }}
+            <ion-icon name="arrow-dropleft" item-right></ion-icon>
+          </ion-item>
+          <ion-item-options>
+            <button ion-button icon-only light (click)="redirectRenomearGrupo(grupo)">
+              <ion-icon name="create"></ion-icon>
+            </button>
+            <button ion-button icon-only light (click)="deletarGrupo(grupo)">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
