@@ -15,7 +15,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import { InserirLinkPageModule } from '../pages/inserir-link/inserir-link.module';
 import { ListaLinksPageModule } from '../pages/lista-links/lista-links.module';
 import { RenomearLinkPageModule } from '../pages/renomear-link/renomear-link.module';
-import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module';
+
 import { PerfilPageModule } from '../pages/perfil/perfil.module';
 import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
 import { RedefinirSenhaPageModule } from '../pages/redefinir-senha/redefinir-senha.module';
@@ -26,7 +26,7 @@ import { LoginUsuarioPage } from '../pages/login-usuario/login-usuario';
 import { InserirLinkPage } from '../pages/inserir-link/inserir-link';
 import { ListaLinksPage } from '../pages/lista-links/lista-links';
 import { PerfilPage } from '../pages/perfil/perfil';
-import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
+
 import { RedefinirSenhaPage } from '../pages/redefinir-senha/redefinir-senha';
 import { RenomearLinkPage } from '../pages/renomear-link/renomear-link';
 
@@ -49,7 +49,7 @@ import { RenomearLinkPage } from '../pages/renomear-link/renomear-link';
         {component: ListaLinksPage, name: 'ListaLinks', segment: 'links'},
         {component: InserirLinkPage, name: 'InserirLink', segment: 'links/add'},
         {component: PerfilPage, name: 'Perfil', segment: 'perfil'},
-        {component: ConfiguracoesPage, name: 'Configuracoes', segment: 'config'},
+        
         {component: RedefinirSenhaPage, name: 'RedefinirSenha', segment: 'redefine'},
         {component: RenomearLinkPage, name: 'RenomearLink', segment: 'links/rename'}
         ]
@@ -61,7 +61,7 @@ import { RenomearLinkPage } from '../pages/renomear-link/renomear-link';
     ListaLinksPageModule,
     RenomearLinkPageModule,
     HttpModule,
-    ConfiguracoesPageModule,
+    
     PerfilPageModule,
     RedefinirSenhaPageModule
   ],

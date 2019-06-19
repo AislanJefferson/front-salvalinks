@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LoginUsuarioPage } from '../pages/login-usuario/login-usuario';
 import { InserirLinkPage } from '../pages/inserir-link/inserir-link';
-import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { ListaLinksPage } from '../pages/lista-links/lista-links';
 import { UsuarioProvider } from '../providers/usuario/usuario';
@@ -58,7 +57,6 @@ export class MyApp {
     this.pages = {
       inserirLink: InserirLinkPage,
       perfil: PerfilPage,
-      configuracoes: ConfiguracoesPage,
       sair: LoginUsuarioPage,
       lista: ListaLinksPage
     }

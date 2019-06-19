@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { UsuarioProvider } from '../../providers/usuario/usuario';
 
 /**
  * Generated class for the PerfilPage page.
@@ -14,11 +15,26 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class PerfilPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private nome: string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PerfilPage');
+    this.getNome();
   }
+
+
+
+  getNome() {
+    this.usuarioProvider.getNomeUsuario()
+      .subscribe((result: any) => {
+        this.nome = result._body;
+      },
+        (error) => {
+          console.log(error)
+        })
+  }
+}
 
 }

@@ -39,6 +39,11 @@ export class UsuarioProvider {
     return this.http.post(url, this.options);
   }
 
+  getNomeUsuario() {
+    var url = this.baseApiPath + '/users/getusername';
+    return this.http.get(url, this.options);
+  }
+  
   enviarEmail(email: string) {
     var url = this.baseApiPath + 'redefine?email=' + email;
 
