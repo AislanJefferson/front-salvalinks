@@ -23,7 +23,7 @@
   <ion-list>
     <ion-item>
       <ion-label stacked>Título</ion-label>
-      <ion-input type="text" name="name" placeholder="Novo Título do Link" [(ngModel)]="model.name"></ion-input>
+      <ion-input type="text" name="name" placeholder="{{ this.navParams.get('nomeLink') }}" [(ngModel)]="model.name"></ion-input>
     </ion-item>
 
     <ion-item showWhen="android">

@@ -34,8 +34,23 @@ export class UsuarioProvider {
       email: email,
       password: password
     }
-
     return this.http.post(this.baseApiPath + "users/register", dados, this.options);
+  }
+
+  contadorLinks() {
+    var url = this.baseApiPath + '/users/numberoflinks';
+    return this.http.get(url, this.options);
+  }
+
+
+  contadorGrupos() {
+    var url = this.baseApiPath + '/users/numberofgroups';
+    return this.http.get(url, this.options);
+  }
+
+  getNomeUsuario() {
+    var url = this.baseApiPath + '/users/getusername';
+    return this.http.get(url, this.options);
   }
 
   enviarEmail(email: string) {
@@ -106,11 +121,11 @@ export class UsuarioProvider {
 
   //GRUPOS
 
-  grupoGetTodos(){
+  grupoGetTodos() {
     return this.http.get(this.baseApiPath + "group/getall", this.options);
   }
 
-  grupoGetAllNames(){
+  grupoGetAllNames() {
     return this.http.get(this.baseApiPath + "group/getnames", this.options);
   }
 
