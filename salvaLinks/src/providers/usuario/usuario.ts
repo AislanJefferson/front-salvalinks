@@ -95,7 +95,9 @@ export class UsuarioProvider {
   }
 
   getlinkExterno(): Intent {
-    return this.links.pop();
+    let item = this.links[0];
+    this.links = [];
+    return item;
   }
 
   temLinkAInserir() {

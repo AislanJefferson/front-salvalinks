@@ -27,6 +27,14 @@ export class LoginUsuarioPage {
     this.model = new User();
   }
 
+  ionViewCanEnter(): boolean {
+    if (this.authProvider.autenticado()) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   loginUsuario() {
     this.dadosUsuarioProvider.setDados(this.model.email, this.model.password)
     let dados = {
@@ -52,7 +60,8 @@ export class LoginUsuarioPage {
     this.model.password = "";
   }
 
-
+  ionViewWillEnter() {
+  }
 
   ionViewDidEnter() {
     this.authProvider.logoff();

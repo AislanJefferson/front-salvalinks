@@ -11,6 +11,7 @@ import { ListaLinksPage } from '../pages/lista-links/lista-links';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
 import { OneSignal, OSNotificationPayload } from '@ionic-native/onesignal';
+import { AuthProvider } from '../providers/auth/auth';
 
 @Component({
   templateUrl: 'app.html',
@@ -20,12 +21,12 @@ import { OneSignal, OSNotificationPayload } from '@ionic-native/onesignal';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = LoginUsuarioPage;
+  rootPage: any;
 
   pages: any;
   private senderId = '457258455793';
   private oneSignalAppId = '31636f90-5d25-4d00-8e4b-b02e566f8a44';
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public usuarioProvider: UsuarioProvider, public dadosUsuarioProvider: DadosUsuarioProvider, private oneSignal: OneSignal) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public usuarioProvider: UsuarioProvider, public dadosUsuarioProvider: DadosUsuarioProvider, private authProvider: AuthProvider, private oneSignal: OneSignal) {
     let obj = this;
     platform.ready().then(() => {
       let dados = dadosUsuarioProvider.getDados();
@@ -69,6 +70,18 @@ export class MyApp {
           platform.exitApp(); //Exit from app
         }
       });
+      if (this.usuarioProvider.getTokenHeader()) {
+        let obj = this.dadosUsuarioProvider.getDados();
+        let dados = JSON.parse(obj);
+        this.usuarioProvider.logarUsuario(dados.email, dados.password).subscribe((result: any) => {
+          this.usuarioProvider.setTokenHeader(result._body);
+          this.authProvider.autentica(dados.email);
+          if (this.usuarioProvider.temLinkAInserir()) this.rootPage = InserirLinkPage;
+          else
+            this.rootPage = ListaLinksPage;
+        });
+      }
+      if(!this.rootPage) this.rootPage = LoginUsuarioPage;
     });
 
     this.pages = {
@@ -88,6 +101,11 @@ export class MyApp {
     window.open(payload.body, '_system');
   }
 
+  private logout() {
+    this.authProvider.logoff();
+    this.usuarioProvider.setTokenHeader("");
+    this.nav.setRoot(this.pages.sair);
+  }
 
 }
 

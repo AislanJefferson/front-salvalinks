@@ -81,6 +81,7 @@ export class InserirLinkPage {
 }
 
 export class Link {
+  id: string;
   name: string;
   href: string;
   tempo: number;
