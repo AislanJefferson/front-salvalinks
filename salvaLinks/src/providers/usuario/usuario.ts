@@ -106,6 +106,14 @@ export class UsuarioProvider {
 
   //GRUPOS
 
+  grupoGetTodos(){
+    return this.http.get(this.baseApiPath + "group/getall", this.options);
+  }
+
+  grupoGetAllNames(){
+    return this.http.get(this.baseApiPath + "group/getnames", this.options);
+  }
+
   grupoGetLinks(nomeDoGrupo: string) {
     return this.http.get(this.baseApiPath + "group/links?name=" + nomeDoGrupo, this.options);
   }
