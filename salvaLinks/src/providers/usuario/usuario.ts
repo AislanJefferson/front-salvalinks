@@ -37,12 +37,14 @@ export class UsuarioProvider {
   }
 
   contadorLinks(){
-    
-    for (var i = 0; i < this.links.length; ++i){
-      this.count++;
-    }
+    var url = this.baseApiPath + '/users/numberoflinks';
+    return this.http.get(url, this.options);
+  }
 
-    return this.count;
+
+  contadorGrupos(){
+    var url = this.baseApiPath + '/users/numberofgroups';
+    return this.http.get(url, this.options);
   }
 
   logarUsuario(email: string, password: string) {
@@ -61,7 +63,7 @@ export class UsuarioProvider {
     return this.http.post(url, this.options);
   }
 
-  renomearUsuario(nomeNovo: string, linkID: string){
+  renomearUsuario(nomeNovo: string){
     var url = this.baseApiPath + "/users/rename?newName=" +
     nomeNovo;
     return this.http.put(url, "", this.options);
