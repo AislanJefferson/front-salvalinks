@@ -149,7 +149,7 @@ export class UsuarioProvider {
 
   // PARA PAG DE CONFIG
 
-  renomearUsuario(nomeNovo: string, linkID: string) {
+  renomearUsuario(nomeNovo: string) {
     var url = this.baseApiPath + "/users/rename?newName=" + nomeNovo;
     return this.http.put(url, "", this.options);
   }
