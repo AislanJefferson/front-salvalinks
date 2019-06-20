@@ -21,7 +21,7 @@ import { DadosUsuarioProvider } from '../../providers/dados-usuario/dados-usuari
   templateUrl: 'lista-links.html',
 })
 export class ListaLinksPage {
-  public listaLinks = new Array<any>();
+  private listaLinks = new Array<any>();
   model: User;
   link: Link;
   email: string;
@@ -31,17 +31,10 @@ export class ListaLinksPage {
     this.link = new Link();
   }
 
-  ionViewWillEnter() {
-    this.exibirLinksCadastrados();
-
-  }
-
   exibirLinksCadastrados() {
     this.usuarioProvider.exibirLinksCadastrados(this.authProvider.getEmail()).subscribe((result: any) => {
-      //var respOK = result.json();
       this.listaLinks = result.json();
 
-      //console.log(respOK);
     }, (error) => {
       var resp = error.json()
       let toast = this.toastCtrl.create({
@@ -49,8 +42,6 @@ export class ListaLinksPage {
         duration: 3000
       });
       toast.present();
-      this.model.email = "";
-      this.model.password = "";
     });
   }
   redirectInserirLink() {
@@ -67,8 +58,6 @@ export class ListaLinksPage {
   }
 
   deletarLink(tituloLink) {
-    console.log("LOG: " + this.authProvider.getEmail());
-
     this.usuarioProvider.deletarLink(this.authProvider.getEmail(), tituloLink).subscribe((result: any) => {
       var respOK = result.json();
       this.exibirLinksCadastrados();
@@ -86,6 +75,10 @@ export class ListaLinksPage {
   redirectPaginaLink(href: string) {
     console.log(href);
     window.open(href, '_system');
+  }
+
+  ionViewDidEnter() {
+    this.exibirLinksCadastrados();
   }
 
 }

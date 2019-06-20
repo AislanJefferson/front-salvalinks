@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { UsuarioProvider } from '../usuario/usuario';
 
 /*
   Generated class for the AuthProvider provider.
@@ -13,7 +14,7 @@ export class AuthProvider {
 
 
 
-  constructor() {
+  constructor(private usuarioProvider : UsuarioProvider) {
     this.logado = false;
     console.log('Hello AuthProvider Provider');
   }
@@ -30,6 +31,7 @@ export class AuthProvider {
   logoff() {
     this.email = "";
     this.logado = false;
+    this.usuarioProvider.setTokenHeader("");
   }
 
   getEmail() {

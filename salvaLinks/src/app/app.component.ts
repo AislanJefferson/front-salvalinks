@@ -21,7 +21,7 @@ import { AuthProvider } from '../providers/auth/auth';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any;
+  rootPage: any = LoginUsuarioPage;
 
   pages: any;
   private senderId = '457258455793';
@@ -30,7 +30,6 @@ export class MyApp {
     let obj = this;
     platform.ready().then(() => {
       let dados = dadosUsuarioProvider.getDados();
-      console.log(dados);
       if (platform.is('android')) {
         this.oneSignal.startInit(this.oneSignalAppId, this.senderId);
         this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
@@ -61,7 +60,6 @@ export class MyApp {
           }
         );
       }
-      statusBar.styleDefault();
       splashScreen.hide();
       platform.registerBackButtonAction(() => {
         if (this.nav.canGoBack()) { //Can we go back?
@@ -81,7 +79,6 @@ export class MyApp {
             this.rootPage = ListaLinksPage;
         });
       }
-      if(!this.rootPage) this.rootPage = LoginUsuarioPage;
     });
 
     this.pages = {
@@ -103,7 +100,6 @@ export class MyApp {
 
   private logout() {
     this.authProvider.logoff();
-    this.usuarioProvider.setTokenHeader("");
     this.nav.setRoot(this.pages.sair);
   }
 

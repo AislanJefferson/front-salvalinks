@@ -87,7 +87,7 @@ export class UsuarioProvider {
   }
 
   getTokenHeader() {
-    return localStorage.getItem(token_key_name)
+    return localStorage.getItem(token_key_name);
   }
 
   addLinkExterno(titulo: string, link: string) {

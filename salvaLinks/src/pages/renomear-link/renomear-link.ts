@@ -43,7 +43,6 @@ export class RenomearLinkPage {
         this.usuarioProvider.renomearLink(this.authProvider.getEmail(), this.navParams.get('url'), this.navParams.get('nomeLink'), this.model.name).
           subscribe((result: any) => {
             var response = result.json();
-            console.log(response);
             toast.setMessage("Link modificado com sucesso!");
           },
             (error) => {
@@ -51,7 +50,7 @@ export class RenomearLinkPage {
             });
       }
       if (toast.name) toast.present();
-      this.navCtrl.setRoot(ListaLinksPage);
+      this.navCtrl.push(ListaLinksPage);
     } else {
       this.navCtrl.setRoot(LoginUsuarioPage);
     }

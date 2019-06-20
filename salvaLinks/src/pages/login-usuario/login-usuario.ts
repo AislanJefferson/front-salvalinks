@@ -64,7 +64,6 @@ export class LoginUsuarioPage {
   }
 
   ionViewDidEnter() {
-    this.authProvider.logoff();
   }
 
   irParaCadastro() {
