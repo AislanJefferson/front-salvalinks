@@ -104,6 +104,55 @@ export class UsuarioProvider {
     return this.links.length > 0;
   }
 
+  //GRUPOS
+
+  grupoGetLinks(nomeDoGrupo: string) {
+    return this.http.get(this.baseApiPath + "group/links?name=" + nomeDoGrupo, this.options);
+  }
+
+  grupoGetPDF(nomeDoGrupo: string) {
+    return this.http.get(this.baseApiPath + "group/pdf?name=" + nomeDoGrupo, this.options);
+  }
+
+  grupoCriar(nomeDoGrupo: string) {
+    var url = this.baseApiPath + "group/create?name=" + nomeDoGrupo;
+    return this.http.put(url, "", this.options);
+  }
+
+  grupoDeletar(nomeDoGrupo: string) {
+    var url = this.baseApiPath + "group/delete?name=" + nomeDoGrupo;
+    return this.http.put(url, "", this.options);
+  }
+
+  grupoRenomear(nomeDoGrupo: string, nomeNovo: string) {
+    var url = this.baseApiPath + "group/rename?name=" + nomeDoGrupo + "&newName=" + nomeNovo;
+    return this.http.put(url, "", this.options);
+  }
+
+  grupoAddLink(nomeDoGrupo: string, linkID: string) {
+    var url = this.baseApiPath + "group/addlink?name=" + nomeDoGrupo + "&id=" + linkID;
+    return this.http.put(url, "", this.options);
+  }
+
+  grupoRemoveLink(nomeDoGrupo: string, linkID: string) {
+    var url = this.baseApiPath + "group/removelink?name=" + nomeDoGrupo + "&id=" + linkID;
+    return this.http.put(url, "", this.options);
+  }
+
+  // PARA PAG DE CONFIG
+
+  renomearUsuario(nomeNovo: string, linkID: string) {
+    var url = this.baseApiPath + "/users/rename?newName=" + nomeNovo;
+    return this.http.put(url, "", this.options);
+  }
+
+  mudarSenha(senhaAtual: string, novaSenha: string) {
+    var url = this.baseApiPath + "/users/changepassword?oldPassword=" + senhaAtual + "&newPassword=" + novaSenha;
+    return this.http.put(url, "", this.options);
+  }
+
+
+
 }
 
 export class Intent {
