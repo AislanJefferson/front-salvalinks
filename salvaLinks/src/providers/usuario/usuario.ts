@@ -16,12 +16,14 @@ export class UsuarioProvider {
   private httpHeader = new Headers();
   private options;
   private links: Intent[];
+  private count: number;
 
   constructor(public http: Http) {
     console.log('Hello UsuarioProvider Provider');
     this.httpHeader.append('Content-Type', 'application/json');
     this.options = new RequestOptions({ headers: this.httpHeader });
     this.links = [];
+    this.count = 0;
   }
 
   cadastrarUsuario(name: string, email: string, password: string) {
@@ -34,15 +36,42 @@ export class UsuarioProvider {
     return this.http.post(this.baseApiPath + "users/register", dados,this.options);
   }
 
+  contadorLinks(){
+    var url = this.baseApiPath + '/users/numberoflinks';
+    return this.http.get(url, this.options);
+  }
+
+
+  contadorGrupos(){
+    var url = this.baseApiPath + '/users/numberofgroups';
+    return this.http.get(url, this.options);
+  }
+
   logarUsuario(email: string, password: string) {
     var url = this.baseApiPath + 'users/login?email=' + email + '&password=' + password;
     return this.http.post(url, this.options);
+  }
+
+  getNomeUsuario() {
+    var url = this.baseApiPath + '/users/getusername';
+    return this.http.get(url, this.options);
   }
 
   enviarEmail(email: string) {
     var url = this.baseApiPath + 'redefine?email=' + email;
 
     return this.http.post(url, this.options);
+  }
+
+  renomearUsuario(nomeNovo: string){
+    var url = this.baseApiPath + "/users/rename?newName=" +
+    nomeNovo;
+    return this.http.put(url, "", this.options);
+  }
+
+  mudarSenha(senhaAtual: string, novaSenha: string){
+    var url = this.baseApiPath + "/users/changepassword?oldPassword=" + senhaAtual + "&newPassword=" + novaSenha;
+    return this.http.put(url, "", this.options);
   }
 
   exibirUsuariosCadastrados() {
@@ -56,6 +85,7 @@ export class UsuarioProvider {
       href: href,
       importance: importance
     }
+    this.count++;
     return this.http.post(url, link,this.options);
   }
 
