@@ -5,6 +5,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { LoginUsuarioPage } from '../login-usuario/login-usuario';
 import { ListaLinksPage } from '../lista-links/lista-links';
 import { OnesignalProvider } from '../../providers/onesignal/onesignal';
+import { AbasPage } from '../abas/abas';
 
 /**
  * Generated class for the InserirLinkPage page.
@@ -51,10 +52,8 @@ export class InserirLinkPage {
       this.usuarioProvider.insereLink(this.authProvider.getEmail(), this.model.name, this.model.href, this.model.importance).
         subscribe((result: any) => {
           var response = result.json();
-
-          console.log(this.notificador.cadastrarNotificacaoLeitura(this.model.href, this.model.tempo));
-          console.log(response);
-          this.navCtrl.setRoot(ListaLinksPage);
+          this.notificador.cadastrarNotificacaoLeitura(response.name, response.href,response.importance ,this.model.tempo);
+          this.navCtrl.setRoot(AbasPage);
 
         },
           (error) => {
@@ -82,8 +81,9 @@ export class InserirLinkPage {
 
 export class Link {
   id: string;
+  group: string;
   name: string;
-  href: string;
+  href: string; e
   tempo: number;
   importance: string = "alta" || "normal" || "baixa";
 }

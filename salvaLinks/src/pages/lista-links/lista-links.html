@@ -48,14 +48,14 @@
       <ion-list>
         <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">
           <ion-item text-center>
-            {{ link.grupo }}
+            {{ link.group != "none" ? link.group.toUpperCase() : "NENHUM" }}
             <ion-icon name="arrow-dropleft" item-right></ion-icon>
           </ion-item>
           <ion-item-options>
             <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">
               <ion-icon name="create"></ion-icon>
             </button>
-            <button ion-button icon-only light (click)="deletarLink(link.href)">
+            <button ion-button icon-only light (click)="adicionarGrupo(link,'LAZER')">
               <ion-icon name="trash"></ion-icon>
             </button>
           </ion-item-options>
@@ -70,7 +70,7 @@
       <ion-list>
         <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">
           <ion-item text-center>
-            {{ link.importance }}
+            {{ link.importance.toUpperCase() }}
             <ion-icon name="arrow-dropleft" item-right></ion-icon>
           </ion-item>
           <ion-item-options>

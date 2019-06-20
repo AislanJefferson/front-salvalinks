@@ -28,9 +28,26 @@ export class OnesignalProvider {
     this.options = new RequestOptions({ headers: this.httpHeader });
   }
 
-  cadastrarNotificacaoLeitura(href: string, minutos: number) {
+  cadastrarNotificacaoLeitura(name: string, href: string, importancia: string, minutos: number) {
+
     var messageID = "";
     if (this.playerId.length > 0) {
+      let channel_id;
+      let prioridade;
+      switch (importancia) {
+        case "alta":
+          channel_id = "c15b6927-a27a-4205-ae4d-227d458c2ef6";
+          prioridade = 10;
+          break;
+        case "baixa":
+          channel_id = "bc1daa1d-d0ab-42af-9a27-a01e8082b2de";
+          prioridade = 0;
+          break;
+        default:
+          channel_id = "b1fdc2c7-37ac-49c5-82a2-fcc5e4395f82";
+          prioridade = 5;
+          break;
+      }
       let agora = new Date();
       agora.setMinutes(agora.getMinutes() + minutos);
       var message = {
@@ -39,9 +56,11 @@ export class OnesignalProvider {
         headings: {
           "en": "Voce tem link a visualizar"
         },
-        contents: { "en": href },
-
-        include_player_ids: [this.playerId]
+        contents: { "en": name },
+        url: href,
+        include_player_ids: [this.playerId],
+        android_channel_id: channel_id,
+        priority: prioridade
       };
 
       this.http.post(this.baseApiPath, message, this.options).

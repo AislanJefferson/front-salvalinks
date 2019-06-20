@@ -36,8 +36,8 @@ export class RenomearLinkPage {
         duration: 3000
       });
       if (this.model.tempo) {
-        this.notificador.cadastrarNotificacaoLeitura(this.navParams.get('url'), this.model.tempo);
-        toast.setMessage("Noficação agendada com sucesso!")
+        this.notificador.cadastrarNotificacaoLeitura(this.navParams.get('nomeLink'), this.navParams.get('url'), this.navParams.get('importance'), this.model.tempo);
+        toast.setMessage(this.navParams.get('nomeLink') + this.navParams.get('url') + this.navParams.get('importance') + this.model.tempo);
       }
       if (this.model.name) {
         this.usuarioProvider.renomearLink(this.authProvider.getEmail(), this.navParams.get('url'), this.navParams.get('nomeLink'), this.model.name).
@@ -50,7 +50,7 @@ export class RenomearLinkPage {
             });
       }
       if (toast.name) toast.present();
-      this.navCtrl.push(ListaLinksPage);
+      this.navCtrl.setRoot(ListaLinksPage);
     } else {
       this.navCtrl.setRoot(LoginUsuarioPage);
     }

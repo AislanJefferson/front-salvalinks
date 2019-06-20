@@ -20,7 +20,7 @@ export class AuthProvider {
   }
 
   autenticado() {
-    return this.logado;
+    return this.logado && this.usuarioProvider.getTokenHeader();
   }
 
   autentica(email: string) {

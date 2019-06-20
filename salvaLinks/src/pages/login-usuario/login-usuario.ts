@@ -7,6 +7,7 @@ import { CadastroUsuarioPage } from '../cadastro-usuario/cadastro-usuario';
 import { InserirLinkPage } from '../inserir-link/inserir-link';
 import { DadosUsuarioProvider } from '../../providers/dados-usuario/dados-usuario';
 import { RedefinirSenhaPage } from '../redefinir-senha/redefinir-senha';
+import { AbasPage } from '../abas/abas';
 
 /**
  * Generated class for the LoginUsuarioPage page.
@@ -47,7 +48,7 @@ export class LoginUsuarioPage {
       this.authProvider.autentica(dados.email);
       if (this.usuarioProvider.temLinkAInserir()) this.navCtrl.setRoot(InserirLinkPage);
       else
-        this.navCtrl.setRoot(ListaLinksPage);
+        this.navCtrl.setRoot(AbasPage);
     }, (error) => {
       var resp = error.json()
       let toast = this.toastCtrl.create({

@@ -25,6 +25,8 @@ export class ListaLinksPage {
   model: User;
   link: Link;
   email: string;
+  private mudarGrupo : boolean = false;
+  private linkAEditar : string = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController, public dadosUsuarioProvider: DadosUsuarioProvider) {
     this.model = new User();
@@ -50,10 +52,11 @@ export class ListaLinksPage {
 
   redirectRenomearLink(linkName: string, href: string) {
     this.link.name = linkName;
-    console.log("=> " + href);
+    console.log("=> " + this.link);
     this.navCtrl.push(RenomearLinkPage, {
       url: href,
-      nomeLink: linkName
+      nomeLink: linkName,
+      importance: this.link.importance
     });
   }
 
@@ -69,6 +72,18 @@ export class ListaLinksPage {
         duration: 3000
       });
       toast.present();
+    });
+  }
+
+  alternarParaEdicao(idLink: string){
+    this.mudarGrupo = !this.mudarGrupo;
+    if(this.mudarGrupo) this.linkAEditar = idLink
+    else this.linkAEditar = "";
+  }
+
+  adicionarGrupo(linkParaAdicionar: Link, grupo: string) {
+    this.usuarioProvider.grupoAddLink(grupo, linkParaAdicionar.id).subscribe((result: any) => {
+      this.exibirLinksCadastrados();
     });
   }
 

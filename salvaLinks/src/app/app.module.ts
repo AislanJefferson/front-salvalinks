@@ -31,6 +31,8 @@ import { RedefinirSenhaPage } from '../pages/redefinir-senha/redefinir-senha';
 import { RenomearLinkPage } from '../pages/renomear-link/renomear-link';
 import { OneSignal } from '@ionic-native/onesignal';
 import { OnesignalProvider } from '../providers/onesignal/onesignal';
+import { AbasPage } from '../pages/abas/abas';
+import { AbasPageModule } from '../pages/abas/abas.module';
 
 
 @NgModule({
@@ -48,12 +50,13 @@ import { OnesignalProvider } from '../providers/onesignal/onesignal';
           // DeepLinker
         {component: LoginUsuarioPage, name: 'LoginUsuario', segment: 'login'},
         {component: CadastroUsuarioPage, name: 'CadastroUsuario', segment: 'users/register'},
-        {component: ListaLinksPage, name: 'ListaLinks', segment: 'links'},
+        {component: ListaLinksPage, name: 'ListaLinks', segment: 'list'},
         {component: InserirLinkPage, name: 'InserirLink', segment: 'links/add'},
         {component: PerfilPage, name: 'Perfil', segment: 'perfil'},
         {component: ConfiguracoesPage, name: 'Configuracoes', segment: 'config'},
         {component: RedefinirSenhaPage, name: 'RedefinirSenha', segment: 'redefine'},
-        {component: RenomearLinkPage, name: 'RenomearLink', segment: 'links/rename'}
+        {component: RenomearLinkPage, name: 'RenomearLink', segment: 'links/rename'},
+        {component: AbasPage, name: 'Principal', segment: 'home'}
         ]
       }
       ),
@@ -65,7 +68,8 @@ import { OnesignalProvider } from '../providers/onesignal/onesignal';
     HttpModule,
     ConfiguracoesPageModule,
     PerfilPageModule,
-    RedefinirSenhaPageModule
+    RedefinirSenhaPageModule,
+    AbasPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

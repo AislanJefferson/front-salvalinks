@@ -12,6 +12,7 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
 import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
 import { OneSignal, OSNotificationPayload } from '@ionic-native/onesignal';
 import { AuthProvider } from '../providers/auth/auth';
+import { AbasPage } from '../pages/abas/abas';
 
 @Component({
   templateUrl: 'app.html',
@@ -76,7 +77,7 @@ export class MyApp {
           this.authProvider.autentica(dados.email);
           if (this.usuarioProvider.temLinkAInserir()) this.rootPage = InserirLinkPage;
           else
-            this.rootPage = ListaLinksPage;
+            this.rootPage = AbasPage;
         });
       }
     });
@@ -86,7 +87,8 @@ export class MyApp {
       perfil: PerfilPage,
       configuracoes: ConfiguracoesPage,
       sair: LoginUsuarioPage,
-      lista: ListaLinksPage
+      lista: ListaLinksPage,
+      abas: AbasPage
     }
   }
 
@@ -95,7 +97,7 @@ export class MyApp {
   }
 
   private onPushOpened(payload: OSNotificationPayload) {
-    window.open(payload.body, '_system');
+    console.log("Abriu link");
   }
 
   private logout() {
