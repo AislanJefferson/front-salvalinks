@@ -16,6 +16,7 @@ import { UsuarioProvider } from '../../providers/usuario/usuario';
 export class PerfilPage {
 
   private nome: string;
+  private links: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider) {
   }
@@ -24,6 +25,19 @@ export class PerfilPage {
     this.getNome();
   }
 
+
+  numeroLinks(){
+    return this.links = this.usuarioProvider.contadorLinks().toString();
+    //this.usuarioProvider.contadorLinks().toString().subscribe((result: any) => {
+    //   this.links = result._body;
+    //  },
+    //    (error) => {
+    //      console.log(error)
+    //    })
+    }
+    
+
+  
 
 
   getNome() {
@@ -35,6 +49,4 @@ export class PerfilPage {
           console.log(error)
         })
   }
-}
-
 }

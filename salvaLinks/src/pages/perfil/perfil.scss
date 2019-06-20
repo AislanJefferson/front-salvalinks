@@ -34,5 +34,15 @@ page-perfil {
 
       .profile-item {
         text-align: center;
+        font-size: 28px !important;
+        font-weight: bold !important;
+      }
+
+      .profile-item2 {
+        text-align: center;
+        font-size: 15px !important;
+        font-weight: 350 !important;
+        font-style: italic;
+        margin-top: -10px;
       }
 }
