@@ -37,7 +37,7 @@ export class RenomearLinkPage {
       });
       if (this.model.tempo) {
         this.notificador.cadastrarNotificacaoLeitura(this.navParams.get('nomeLink'), this.navParams.get('url'), this.navParams.get('importance'), this.model.tempo);
-        toast.setMessage(this.navParams.get('nomeLink') + this.navParams.get('url') + this.navParams.get('importance') + this.model.tempo);
+        toast.setMessage("Noficação agendada com sucesso!")
       }
       if (this.model.name) {
         this.usuarioProvider.renomearLink(this.authProvider.getEmail(), this.navParams.get('url'), this.navParams.get('nomeLink'), this.model.name).
