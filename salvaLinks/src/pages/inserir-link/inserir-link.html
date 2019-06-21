@@ -54,7 +54,7 @@
     </ion-item>
 
     <div class="botao">
-      <button ion-button block (click)="inserirLink()" id="botao">ADICIONAR</button>
+      <button ion-button [disabled]="!model.href" block (click)="inserirLink()" id="botao">ADICIONAR</button>
     </div>
 
 

@@ -34,7 +34,7 @@
       </ion-item>
 
       <div class="botao">
-        <button ion-button block (click)="renomearUsuario()" id="botao">RENOMEAR</button>
+        <button ion-button block [disabled]="!model.name" (click)="renomearUsuario()" id="botao">RENOMEAR</button>
       </div>
 
     </ion-list>
