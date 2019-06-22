@@ -32,7 +32,7 @@
         <ion-input type="text" name="name" placeholder="Novo Nome" [(ngModel)]="model.name"></ion-input>
       </ion-item>
   
-      <div class="botao">
+      <div class="botao2">
         <button ion-button block (click)="renomearUsuario()" id="botao">RENOMEAR</button>
       </div>
   
@@ -40,7 +40,7 @@
 
     <ion-list>     
         <ion-item>
-            <ion-label stacked>Mudar Senha</ion-label>
+            <ion-label stacked>Redefinir Senha</ion-label>
             <ion-input position="floating" type="text" name="newpassword" placeholder="Nova Senha" [(ngModel)]="model.newpassword"></ion-input>
             <ion-input type="text" name="password" placeholder="Senha Atual" [(ngModel)]="model.password"></ion-input>
         </ion-item>
@@ -48,7 +48,7 @@
         
 </ion-list>
     <div class="botao">
-      <button ion-button block (click)="mudarSenha()" id="botao">MUDAR</button>
+      <button ion-button block (click)="mudarSenha()" id="botao">REDEFINIR</button>
     </div>
 
 
