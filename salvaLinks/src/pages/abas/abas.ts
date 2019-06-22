@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ListaLinksPage } from '../lista-links/lista-links';
-import { InserirLinkPage } from '../inserir-link/inserir-link';
 import { AuthProvider } from '../../providers/auth/auth';
+import { ListaGruposPage } from '../lista-grupos/lista-grupos';
 
 /**
  * Generated class for the AbasPage page.
@@ -19,7 +19,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 export class AbasPage {
 
   tab1Root = ListaLinksPage;
-  tab2Root = InserirLinkPage;
+  tab2Root = ListaGruposPage ;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private authProvider : AuthProvider) {
   }

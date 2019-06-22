@@ -33,7 +33,8 @@ import { OneSignal } from '@ionic-native/onesignal';
 import { OnesignalProvider } from '../providers/onesignal/onesignal';
 import { AbasPage } from '../pages/abas/abas';
 import { AbasPageModule } from '../pages/abas/abas.module';
-
+import { ListaGruposPageModule } from '../pages/lista-grupos/lista-grupos.module';
+import { InserirGrupoPageModule } from '../pages/inserir-grupo/inserir-grupo.module';
 
 @NgModule({
   declarations: [
@@ -44,22 +45,23 @@ import { AbasPageModule } from '../pages/abas/abas.module';
     BrowserModule,
     IonicModule.forRoot(MyApp,
       {
-      // 
+        // 
       }, {
         links: [
           // DeepLinker
-        {component: LoginUsuarioPage, name: 'LoginUsuario', segment: 'login'},
-        {component: CadastroUsuarioPage, name: 'CadastroUsuario', segment: 'users/register'},
-        {component: ListaLinksPage, name: 'ListaLinks', segment: 'list'},
-        {component: InserirLinkPage, name: 'InserirLink', segment: 'links/add'},
-        {component: PerfilPage, name: 'Perfil', segment: 'perfil'},
-        {component: ConfiguracoesPage, name: 'Configuracoes', segment: 'config'},
-        {component: RedefinirSenhaPage, name: 'RedefinirSenha', segment: 'redefine'},
-        {component: RenomearLinkPage, name: 'RenomearLink', segment: 'links/rename'},
-        {component: AbasPage, name: 'Principal', segment: 'home'}
+          { component: LoginUsuarioPage, name: 'LoginUsuario', segment: 'login' },
+          { component: CadastroUsuarioPage, name: 'CadastroUsuario', segment: 'users/register' },
+          { component: ListaLinksPage, name: 'ListaLinks', segment: 'list' },
+          { component: InserirLinkPage, name: 'InserirLink', segment: 'links/add' },
+          { component: PerfilPage, name: 'Perfil', segment: 'perfil' },
+          { component: ConfiguracoesPage, name: 'Configuracoes', segment: 'config' },
+          { component: RedefinirSenhaPage, name: 'RedefinirSenha', segment: 'redefine' },
+          { component: RenomearLinkPage, name: 'RenomearLink', segment: 'links/rename' },
+          { component: AbasPage, name: 'Principal', segment: 'home' },
+          { component: ListaGruposPageModule, name: 'ListaGrupos', segment: 'groups/getnames' }
         ]
       }
-      ),
+    ),
     CadastroUsuarioPageModule,
     LoginUsuarioPageModule,
     InserirLinkPageModule,
@@ -69,7 +71,9 @@ import { AbasPageModule } from '../pages/abas/abas.module';
     ConfiguracoesPageModule,
     PerfilPageModule,
     RedefinirSenhaPageModule,
-    AbasPageModule
+    AbasPageModule,
+    ListaGruposPageModule,
+    InserirGrupoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

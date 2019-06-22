@@ -39,7 +39,7 @@ export class RenomearLinkPage {
         this.notificador.cadastrarNotificacaoLeitura(this.navParams.get('nomeLink'), this.navParams.get('url'), this.navParams.get('importance'), this.model.tempo);
         toast.setMessage("Noficação agendada com sucesso!")
       }
-      if (this.model.name) {
+      if (this.model.name && this.model.name != this.navParams.get('nomeLink')) {
         this.usuarioProvider.renomearLink(this.authProvider.getEmail(), this.navParams.get('url'), this.navParams.get('nomeLink'), this.model.name).
           subscribe((result: any) => {
             var response = result.json();
