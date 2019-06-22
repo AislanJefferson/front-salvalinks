@@ -612,6 +612,10 @@ var UsuarioProvider = /** @class */ (function () {
         var url = this.baseApiPath + 'links?email=' + email;
         return this.http.get(url, this.options);
     };
+    UsuarioProvider.prototype.LinksPorData = function () {
+        var url = this.baseApiPath + 'links/listbydate';
+        return this.http.get(url, this.options);
+    };
     UsuarioProvider.prototype.renomearLink = function (email, url, nomeAtual, nomeNovo) {
         var url = this.baseApiPath + 'links/rename?newName=' + encodeURIComponent(nomeNovo) + '&url=' + encodeURIComponent(url);
         console.log(url);
@@ -1869,9 +1873,23 @@ var ListaLinksPage = /** @class */ (function () {
         this.listaLinks = new Array();
         this.mudarGrupo = false;
         this.linkAEditar = "";
+        this.orderByFirstIn = true;
         this.model = new __WEBPACK_IMPORTED_MODULE_4__login_usuario_login_usuario__["b" /* User */]();
         this.link = new __WEBPACK_IMPORTED_MODULE_5__inserir_link_inserir_link__["b" /* Link */]();
     }
+    ListaLinksPage.prototype.exibirLinksPorData = function () {
+        var _this = this;
+        this.usuarioProvider.LinksPorData().subscribe(function (result) {
+            _this.listaLinks = result.json();
+        }, function (error) {
+            var resp = error.json();
+            var toast = _this.toastCtrl.create({
+                message: resp.message,
+                duration: 3000
+            });
+            toast.present();
+        });
+    };
     ListaLinksPage.prototype.exibirLinksCadastrados = function () {
         var _this = this;
         this.usuarioProvider.exibirLinksCadastrados(this.authProvider.getEmail()).subscribe(function (result) {
@@ -1929,12 +1947,22 @@ var ListaLinksPage = /** @class */ (function () {
         console.log(href);
         window.open(href, '_system');
     };
+    ListaLinksPage.prototype.ordenar = function () {
+        if (this.orderByFirstIn) {
+            this.exibirLinksCadastrados();
+        }
+        else {
+            this.exibirLinksPorData();
+        }
+        this.orderByFirstIn = !this.orderByFirstIn;
+    };
     ListaLinksPage.prototype.ionViewDidEnter = function () {
+        this.orderByFirstIn = true;
         this.exibirLinksCadastrados();
     };
     ListaLinksPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-lista-links',template:/*ion-inline-start:"C:\cygwin64\home\Aislan\front-salvalinks\salvaLinks\src\pages\lista-links\lista-links.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Lista de Links</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-row>\n    <ion-col>\n      <button ion-button full (click)="redirectInserirLink()">Inserir Novo Link</button>\n    </ion-col>\n    <ion-col>\n      <button ion-button full (click)="exibirLinksCadastrados()">Sincronizar</button>\n    </ion-col>\n  </ion-row>\n\n  <ion-row nowrap>\n    <ion-col>\n      <ion-item lines="none" text-center>\n        <ion-label color="primary"> <strong>LINK</strong> </ion-label>\n      </ion-item>\n      <ion-list>\n        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">\n          <ion-item text-center (click)="redirectPaginaLink(link.href)">\n            {{ link.name }}\n            <ion-icon name="arrow-dropleft" item-right></ion-icon>\n          </ion-item>\n          <ion-item-options>\n            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">\n              <ion-icon name="create"></ion-icon>\n            </button>\n            <button ion-button icon-only light (click)="deletarLink(link.href)">\n              <ion-icon name="trash"></ion-icon>\n            </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n    </ion-col>\n\n    <ion-col showWhen="core">\n      <ion-item lines="none" text-center>\n        <ion-label color="primary"> <strong>GRUPO</strong> </ion-label>\n      </ion-item>\n      <ion-list>\n        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">\n          <ion-item text-center>\n            {{ link.group != "none" ? link.group.toUpperCase() : "NENHUM" }}\n            <ion-icon name="arrow-dropleft" item-right></ion-icon>\n          </ion-item>\n          <ion-item-options>\n            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">\n              <ion-icon name="create"></ion-icon>\n            </button>\n            <button ion-button icon-only light (click)="adicionarGrupo(link,\'LAZER\')">\n              <ion-icon name="trash"></ion-icon>\n            </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n    </ion-col>\n\n    <ion-col showWhen="core">\n      <ion-item lines="none" text-center>\n        <ion-label color="primary"> <strong>CLASSIFICAÇÃO</strong> </ion-label>\n      </ion-item>\n      <ion-list>\n        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">\n          <ion-item text-center>\n            {{ link.importance.toUpperCase() }}\n            <ion-icon name="arrow-dropleft" item-right></ion-icon>\n          </ion-item>\n          <ion-item-options>\n            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">\n              <ion-icon name="create"></ion-icon>\n            </button>\n            <button ion-button icon-only light (click)="deletarLink(link.href)">\n              <ion-icon name="trash"></ion-icon>\n            </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n    </ion-col>\n  </ion-row>\n\n</ion-content>'/*ion-inline-end:"C:\cygwin64\home\Aislan\front-salvalinks\salvaLinks\src\pages\lista-links\lista-links.html"*/,
+            selector: 'page-lista-links',template:/*ion-inline-start:"C:\cygwin64\home\Aislan\front-salvalinks\salvaLinks\src\pages\lista-links\lista-links.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Lista de Links</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-row>\n    <ion-col>\n      <button ion-button full (click)="redirectInserirLink()">Inserir Novo Link</button>\n    </ion-col>\n    <ion-col>\n      <button ion-button full (click)="exibirLinksPorData()">Sincronizar</button>\n    </ion-col>\n  </ion-row>\n\n  <ion-row nowrap>\n    <ion-col>\n      <ion-item (click)="ordenar()" lines="none" text-center>\n        <ion-label color="primary"> <strong>LINK</strong>\n          <ion-icon name="arrow-drop{{orderByFirstIn ? \'down\':\'up\'}}"></ion-icon>\n        </ion-label>\n      </ion-item>\n      <ion-list>\n        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">\n          <ion-item text-center (click)="redirectPaginaLink(link.href)">\n            {{ link.name }}\n            <ion-icon name="arrow-dropleft" item-right></ion-icon>\n          </ion-item>\n          <ion-item-options>\n            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">\n              <ion-icon name="create"></ion-icon>\n            </button>\n            <button ion-button icon-only light (click)="deletarLink(link.href)">\n              <ion-icon name="trash"></ion-icon>\n            </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n    </ion-col>\n\n    <ion-col showWhen="core">\n      <ion-item lines="none" text-center>\n        <ion-label color="primary"> <strong>GRUPO</strong> </ion-label>\n      </ion-item>\n      <ion-list>\n        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">\n          <ion-item text-center>\n            {{ link.group != "none" ? link.group.toUpperCase() : "NENHUM" }}\n            <ion-icon name="arrow-dropleft" item-right></ion-icon>\n          </ion-item>\n          <ion-item-options>\n            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">\n              <ion-icon name="create"></ion-icon>\n            </button>\n            <button ion-button icon-only light (click)="adicionarGrupo(link,\'LAZER\')">\n              <ion-icon name="trash"></ion-icon>\n            </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n    </ion-col>\n\n    <ion-col showWhen="core">\n      <ion-item lines="none" text-center>\n        <ion-label color="primary"> <strong>CLASSIFICAÇÃO</strong> </ion-label>\n      </ion-item>\n      <ion-list>\n        <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">\n          <ion-item text-center>\n            {{ link.importance.toUpperCase() }}\n            <ion-icon name="arrow-dropleft" item-right></ion-icon>\n          </ion-item>\n          <ion-item-options>\n            <button ion-button icon-only light (click)="redirectRenomearLink(link.name,link.href)">\n              <ion-icon name="create"></ion-icon>\n            </button>\n            <button ion-button icon-only light (click)="deletarLink(link.href)">\n              <ion-icon name="trash"></ion-icon>\n            </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n    </ion-col>\n  </ion-row>\n\n</ion-content>'/*ion-inline-end:"C:\cygwin64\home\Aislan\front-salvalinks\salvaLinks\src\pages\lista-links\lista-links.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1__providers_usuario_usuario__["a" /* UsuarioProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]])
     ], ListaLinksPage);

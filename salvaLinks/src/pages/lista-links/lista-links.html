@@ -14,14 +14,16 @@
       <button ion-button full (click)="redirectInserirLink()">Inserir Novo Link</button>
     </ion-col>
     <ion-col>
-      <button ion-button full (click)="exibirLinksCadastrados()">Sincronizar</button>
+      <button ion-button full (click)="exibirLinksPorData()">Sincronizar</button>
     </ion-col>
   </ion-row>
 
   <ion-row nowrap>
     <ion-col>
-      <ion-item lines="none" text-center>
-        <ion-label color="primary"> <strong>LINK</strong> </ion-label>
+      <ion-item (click)="ordenar()" lines="none" text-center>
+        <ion-label color="primary"> <strong>LINK</strong>
+          <ion-icon name="arrow-drop{{orderByFirstIn ? 'down':'up'}}"></ion-icon>
+        </ion-label>
       </ion-item>
       <ion-list>
         <ion-item-sliding lines="none" text-center *ngFor="let link of listaLinks">

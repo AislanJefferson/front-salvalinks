@@ -82,6 +82,11 @@ export class UsuarioProvider {
     return this.http.get(url, this.options);
   }
 
+  LinksPorData() {
+    var url = this.baseApiPath + 'links/listbydate';
+    return this.http.get(url, this.options);
+  }
+
   renomearLink(email: string, url: string, nomeAtual: string, nomeNovo: string) {
     var url = this.baseApiPath + 'links/rename?newName=' + encodeURIComponent(nomeNovo) + '&url=' + encodeURIComponent(url);
     console.log(url);

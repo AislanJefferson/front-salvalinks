@@ -25,12 +25,27 @@ export class ListaLinksPage {
   model: User;
   link: Link;
   email: string;
-  private mudarGrupo : boolean = false;
-  private linkAEditar : string = "";
+  private mudarGrupo: boolean = false;
+  private linkAEditar: string = "";
+  private orderByFirstIn: boolean = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController, public dadosUsuarioProvider: DadosUsuarioProvider) {
     this.model = new User();
     this.link = new Link();
+  }
+
+  exibirLinksPorData() {
+    this.usuarioProvider.LinksPorData().subscribe((result: any) => {
+      this.listaLinks = result.json();
+
+    }, (error) => {
+      var resp = error.json()
+      let toast = this.toastCtrl.create({
+        message: resp.message,
+        duration: 3000
+      });
+      toast.present();
+    });
   }
 
   exibirLinksCadastrados() {
@@ -75,9 +90,9 @@ export class ListaLinksPage {
     });
   }
 
-  alternarParaEdicao(idLink: string){
+  alternarParaEdicao(idLink: string) {
     this.mudarGrupo = !this.mudarGrupo;
-    if(this.mudarGrupo) this.linkAEditar = idLink
+    if (this.mudarGrupo) this.linkAEditar = idLink
     else this.linkAEditar = "";
   }
 
@@ -92,7 +107,17 @@ export class ListaLinksPage {
     window.open(href, '_system');
   }
 
+  ordenar() {
+    if (this.orderByFirstIn) {
+      this.exibirLinksCadastrados();
+    } else {
+      this.exibirLinksPorData();
+    }
+    this.orderByFirstIn = !this.orderByFirstIn;
+  }
+
   ionViewDidEnter() {
+    this.orderByFirstIn = true;
     this.exibirLinksCadastrados();
   }
 
