@@ -1,15 +1,30 @@
-<!--
-  Generated template for the RenomearGrupoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
-    <ion-title>renomear-grupo</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-
-</ion-content>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Renomear Grupo</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <div class="img">
+      <img src="assets/imgs/logoNome.jpg">
+    </div>
+  
+    <div></div>
+    <ion-list>
+  
+      <ion-item>
+        <ion-label stacked>Título</ion-label>
+        <ion-input type="text" name="name" placeholder="Novo nome do grupo" [(ngModel)]="model.name"></ion-input>
+      </ion-item>
+  
+      <div class="botao">
+          <button ion-button block (click)="renomearGrupo()" id="botao">RENOMEAR</button>
+      </div>
+  
+    </ion-list>  
+  
+  </ion-content>

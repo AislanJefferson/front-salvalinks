@@ -31,7 +31,7 @@ export class InserirGrupoPage {
 
   inserirGrupo() {
     if (this.authProvider.autenticado()) {
-      this.usuarioProvider.insereGrupo(this.authProvider.getEmail(), this.model.name).
+      this.usuarioProvider.grupoCriar(this.model.name).
         subscribe((result: any) => {
           var response = result.json();
           console.log(response);

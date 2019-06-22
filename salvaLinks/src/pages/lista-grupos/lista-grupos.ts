@@ -5,8 +5,9 @@ import { UsuarioProvider } from './../../providers/usuario/usuario';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ToastController } from 'ionic-angular';
 import { User } from '../login-usuario/login-usuario';
-import {InserirGrupoPage} from '../inserir-grupo/inserir-grupo';
-//import { RenomearGrupoPage } from '../renomear-grupo/renomear-grupo';
+import { InserirGrupoPage } from '../inserir-grupo/inserir-grupo';
+import { RenomearGrupoPage } from '../renomear-grupo/renomear-grupo';
+import  {ListarGrupoPage } from '../listar-grupo/listar-grupo';
 
 /**
  * Generated class for the ListaGruposPage page.
@@ -23,11 +24,11 @@ import {InserirGrupoPage} from '../inserir-grupo/inserir-grupo';
 export class ListaGruposPage {
   public listaGrupos = new Array<any>();
   model: User;
-  //grupo: Grupo;
+  grupo: Grupo;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider, private authProvider: AuthProvider, public toastCtrl: ToastController) {
     this.model = new User();
-    //this.grupo = new Grupo();
+    this.grupo = new Grupo();
   }
 
   ionViewWillEnter() {
@@ -35,7 +36,7 @@ export class ListaGruposPage {
   }
 
   exibirGruposCadastrados() {
-    this.usuarioProvider.exibirGruposCadastrados(this.authProvider.getEmail()).subscribe((result: any) => {
+    this.usuarioProvider.grupoGetAllNames().subscribe((result: any) => {
       this.listaGrupos = result.json();
     }, (error) => {
       var resp = error.json()
@@ -61,16 +62,35 @@ export class ListaGruposPage {
     this.navCtrl.push(InserirGrupoPage);
   }
 
-  /*redirectRenomearGrupo(){
-    this.navCtrl.push(RenomearGrupoPage);
+  redirectRenomearGrupo(grupoName: string){
+    this.grupo.name = grupoName
+    console.log("Nome do Grupo =>" + grupoName);
+    this.navCtrl.push(RenomearGrupoPage, {
+      nomeAtualDoGrupo: grupoName
+    });
+  }
+
+  redirectListarGrupo(grupoName: string){
+    this.grupo.name = grupoName
+    console.log("Nome do Grupo =>" + grupoName);
+    this.navCtrl.push(ListarGrupoPage, {
+      grupoSelecionado: grupoName
+    });
+  }
+
+  /*redirectRenomearLink(linkName: string, href: string) {
+    this.link.name = linkName;
+    console.log("=> " + href);
+    this.navCtrl.push(RenomearLinkPage, {
+      url: href,
+      nomeLink: linkName
+    });
   }*/
 
   deletarGrupo(tituloGrupo){
     console.log(tituloGrupo);
-    this.usuarioProvider.deletarGrupo(this.authProvider.getEmail(), tituloGrupo).subscribe((result: any) => {
-      var respOK = result.json();
+    this.usuarioProvider.grupoDeletar(tituloGrupo).subscribe((result: any) => {
       this.exibirGruposCadastrados();
-      console.log(respOK);
     }, (error) => {
       var resp = error.json()
       let toast = this.toastCtrl.create({
@@ -81,4 +101,8 @@ export class ListaGruposPage {
     });
   }
 
+}
+
+export class Grupo {
+  name: string;
 }

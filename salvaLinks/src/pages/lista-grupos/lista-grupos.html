@@ -29,7 +29,7 @@
       </ion-item>
       <ion-list>
         <ion-item-sliding lines="none" text-center *ngFor="let grupo of listaGrupos">
-          <ion-item text-center (click)="listarGrupo(grupo.name)">
+          <ion-item text-center (click)="redirectListarGrupo(grupo)">
             {{ grupo }}
             <ion-icon name="arrow-dropleft" item-right></ion-icon>
           </ion-item>
