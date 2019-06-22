@@ -14,15 +14,15 @@
       <button ion-button full (click)="redirectInserirLink()">Inserir Novo Link</button>
     </ion-col>
     <ion-col>
-      <button ion-button full (click)="exibirLinksPorData()">Sincronizar</button>
+      <button ion-button full (click)="listar()">Sincronizar</button>
     </ion-col>
   </ion-row>
 
   <ion-row nowrap>
     <ion-col>
-      <ion-item (click)="ordenar()" lines="none" text-center>
+      <ion-item (click)="alternaOrdenacao()" lines="none" text-center>
         <ion-label color="primary"> <strong>LINK</strong>
-          <ion-icon name="arrow-drop{{orderByFirstIn ? 'down':'up'}}"></ion-icon>
+          <ion-icon name="arrow-drop{{orderByFirstIn ? 'up':'down'}}"></ion-icon>
         </ion-label>
       </ion-item>
       <ion-list>

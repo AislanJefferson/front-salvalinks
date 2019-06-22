@@ -78,7 +78,7 @@ export class ListaLinksPage {
   deletarLink(tituloLink) {
     this.usuarioProvider.deletarLink(this.authProvider.getEmail(), tituloLink).subscribe((result: any) => {
       var respOK = result.json();
-      this.exibirLinksCadastrados();
+      this.listar();
       console.log(respOK);
     }, (error) => {
       var resp = error.json()
@@ -107,18 +107,22 @@ export class ListaLinksPage {
     window.open(href, '_system');
   }
 
-  ordenar() {
+  alternaOrdenacao() {
+    this.orderByFirstIn = !this.orderByFirstIn;
+    this.listar();
+  }
+
+  listar() {
     if (this.orderByFirstIn) {
       this.exibirLinksCadastrados();
     } else {
       this.exibirLinksPorData();
     }
-    this.orderByFirstIn = !this.orderByFirstIn;
   }
 
   ionViewDidEnter() {
     this.orderByFirstIn = true;
-    this.exibirLinksCadastrados();
+    this.listar();
   }
 
 }
