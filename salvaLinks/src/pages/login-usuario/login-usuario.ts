@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { UsuarioProvider } from './../../providers/usuario/usuario';
 import { AuthProvider } from '../../providers/auth/auth';
-import { ListaLinksPage } from '../lista-links/lista-links';
 import { CadastroUsuarioPage } from '../cadastro-usuario/cadastro-usuario';
 import { InserirLinkPage } from '../inserir-link/inserir-link';
 import { DadosUsuarioProvider } from '../../providers/dados-usuario/dados-usuario';

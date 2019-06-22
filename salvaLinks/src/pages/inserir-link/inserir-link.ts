@@ -3,7 +3,6 @@ import { NavController, NavParams, ToastController, IonicPage } from 'ionic-angu
 import { UsuarioProvider } from '../../providers/usuario/usuario';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoginUsuarioPage } from '../login-usuario/login-usuario';
-import { ListaLinksPage } from '../lista-links/lista-links';
 import { OnesignalProvider } from '../../providers/onesignal/onesignal';
 import { AbasPage } from '../abas/abas';
 

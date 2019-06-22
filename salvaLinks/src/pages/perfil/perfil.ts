@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { UsuarioProvider } from '../../providers/usuario/usuario';
 import { User } from '../cadastro-usuario/cadastro-usuario';
-import { LoginUsuarioPage } from '../login-usuario/login-usuario';
 
 /**
  * Generated class for the PerfilPage page.

@@ -25736,6 +25736,13 @@ a {
   width: 100px;
 }
 
+.botao2 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  margin-top: 15px;
+}
+
 #botao {
   text-align: center;
   background-color: #5a1eff;
