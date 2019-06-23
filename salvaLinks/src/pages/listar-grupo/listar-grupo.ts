@@ -5,6 +5,7 @@ import { ToastController } from 'ionic-angular';
 import { User } from '../login-usuario/login-usuario';
 import { DadosUsuarioProvider } from '../../providers/dados-usuario/dados-usuario';
 import { ListaGruposPage, Grupo } from '../lista-grupos/lista-grupos';
+import { RenomearLinkPage } from '../renomear-link/renomear-link';
 
 /**
  * Generated class for the ListarGrupoPage page.
@@ -72,21 +73,21 @@ export class ListarGrupoPage {
   }
 
   gerarPDF() {
-    this.usuarioProvider.grupoGetPDF(this.navParams.get('grupoSelecionado')).subscribe((result: any) => {
-      this.exibirLinksCadastradosEmGrupo();
-    }, (error) => {
-      var resp = error.json()
-      let toast = this.toastCtrl.create({
-        message: resp.message,
-        duration: 3000
-      });
-      toast.present();
+    let url = this.usuarioProvider.grupoGetPdfUrl(this.navParams.get('grupoSelecionado'));
+    window.open(url,'_system', 'location=no');
+  }
+
+  redirectRenomearLinkEmGrupo(linkName: string, href: string) {
+    this.navCtrl.push(RenomearLinkPage, {
+      url: href,
+      nomeLink: linkName,
+      importance: this.link.importance
     });
   }
 
   redirectPaginaLink(href: string) {
     console.log(href);
-    window.open('http://' + href, '_system');
+    window.open(href, '_system');
   }
 
 }

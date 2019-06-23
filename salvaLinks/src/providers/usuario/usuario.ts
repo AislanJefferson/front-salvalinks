@@ -138,7 +138,7 @@ export class UsuarioProvider {
     return this.http.get(this.baseApiPath + "group/links?name=" + nomeDoGrupo, this.options);
   }
   grupoGetPdfUrl(nomeDoGrupo: string) {
-    return this.baseApiPath + "group/pdf?name=" + nomeDoGrupo + "&token=" + this.getTokenHeader();
+    return this.baseApiPath + "group/pdf?name=" + nomeDoGrupo + "&token=" + encodeURIComponent(this.getTokenHeader());
   }
 
   grupoGetPDF(nomeDoGrupo: string) {
