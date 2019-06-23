@@ -989,7 +989,7 @@ var ListarGrupoPage = /** @class */ (function () {
         });
     };
     ListarGrupoPage.prototype.redirectListaGrupos = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__lista_grupos_lista_grupos__["b" /* ListaGruposPage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__lista_grupos_lista_grupos__["b" /* ListaGruposPage */]);
     };
     ListarGrupoPage.prototype.deletarLinkEmGrupo = function (linkId) {
         var _this = this;

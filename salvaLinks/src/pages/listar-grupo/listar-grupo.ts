@@ -54,7 +54,7 @@ export class ListarGrupoPage {
   }
 
   redirectListaGrupos() {
-    this.navCtrl.push(ListaGruposPage);
+    this.navCtrl.setRoot(ListaGruposPage);
   }
 
   deletarLinkEmGrupo(linkId) {

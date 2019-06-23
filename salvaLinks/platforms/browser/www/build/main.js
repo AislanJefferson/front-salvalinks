@@ -989,7 +989,7 @@ var ListarGrupoPage = /** @class */ (function () {
         });
     };
     ListarGrupoPage.prototype.redirectListaGrupos = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__lista_grupos_lista_grupos__["b" /* ListaGruposPage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__lista_grupos_lista_grupos__["b" /* ListaGruposPage */]);
     };
     ListarGrupoPage.prototype.deletarLinkEmGrupo = function (linkId) {
         var _this = this;
@@ -1008,7 +1008,7 @@ var ListarGrupoPage = /** @class */ (function () {
     };
     ListarGrupoPage.prototype.gerarPDF = function () {
         var url = this.usuarioProvider.grupoGetPdfUrl(this.navParams.get('grupoSelecionado'));
-        window.open(url, '_blank');
+        window.open(url, '_system', 'location=no');
     };
     ListarGrupoPage.prototype.redirectRenomearLinkEmGrupo = function (linkName, href) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__renomear_link_renomear_link__["a" /* RenomearLinkPage */], {
