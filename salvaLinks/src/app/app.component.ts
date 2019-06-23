@@ -30,7 +30,6 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public usuarioProvider: UsuarioProvider, public dadosUsuarioProvider: DadosUsuarioProvider, private authProvider: AuthProvider, private oneSignal: OneSignal) {
     let obj = this;
     platform.ready().then(() => {
-      let dados = dadosUsuarioProvider.getDados();
       if (platform.is('android')) {
         this.oneSignal.startInit(this.oneSignalAppId, this.senderId);
         this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);

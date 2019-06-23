@@ -82,7 +82,7 @@ export class Link {
   id: string;
   group: string;
   name: string;
-  href: string; e
+  href: string;
   tempo: number;
   importance: string = "alta" || "normal" || "baixa";
 }

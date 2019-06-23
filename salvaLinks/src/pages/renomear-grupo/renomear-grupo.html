@@ -1,30 +1,28 @@
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>Renomear Grupo</ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content padding>
-  
-    <div class="img">
-      <img src="assets/imgs/logo.jpg">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Renomear Grupo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="img">
+    <img src="assets/imgs/logo.png">
+  </div>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Título</ion-label>
+      <ion-input type="text" name="name" placeholder="Novo nome do grupo" [(ngModel)]="model.name"></ion-input>
+    </ion-item>
+
+    <div class="botao">
+      <button ion-button block (click)="renomearGrupo()" id="botao">RENOMEAR</button>
     </div>
-  
-    <div></div>
-    <ion-list>
-  
-      <ion-item>
-        <ion-label stacked>Título</ion-label>
-        <ion-input type="text" name="name" placeholder="Novo nome do grupo" [(ngModel)]="model.name"></ion-input>
-      </ion-item>
-  
-      <div class="botao">
-          <button ion-button block (click)="renomearGrupo()" id="botao">RENOMEAR</button>
-      </div>
-  
-    </ion-list>  
-  
-  </ion-content>
+
+  </ion-list>
+
+</ion-content>

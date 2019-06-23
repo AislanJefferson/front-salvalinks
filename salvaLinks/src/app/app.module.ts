@@ -35,6 +35,9 @@ import { AbasPage } from '../pages/abas/abas';
 import { AbasPageModule } from '../pages/abas/abas.module';
 import { ListaGruposPageModule } from '../pages/lista-grupos/lista-grupos.module';
 import { InserirGrupoPageModule } from '../pages/inserir-grupo/inserir-grupo.module';
+import { ListarGrupoPageModule } from '../pages/listar-grupo/listar-grupo.module';
+import { RenomearGrupoPageModule } from '../pages/renomear-grupo/renomear-grupo.module';
+import { SelecionarGrupoPageModule } from '../pages/selecionar-grupo/selecionar-grupo.module';
 
 @NgModule({
   declarations: [
@@ -73,7 +76,10 @@ import { InserirGrupoPageModule } from '../pages/inserir-grupo/inserir-grupo.mod
     RedefinirSenhaPageModule,
     AbasPageModule,
     ListaGruposPageModule,
-    InserirGrupoPageModule
+    ListarGrupoPageModule,
+    RenomearGrupoPageModule,
+    InserirGrupoPageModule,
+    SelecionarGrupoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

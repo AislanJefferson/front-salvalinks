@@ -14,14 +14,14 @@
       <button ion-button full (click)="redirectInserirGrupo()">Inserir Novo Grupo</button>
     </ion-col>
     <ion-col>
-      <button ion-button full (click)="redirectListaLinks()">Lista de Links</button>
+      <button ion-button full (click)="exibirGruposCadastrados()">Sincronizar</button>
     </ion-col>
   </ion-row>
 
   <ion-row nowrap>
     <ion-col>
       <ion-item lines="none" text-center>
-        <ion-label color="primary"> <strong>GRUPO</strong> </ion-label>
+        <ion-label color="primary"> <strong>GRUPOS</strong> </ion-label>
       </ion-item>
       <ion-list>
         <ion-item-sliding lines="none" text-center *ngFor="let grupo of listaGrupos">
@@ -43,4 +43,3 @@
   </ion-row>
 
 </ion-content>
-

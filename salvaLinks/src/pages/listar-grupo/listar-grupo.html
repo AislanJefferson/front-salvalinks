@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Links de Grupo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button full (click)="gerarPDF()">Gerar PDF</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button full (click)="redirectListaGrupos()">Lista de Grupos</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row nowrap>
+    <ion-col>
+      <ion-item lines="none" text-center>
+        <ion-label color="primary"> <strong>{{ grupo.name }}</strong> </ion-label>
+      </ion-item>
+      <ion-list *ngFor="let link of listaLinksDeGrupo">
+        <ion-item-sliding lines="none" text-center>
+          <ion-item text-center (click)="redirectPaginaLink(link.href)">
+            {{ link.name }}
+            <ion-icon name="arrow-dropleft" item-right></ion-icon>
+          </ion-item>
+          <ion-item-options>
+            <button ion-button icon-only light (click)="redirectRenomearLinkEmGrupo(link.name,link.href)">
+              <ion-icon name="create"></ion-icon>
+            </button>
+            <button ion-button icon-only light (click)="deletarLinkEmGrupo(link.id)">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+
+  </ion-row>
+
+</ion-content>

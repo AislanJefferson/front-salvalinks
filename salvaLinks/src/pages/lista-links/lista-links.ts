@@ -7,6 +7,7 @@ import { User } from '../login-usuario/login-usuario';
 import { InserirLinkPage, Link } from '../inserir-link/inserir-link';
 import { RenomearLinkPage } from '../renomear-link/renomear-link';
 import { DadosUsuarioProvider } from '../../providers/dados-usuario/dados-usuario';
+import { SelecionarGrupoPage } from '../selecionar-grupo/selecionar-grupo';
 
 /**
  * Generated class for the ListaLinksPage page.
@@ -96,9 +97,12 @@ export class ListaLinksPage {
     else this.linkAEditar = "";
   }
 
-  adicionarGrupo(linkParaAdicionar: Link, grupo: string) {
-    this.usuarioProvider.grupoAddLink(grupo, linkParaAdicionar.id).subscribe((result: any) => {
-      this.exibirLinksCadastrados();
+  selecionarGrupo(linkName: string, linkID: string) {
+    this.link.name = linkName;
+    console.log("ID do Link => " + linkID);
+    this.navCtrl.push(SelecionarGrupoPage, {
+      linkID: linkID,
+      nomeLink: linkName
     });
   }
 
