@@ -4,8 +4,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ToastController } from 'ionic-angular';
 import { User } from '../login-usuario/login-usuario';
-import { InserirLinkGrupoPage} from '../inserir-link-grupo/inserir-link-grupo';
-import { RenomearLinkGrupoPage } from '../renomear-link-grupo/renomear-link-grupo';
 import { DadosUsuarioProvider } from '../../providers/dados-usuario/dados-usuario';
 import { ListaGruposPage, Grupo } from '../lista-grupos/lista-grupos';
 import { ThrowStmt } from '@angular/compiler';
@@ -40,6 +38,7 @@ export class ListarGrupoPage {
   }
 
   exibirLinksCadastradosEmGrupo() {
+    this.grupo.name = this.navParams.get('grupoSelecionado');
     console.log("Nome do Grupo =>" + this.navParams.get('grupoSelecionado'));
     this.usuarioProvider.grupoGetLinks(this.navParams.get('grupoSelecionado')).subscribe((result: any) => {
       this.listaLinksDeGrupo = result.json();
@@ -55,31 +54,15 @@ export class ListarGrupoPage {
     });
   }
 
-  redirectInserirLinkEmGrupo() {
-    console.log("Nome do Grupo => " + this.navParams.get('grupoSelecionado'));
-    this.navCtrl.push(InserirLinkGrupoPage, {
-      nomeGrupo: this.navParams.get('grupoSelecionado')
-    });
+  redirectListaGrupos() {
+    this.navCtrl.push(ListaGruposPage);
   }
-
-  redirectRenomearLinkEmGrupo(linkName: string, grupoName: string) {
-    this.link.name = linkName;
-    console.log("Nome do Link => " + linkName);
-    console.log("Nome do Grupo => " + this.navParams.get('grupoSelecionado'));
-    this.navCtrl.push(RenomearLinkGrupoPage, {
-      nomeLink: linkName,
-      nomeGrupo: this.navParams.get('grupoSelecionado')
-    });
-  }
-
-  deletarLinkEmGrupo(tituloLink) {
+  
+  deletarLinkEmGrupo(linkId) {
     console.log("Nome do Grupo =>" + this.navParams.get('grupoSelecionado'));
-    console.log(tituloLink);
-
-    this.usuarioProvider.grupoRemoveLink(this.navParams.get('grupoSelecionado'), tituloLink).subscribe((result: any) => {
-      var respOK = result.json();
+    console.log(linkId);
+    this.usuarioProvider.grupoRemoveLink(this.navParams.get('grupoSelecionado'), linkId).subscribe((result: any) => {
       this.exibirLinksCadastradosEmGrupo();
-      console.log(respOK);
     }, (error) => {
       var resp = error.json()
       let toast = this.toastCtrl.create({
@@ -88,6 +71,24 @@ export class ListarGrupoPage {
       });
       toast.present();
     });
+  }
+
+  gerarPDF(){
+    this.usuarioProvider.grupoGetPDF(this.navParams.get('grupoSelecionado')).subscribe((result: any) => {
+      this.exibirLinksCadastradosEmGrupo();
+    }, (error) => {
+      var resp = error.json()
+      let toast = this.toastCtrl.create({
+        message: resp.message,
+        duration: 3000
+      });
+      toast.present();
+    });
+  }
+
+  redirectPaginaLink(href: string) {
+    console.log(href);
+    window.open('http://' + href, '_system');
   }
 
 }

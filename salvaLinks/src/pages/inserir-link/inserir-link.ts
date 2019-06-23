@@ -77,7 +77,11 @@ export class InserirLinkPage {
 }
 
 export class Link {
+  id: string;
+  group: string;
   name: string;
-  href: string;
+  href: string; e
+  tempo: number;
   importance: string = "alta" || "normal" || "baixa";
+
 }

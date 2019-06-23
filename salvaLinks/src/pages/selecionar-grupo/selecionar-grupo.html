@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Selecionar Grupo</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <div class="img">
+      <img src="assets/imgs/logoNome.jpg">
+    </div>
+  
+    <ion-row nowrap>
+      <ion-col>
+        <ion-item text-center>
+          <ion-label color="primary"> <strong>SELECIONE UM GRUPO</strong> </ion-label>
+        </ion-item>
+        <ion-list text-center *ngFor="let grupo of listaGrupos">
+          <ion-item text-center (click)="adicionarLinkAGrupo(grupo)">
+            {{ grupo }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  
+  </ion-content>
