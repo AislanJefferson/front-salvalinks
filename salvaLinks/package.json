@@ -28,7 +28,7 @@
     "@ionic/storage": "2.2.0",
     "com-darryncampbell-cordova-plugin-intent": "1.1.7",
     "cordova-android": "8.0.0",
-    "cordova-plugin-inappbrowser": "3.0.0",
+    "cordova-plugin-inappbrowser": "3.1.0",
     "ionic-angular": "3.9.5",
     "ionic-plugin-deeplinks": "1.0.20",
     "ionicons": "3.0.0",
